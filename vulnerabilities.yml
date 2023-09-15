@@ -1,0 +1,3089 @@
+- cvssv3: 'CVSS:3.1/AV:P/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: DMA Attacks
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>DMA (Direct Memory Access) attacks are a class of security threats
+        that exploit the DMA feature present in many computer systems. DMA
+        allows hardware devices, such as network cards or USB controllers, to
+        access the system's memory directly without involving the CPU, enabling
+        faster data transfers.</p><p>In a DMA attack, an attacker gains physical
+        or remote access to a target system and leverages DMA capabilities to
+        directly read from or write to the system's memory. This access allows
+        the attacker to bypass traditional security measures, such as operating
+        system permissions or encryption, and potentially gain unauthorized
+        access to sensitive data or compromise the system's
+        integrity.</p><p>There are two main types of DMA
+        attacks:</p><ol><li><p>DMA Read Attacks: In this type of attack, the
+        attacker gains access to the system's memory and can read sensitive
+        information stored in the memory, including encryption keys, passwords,
+        or confidential data. The attacker can then use this information for
+        unauthorized purposes.</p></li><li><p>DMA Write Attacks: In a DMA write
+        attack, the attacker injects malicious data or code into the system's
+        memory, potentially overwriting critical data or modifying the system's
+        behavior. This can lead to unauthorized privilege escalation, injection
+        of malware, or modification of system settings.</p></li></ol><p>DMA
+        attacks can be executed through various means, including physical access
+        to the target system, compromised peripheral devices, or exploiting
+        vulnerabilities in system firmware or drivers. Some examples of DMA
+        attack vectors include FireWire, Thunderbolt, PCI Express, or PCMCIA
+        interfaces.</p>
+      remediation: >-
+        <p>Apply according counter measures via GPO (please also refer to the
+        references):<br><br>Firewire: <br><code>Computer Configuration &gt;
+        Administrative Templates &gt; System &gt; Device Installation &gt;
+        Device Installation Restrictions &gt; Prevent installation of devices
+        using drivers that match these device setup classes</code></p><p>Add the
+        following entries:</p><table><tbody><tr><th colspan="1"
+        rowspan="1"><p><strong>GUID</strong></p></th></tr><tr><td colspan="1"
+        rowspan="1"><p><strong>{7ebefbc0-3200-11d2-b4c2-00a0C9697d07}</strong></p></td></tr><tr><td
+        colspan="1"
+        rowspan="1"><p><strong>{c06ff265-ae09-48f0-812c-16753d7cba83}</strong></p></td></tr><tr><td
+        colspan="1"
+        rowspan="1"><p><strong>{d48179be-ec20-11d1-b6b8-00c04fa372a7}</strong></p></td></tr><tr><td
+        colspan="1"
+        rowspan="1"><p><strong>{6bdd1fc1-810f-11d0-bec7-08002be2092f}</strong></p></td></tr></tbody></table><p></p><p>PCIe:<br><code>Computer
+        Configuration &gt; Administrative Templates &gt; Windows Components &gt;
+        BitLocker Drive Encryption &gt; Disable new DMA devices when this
+        computer is locked</code></p><p>General protection against DMA
+        attacks:</p><p><code>Computer Configuration &gt; Administrative
+        Templates &gt; System &gt; Device Guard &gt; Turn on Virtualization
+        Based Security &gt; Secure Boot with DMA</code></p>
+      references:
+        - >-
+          https://www.synacktiv.com/en/publications/practical-dma-attack-on-windows-10.html
+        - 'https://www.scip.ch/?labs.20211209'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Removal Media Control Settings
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Removable media control is a security feature that helps protect
+        against various threats related to the use of removable storage devices
+        such as USB flash drives, external hard drives, and optical media.
+        Here's a brief description of why removable media control is considered
+        a security feature and the threats it can help
+        mitigate:</p><ol><li><p>Unauthorized data access: Preventing
+        unauthorized access to sensitive data on removable
+        devices.</p></li><li><p>Malware introduction and spread: Reducing the
+        risk of malware infections and the spread of malicious code through
+        removable media.</p></li><li><p>"Bad USB" or "Bad Ethernet" devices that
+        disguise as legitimate USB devices emulating HIDs like a keyboard or a
+        network adapter to execute code or sniff
+        credentials.</p></li><li><p>Data loss prevention: Implementing measures
+        to prevent accidental data loss or unauthorized copying of sensitive
+        information.</p></li><li><p>Unauthorized software or applications:
+        Restricting the introduction of unauthorized software onto corporate
+        devices through removable media.</p></li><li><p>Compliance and
+        regulatory requirements: Enforcing policies to meet industry regulations
+        and demonstrate data security compliance.</p></li></ol><p><a
+        target="_blank" rel="noopener noreferrer nofollow"
+        href="http://compliance.By">By</a> implementing removable media control
+        as a security feature, organizations can mitigate the risks associated
+        with unauthorized data access, malware infections, data loss,
+        unauthorized software execution, and non-compliance with regulations. It
+        provides an additional layer of protection to safeguard sensitive
+        information and maintain the integrity and security of systems and
+        networks.</p>
+      remediation: >-
+        <p>Implement according countermeasures that prevent attacks over
+        removeable media.<br>This can for example be done via
+        GPOs:</p><ol><li><p>Device installation restrictions: Group Policy can
+        be used to restrict the installation of USB devices on computers. It
+        allows administrators to define policies that prevent the installation
+        of unrecognized or unauthorized USB devices, thereby mitigating the risk
+        of "Bad USB" attacks.</p></li><li><p>USB port disabling: Group Policy
+        enables administrators to disable specific USB ports on computers. By
+        selectively disabling USB ports, organizations can limit the risk of
+        unauthorized USB devices being connected and prevent potential "Bad USB"
+        attacks.</p></li><li><p>Windows Defender Application Control: Windows
+        Defender Application Control (WDAC) is a security feature available in
+        Windows 10 Enterprise and Windows Server editions. It uses Group Policy
+        to define policies that allow only trusted applications to run on a
+        system. By enforcing strict application control policies, organizations
+        can reduce the risk of "Bad USB" attacks by blocking the execution of
+        unauthorized or malicious code from USB
+        devices.</p></li></ol><p></p><p><br></p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:L'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: DHCPv6 Settings
+      vulnType: Misconfiguration
+      description: >-
+        <p>In DHCPv6, one of the potential attack vectors is related to the
+        DHCPv6 offer process, specifically when configuring DNS servers. Here's
+        an explanation of DHCPv6 attacks related to setting DNS servers via DHCP
+        offers:</p><ol><li><p>Rogue DHCPv6 Server: An attacker can set up a
+        rogue DHCPv6 server on the network to offer malicious DNS server
+        addresses in the DHCPv6 response. When clients request DHCPv6
+        configuration, they may receive a DHCPv6 offer from the rogue server
+        with DNS server addresses that the attacker controls. This can redirect
+        the client's DNS queries to malicious DNS servers under the attacker's
+        control.</p></li><li><p>DNS Spoofing: By providing malicious DNS server
+        addresses in the DHCPv6 offer, an attacker can perform DNS spoofing.
+        When clients use the offered DNS servers to resolve domain names, the
+        attacker's DNS servers respond with false or malicious information. This
+        can lead to users being redirected to malicious websites, phishing
+        attacks, or manipulation of DNS responses to gain unauthorized access to
+        sensitive information.</p></li><li><p>MITM Attacks: DHCPv6 DNS server
+        configuration can also be exploited for Man-in-the-Middle (MitM)
+        attacks. An attacker may intercept the DHCPv6 offer and modify the DNS
+        server addresses to point to their own server. This enables the attacker
+        to intercept DNS queries and responses, allowing them to monitor or
+        manipulate the communication between the client and legitimate DNS
+        servers.</p></li></ol><p>Normally companies have a DHCPv4 server running
+        but not one for DHCPv6. Modern Windows versions ship with IPv6 enabled,
+        which takes precedence over IPv4. Hence out of the box these systems are
+        likely to be vulnerable to the before mentioned attacks.</p>
+      remediation: >-
+        <p>To mitigate the described attacks, the following measures can be
+        implemented:</p><p>Disable IPv6: If IPv6 is not required, it is
+        recommended to disable the IPv6 interface on client systems. This can be
+        done through network adapter settings or registry
+        configurations.</p><p>Prefer IPv4 over IPv6: Network configurations can
+        be adjusted to prioritize IPv4 connectivity over IPv6. This can be done
+        by modifying network interface settings or network routing
+        configurations. In these cases the valid IPv4 configuration for e.g. DNS
+        will "overrule" the rouge IPv6 DNS setting.</p><p>Exercise caution in
+        disabling IPv6 on Servers: Microsoft advises against disabling IPv6 in
+        server environments, as it may cause disruptions to critical
+        functionalities such as Exchange or Domain Controllers. Careful
+        consideration should be given before disabling IPv6 on
+        servers.</p><p>Configure IPS/IDS Rules: Intrusion Prevention Systems
+        (IPS) or Intrusion Detection Systems (IDS) can be configured with
+        additional rules specifically designed to detect and mitigate DHCPv6
+        attacks. These rules should be regularly updated to address emerging
+        threats.</p><p>Use Encrypted Connections: To prevent man-in-the-middle
+        attacks, it is recommended to utilize encrypted connections wherever
+        possible. This includes using secure protocols such as HTTPS for web
+        communications and implementing VPNs (Virtual Private Networks) for
+        secure remote access.</p><p>Specify Static Gateway and DNS Server: If
+        IPv6 is necessary, it is advisable to manually configure and specify the
+        gateway and DNS server addresses statically. This reduces the risk of
+        DNS-related attacks by eliminating the reliance on DHCPv6 for network
+        configuration.</p>
+      references:
+        - >-
+          https://blog.fox-it.com/2018/01/11/mitm6-compromising-ipv4-networks-via-ipv6/
+        - >-
+          https://www.blackhillsinfosec.com/mitm6-strikes-again-the-dark-side-of-ipv6/
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: BIOS Hardening
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>The Basic Input/Output System (BIOS) is a firmware that is embedded
+        in a computer's motherboard. It is responsible for initializing hardware
+        components during the boot process and providing a basic set of
+        instructions for the operating system to interact with the
+        hardware.</p><p>Securing the BIOS with a password is important for
+        several reasons:</p><ol><li><p>Unauthorized access prevention: Setting a
+        BIOS password adds an extra layer of security to your computer system.
+        It prevents unauthorized users from accessing and modifying critical
+        BIOS settings, such as boot order, hardware configurations, and security
+        features.</p></li><li><p>Protection against unauthorized booting: A BIOS
+        password helps protect against unauthorized booting of the system from
+        external devices, such as USB drives or optical media. It ensures that
+        only authorized individuals can boot the system, reducing the risk of
+        unauthorized access or malware infections.</p></li><li><p>Data
+        protection: By securing the BIOS, you can help protect sensitive data
+        stored on your computer. If someone tries to tamper with the BIOS
+        settings or remove the hard drive, they will be unable to access the
+        data without the BIOS password.</p></li><li><p>Preventing malicious
+        firmware modifications: Securing the BIOS helps prevent unauthorized
+        modifications to the firmware itself. Malicious actors could potentially
+        modify the BIOS to install persistent malware or compromise the system's
+        integrity. A BIOS password reduces the risk of such
+        tampering.</p></li><li><p>Compliance and regulatory requirements: In
+        certain industries or organizations, securing the BIOS with a password
+        may be necessary to comply with industry regulations or internal
+        security policies. It demonstrates a proactive approach to securing
+        computer systems and protecting sensitive
+        information.</p></li></ol><p>It's important to note that while a BIOS
+        password provides a level of security, it is not foolproof. Advanced
+        attackers may still find ways to bypass or reset the BIOS password.
+        However, setting a BIOS password is a recommended security practice that
+        can help mitigate the risk of unauthorized access and protect system
+        integrity.</p>
+      remediation: <p>A strong and unique password for each system should be used.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:L/I:H/A:N'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Writeable SYSTEM Path Folders
+      vulnType: Privilege Escalation
+      description: >-
+        <p>Granting low-privileged users write rights over folders that are in
+        the SYSTEM Path variable can pose security risks due to the following
+        reasons:</p><ul><li><p>Malicious code execution: If low-privileged users
+        can write to the folders in the SYSTEM Path variable, they could
+        potentially place malicious executables or scripts in those folders.
+        This could allow them to execute arbitrary code with elevated
+        privileges, bypassing security controls.</p></li><li><p>DLL hijacking:
+        By placing a malicious DLL (Dynamic Link Library) with the same name as
+        a legitimate DLL used by an application in one of the writable folders,
+        low-privileged users can trick the application into loading the
+        malicious DLL. This can lead to arbitrary code execution or privilege
+        escalation.</p></li><li><p>Path hijacking: If low-privileged users can
+        modify the SYSTEM Path variable, they can manipulate the order of folder
+        paths. This can result in unintended application behavior, as an
+        attacker can substitute a legitimate executable or script with a
+        malicious one in a folder they have write access
+        to.</p></li><li><p>Privilege escalation: Exploiting write access to
+        folders in the SYSTEM Path variable can be used as a stepping stone for
+        privilege escalation. By placing a malicious executable in a writable
+        folder, an attacker can trick a higher-privileged user or system process
+        to execute it, potentially gaining elevated privileges.</p></li></ul>
+      remediation: >-
+        <p>To mitigate these risks, it is recommended to restrict write access
+        to folders in the SYSTEM Path variable to only trusted administrators or
+        authorized users. Regular users should not have write permissions on
+        these folders to prevent unauthorized modifications and potential
+        security breaches.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:H/A:N'
+  details:
+    - locale: EN
+      title: WDAC Settings
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Windows Defender Application Control (WDAC) is a security feature in
+        Windows 10 that helps protect systems against malware and unauthorized
+        software execution, and is the successor to Applocker. WDAC utilizes
+        code integrity policies to enforce strict control over which
+        applications and code can run on a device.</p><p>WDAC operates by
+        establishing a trusted set of rules that define which applications are
+        allowed to execute based on factors such as digital signatures, file
+        hashes, and other criteria. These rules create a whitelist of trusted
+        applications and prevent the execution of unauthorized or malicious
+        code.</p><p>With WDAC, organizations can define and enforce policies
+        that specify which software is allowed to run, reducing the risk of
+        malware infection and unauthorized software installations. It adds an
+        additional layer of protection by verifying the integrity and
+        authenticity of applications before they are executed.</p><p>WDAC
+        leverages virtualization-based security technologies, such as Virtual
+        Secure Mode (VSM) and hardware-based security features, to provide a
+        highly secure execution environment. It helps protect against
+        kernel-level exploits, code injection attacks, and other advanced
+        malware techniques.</p><p>By implementing WDAC, organizations can
+        strengthen their security posture, reduce the attack surface, and ensure
+        that only trusted and authorized applications can run on their Windows
+        10 devices.</p>
+      remediation: >-
+        <p>Enabling Windows Defender Application Control (WDAC) involves several
+        steps and requires specific configurations. Here's a general outline of
+        the process:</p><ul><li><p>Verify System Requirements: Ensure that your
+        system meets the hardware and software requirements for WDAC. This
+        includes having a compatible version of Windows 10 Enterprise or Windows
+        Server, a compatible processor with virtualization extensions, and
+        Secure Boot enabled.</p></li><li><p>Create Code Integrity Policies: WDAC
+        relies on code integrity policies to define the rules for application
+        and code execution. You need to create and configure these policies
+        based on your organization's requirements. This involves specifying
+        trusted sources, file hashes, and other criteria that determine which
+        applications are allowed to run.</p></li><li><p>Deploy WDAC Policies:
+        Once the code integrity policies are defined, you need to deploy them to
+        the target devices. This can be done using Group Policy, Configuration
+        Manager, or other deployment tools. Ensure that the policies are
+        distributed and applied correctly to the intended
+        devices.</p></li><li><p>Test and Validate Policies: It's crucial to
+        thoroughly test and validate the WDAC policies to ensure that they
+        function as intended. This includes verifying that only trusted
+        applications can run while unauthorized or malicious code is blocked.
+        Conduct thorough testing to identify any potential conflicts or
+        issues.</p></li><li><p>Monitor and Maintain WDAC: After enabling WDAC,
+        it's essential to monitor and maintain the policies regularly. Monitor
+        system logs and events to identify any policy violations or potential
+        threats. Update and maintain the code integrity policies as needed to
+        adapt to changes in your environment.</p></li></ul><p>It's important to
+        note that the specific steps and configurations for enabling WDAC may
+        vary depending on factors such as your organization's security
+        requirements, network infrastructure, and device configuration. It's
+        recommended to consult Microsoft's official documentation or seek
+        guidance from a qualified IT professional for detailed instructions and
+        best practices tailored to your specific environment.</p>
+      references:
+        - >-
+          https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Access to System Tools and Settings
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>System tools on a Windows system refer to built-in utilities and
+        applications that provide various functionalities for managing and
+        configuring the operating system. These tools are typically designed to
+        perform critical system tasks, diagnostics, troubleshooting, system
+        configuration, and administration. Some common examples of system tools
+        in Windows include Command Prompt (cmd.exe), PowerShell, Task Manager,
+        Registry Editor, Event Viewer, Device Manager, and Disk Management,
+        among others. Changing settings for things like the system proxy,
+        firewall rules and states, network configuration and even installing or
+        uninstalling software is referred to as system settings.</p><p>While
+        system tools and settings are essential for system administrators and
+        power users to effectively manage and maintain the system, granting
+        access to these tools to normal users can pose security concerns. Here
+        are a few reasons:</p><ul><li><p>Unauthorized System Modifications:
+        System tools often have the capability to modify system settings,
+        configurations, and critical files. If normal users have access to these
+        tools, they may unintentionally or maliciously modify system settings,
+        leading to system instability, performance issues, or security
+        vulnerabilities.</p></li><li><p>Privilege Escalation: Certain system
+        tools can be leveraged to escalate privileges or execute commands with
+        elevated permissions. If normal users have access to such tools, they
+        may attempt to exploit them to gain unauthorized access or perform
+        actions that they should not have privileges
+        for.</p></li><li><p>Exposure of Sensitive Information: System tools can
+        provide access to sensitive system information, logs, or files that may
+        contain confidential data. Allowing normal users to access these tools
+        may expose sensitive information or compromise data
+        privacy.</p></li><li><p>Malware Execution: Malware often attempts to
+        leverage system tools to carry out its malicious activities. Granting
+        access to these tools to normal users increases the risk of
+        inadvertently executing malware or running malicious
+        commands.</p></li></ul><p>To mitigate these security concerns, it is
+        generally recommended to restrict access to system tools and settings
+        and limit their usage to trusted administrators or privileged accounts.
+        User access control, proper permission settings, and implementing the
+        principle of least privilege can help minimize the risk associated with
+        normal users accessing system tools.</p>
+      remediation: >-
+        <p>Restrict access to tools that are meant mainly for administrative
+        purposes as much as possible.<br>This can be done via GPOs or
+        Intune.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Windows Firewall Settings
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>The Windows Firewall is a built-in security feature in Windows
+        operating systems that helps protect your computer from unauthorized
+        network access. It acts as a barrier between your computer and external
+        networks, controlling incoming and outgoing network traffic based on
+        predefined rules.</p><p>Here are some reasons why the Windows Firewall
+        should be turned on:</p><ul><li><p>Network Security: The primary purpose
+        of the firewall is to safeguard your computer from malicious network
+        activity, such as unauthorized access, hacking attempts, malware, and
+        network-based attacks.</p></li><li><p>Blocking Unauthorized Connections:
+        The firewall blocks incoming connections that are not explicitly allowed
+        by the configured rules. This prevents unauthorized access to your
+        computer and helps protect your personal and sensitive
+        information.</p></li><li><p>Outbound Traffic Control: The firewall also
+        monitors and controls outgoing network traffic. It prevents potentially
+        harmful programs or malware from connecting to the internet without your
+        knowledge, reducing the risk of data leakage and preventing unauthorized
+        communications.</p></li><li><p>Default Protection: Windows Firewall is
+        enabled by default on most Windows installations. Keeping it enabled
+        ensures that you have a baseline level of protection even if you don't
+        have any additional third-party security solutions
+        installed.</p></li></ul>
+      observation: >-
+        <p>Scoring hardly depends on what you found.<br>Disabled Firewall =
+        High<br>Enabled Firewall with any-any is the same ^^<br>Enabled firewall
+        with bigger security holes might be medium ...</p>
+      remediation: >-
+        <p>To ensure the effective use of the Windows Firewall, it's important
+        to follow these best practices:</p><ul><li><p>Enable the Firewall:
+        Always ensure that the Windows Firewall is enabled on your computer to
+        provide the first line of defense against unauthorized network
+        access.</p></li><li><p>Use Default Firewall Profiles: Windows Firewall
+        provides separate profiles for different network locations (Domain,
+        Private, Public). Configure the appropriate profile for each network
+        connection to apply the necessary rules based on the network's trust
+        level.</p></li><li><p>Allow Only Necessary Ports: By default, the
+        Windows Firewall blocks all incoming connections. If you need to allow
+        specific network services or applications, create custom rules to open
+        only the necessary ports in both inbound and outbound directions. This
+        reduces the attack surface and minimizes the risk of unwanted
+        access.</p></li><li><p>Regularly Update Firewall Rules: Periodically
+        review and update your firewall rules to ensure they reflect your
+        current network requirements. Remove any unnecessary or obsolete rules
+        to maintain an efficient and secure
+        configuration.</p></li></ul><p>Overall, enabling and properly
+        configuring the Windows Firewall is an essential step in securing your
+        computer and protecting it from unauthorized network access and
+        potential threats.</p>
+      references:
+        - >-
+          https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/best-practices-configuring
+      customFields: []
+  category: Network Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Antivirus Settings
+      vulnType: Misconfiguration
+      description: >-
+        <p>Antivirus (AV) software, also known as antivirus or anti-malware
+        software, is designed to protect computers and other devices from
+        malicious software, such as viruses, worms, Trojans, spyware, adware,
+        and other types of malware. Its primary purpose is to detect, prevent,
+        and remove malicious programs that can harm your computer system or
+        compromise your data.</p><p>Here are some key reasons why it is
+        important to have AV software turned on:</p><ul><li><p>Malware
+        Protection: AV software scans files, programs, and websites for known
+        malware signatures and behavioral patterns, preventing them from
+        infecting your system. It helps safeguard your computer against viruses,
+        which can cause data loss, system crashes, or unauthorized
+        access.</p></li><li><p>Real-Time Protection: AV software provides
+        real-time monitoring of files and activities on your computer, detecting
+        and blocking malware threats as they occur. This proactive approach
+        helps prevent malware from executing and spreading throughout your
+        system.</p></li><li><p>Web Protection: Many AV solutions include web
+        protection features that help block access to malicious websites or warn
+        you about potentially dangerous sites. This protects you from phishing
+        attempts, drive-by downloads, and other web-based
+        threats.</p></li><li><p>Email Protection: AV software often integrates
+        with email clients to scan incoming and outgoing email attachments for
+        malware. It helps prevent the spread of infected files through email and
+        reduces the risk of falling victim to email-borne threats, such as
+        phishing emails or malicious attachments.</p></li><li><p>Vulnerability
+        Detection: Some AV software includes vulnerability scanning features
+        that identify security weaknesses in your operating system or installed
+        applications. By identifying vulnerabilities, you can take necessary
+        steps to patch or update software, minimizing the risk of exploitation
+        by malware.</p></li><li><p>Data Protection: AV software helps protect
+        your personal and sensitive information by preventing unauthorized
+        access or theft. It can detect keyloggers, screen capture tools, and
+        other types of spyware that aim to collect your private
+        data.</p></li><li><p>System Performance: While AV software performs
+        resource-intensive tasks like scanning files and monitoring activities,
+        modern solutions are designed to minimize impact on system performance.
+        They use optimized scanning algorithms and leverage hardware
+        acceleration to ensure efficient protection without significantly
+        slowing down your computer.</p></li></ul><p>In summary, having AV
+        software turned on is crucial for maintaining a secure and safe
+        computing environment. It helps protect your system, data, and privacy
+        from various malware threats, ensuring a smoother and more secure
+        digital experience.</p>
+      observation: >-
+        <p>Rating hardly depends on what is setup.<br>Is AV on or not?<br>Many
+        exclusions that can be reviewed by anyone? Are they lax?<br>All features
+        enabled or are crucial ones missing?</p>
+      remediation: >-
+        <p>An AV solution should be installed and actively running on each
+        system.<br>The product itself as well as its patterns should be kept
+        up-to-date at any time.<br>Harden the systems as much as possible by
+        making use of all features provided by your AV.<br>Ensure that things
+        like tamper protection are enabled and can't be disabled by normal users
+        - best also not by administrators.<br>Exclusions should be kept to a
+        minimum, where possible individually by system. So you should not
+        globally exclude path x or application y, just because you need it on
+        one system out of hundreds.<br></p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Proxy Settings
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>A proxy server acts as an intermediary between a client (such as a
+        computer or device) and the internet. When a client requests a resource
+        from the internet, the request first goes through the proxy server,
+        which then forwards the request on behalf of the client. The proxy
+        server can provide various functions, including caching, filtering, and
+        anonymizing the client's requests.</p><p>The primary reasons for using a
+        proxy server are:</p><ul><li><p>Anonymity and Privacy: By using a proxy
+        server, the client's IP address and other identifying information can be
+        masked. This helps protect the client's privacy and adds a layer of
+        anonymity when accessing websites or online
+        services.</p></li><li><p>Caching and Performance: Proxy servers can
+        store copies of frequently accessed web resources, allowing subsequent
+        requests for the same resource to be fulfilled from the cache. This
+        reduces bandwidth usage and improves performance by delivering content
+        faster to the client.</p></li><li><p>Content Filtering and Access
+        Control: Proxy servers can be configured to filter web content based on
+        predefined rules. This allows organizations to enforce access policies,
+        block malicious websites, or restrict access to certain categories of
+        content, enhancing security and productivity.</p></li></ul><p>Now,
+        regarding security issues, not using a proxy server when required or
+        recommended can pose several risks:</p><ul><li><p>Data Leaks: Without a
+        proxy server, client requests are made directly to the destination
+        server, potentially revealing the client's IP address and other
+        identifying information. This information can be used for tracking,
+        targeting, or profiling the client.</p></li><li><p>Bypassing Security
+        Controls: Proxy servers can implement security controls such as
+        antivirus scanning, intrusion detection, or content filtering. Not using
+        a proxy may bypass these controls, increasing the risk of accessing
+        malicious or inappropriate content.</p></li><li><p>Exposure to Malicious
+        Content: Proxy servers can provide an additional layer of defense by
+        scanning and filtering web content for malware or malicious scripts.
+        Without a proxy, clients may be more exposed to such
+        threats.</p></li><li><p>Limited Access Management: Proxy servers allow
+        organizations to enforce access policies, blocking access to
+        unauthorized websites or limiting access to specific resources. Not
+        using a proxy can make it challenging to manage and control internet
+        access, leading to potential security and compliance
+        issues.</p></li></ul><p>In summary, using a proxy server offers benefits
+        such as privacy, performance, and security controls. Neglecting to use a
+        proxy, when necessary or advised, can compromise privacy, expose clients
+        to security risks, and make it challenging to enforce access policies
+        and protect against malicious content.</p>
+      observation: >-
+        <p>Rating depends on what you found.<br>No proxy - bad<br>Proxy but it
+        doesn't filter - bad<br>Try to download Malware via HTTP, HTTPS, in a
+        ZIP file, in an encrypted ZIP file etc.</p>
+      remediation: >-
+        <p>Use a proxy, either locally or in a central place.<br>Make sure to
+        block malicious web traffic.<br>Inspect secured traffic for malware -
+        SSL inspection.</p>
+      references: []
+      customFields: []
+  category: Network Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Software Lifecycle Management
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>Used soft- and firmware as well as operating systems should always be
+        kept to the most current versions.</p><p>Using outdated versions poses
+        several direct and indirect security risks like:<br>- Security
+        vulnerabilities: outdated software may have unpatched security holes
+        that can be exploited by attackers.<br>- Compatibility issues: new
+        hardware or software may not be compatible with old systems.<br>-
+        Performance degradation: outdated software may run slower, become less
+        responsive, or crash more often.<br>- Lack of features: newer software
+        may have additional features or improvements that are not available in
+        older versions.<br>- Compliance problems: outdated software may not meet
+        industry regulations or standards.<br><br>So staying up to date is a
+        mandatory requirement to a matured security culture and should be part
+        of the patch management process.</p>
+      observation: >-
+        <p>Criticality depending on what could be achieved due to systems and
+        software being outdated.</p>
+      remediation: >-
+        <p>Check if any of the mentioned software components can be upgraded /
+        updated and if important security updates are missing.<br>Implement a
+        patch management strategy and process that ensures that all your systems
+        are up to date and that updates are applied timely according to their
+        criticality.<br>Apply workarounds when no patches are available when
+        tackling critical flaws.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: WinRM Settings
+      vulnType: Remote Code Execution
+      description: >-
+        <p>WinRM (Windows Remote Management) is a Microsoft Windows feature that
+        allows for remote management and execution of commands on Windows
+        systems over a network. It enables administrators to remotely manage
+        Windows computers using PowerShell or other remote management
+        tools.</p><p>WinRM relies on a client-server model, where the client
+        (usually a remote administrator) communicates with the WinRM service
+        running on the target system to perform management tasks. This allows
+        administrators to remotely configure settings, execute commands,
+        retrieve information, and perform other administrative tasks without
+        physically accessing the system.</p><p>In terms of security
+        implications, WinRM introduces potential risks if not properly
+        configured and secured. Some key considerations
+        include:</p><ul><li><p>Authentication and Authorization: WinRM should be
+        configured to use strong authentication mechanisms, such as Kerberos or
+        SSL/TLS, to prevent unauthorized access. Access controls should be
+        defined to limit who can connect and what actions they can
+        perform.</p></li><li><p>Encryption: Communication between the WinRM
+        client and server should be encrypted using SSL/TLS to protect sensitive
+        data and prevent eavesdropping or tampering.</p></li><li><p>Firewall
+        Configuration: The necessary firewall rules should be in place to allow
+        WinRM traffic only from trusted sources and block unauthorized access
+        from the network.</p></li><li><p>Credential Management: Proper
+        management of credentials used for WinRM authentication is essential.
+        Secure storage and handling of credentials are crucial to prevent
+        unauthorized access to sensitive information.</p></li><li><p>Regular
+        Updates: Keeping the WinRM service and underlying operating system up to
+        date with the latest security patches is important to address any
+        vulnerabilities that may be discovered over time.</p></li></ul><p>By
+        considering and implementing these security measures, WinRM can be used
+        effectively while minimizing the potential risks associated with remote
+        management capabilities.</p>
+      remediation: >-
+        <p>Follow the guidelines outlined in the description to harden
+        WinRM.<br>If possible disable WinRM completely.</p>
+      references:
+        - >-
+          https://learn.microsoft.com/en-us/powershell/scripting/learn/remoting/winrmsecurity?view=powershell-7.3
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Unquoted Service Paths
+      vulnType: Privilege Escalation
+      description: >-
+        <p>Windows services normally start executables. The executable path
+        allows the OS to find the correct executable to run for each service.
+        The following path is an example of a secure service
+        path:</p><p><code>"C:\Programs\Test
+        Folder\bin\service.exe"</code></p><p>The following path is an example of
+        an unsafe service path:</p><p><code>C:\Program Files\Test
+        Folder\bin\service.exe</code></p><p>When Windows attempts to read the
+        path to this executable, it interprets the space as a kind of terminator
+        if the path is not enclosed in <code>"</code>.&nbsp; So it will attempt
+        to execute the following (in
+        order):</p><p><code>C:\Program.exe</code></p><p><code>C:\Program
+        Files\Test.exe</code></p><p><code>C:\Program Files\Test
+        Folder\bin\service.exe</code></p><p>If the directories are configured
+        with inappropriate permissions, the attacker can place a malicious
+        executable file in them. If the service is set to run with
+        administrative privileges (e.g. SYSTEM), the attacker can elevate its
+        privileges and gain unauthorized administrative access to the system. In
+        this case the attacker would want to try to add the first 2 files to the
+        filesystem.</p>
+      remediation: >-
+        <p>The first step would be to ask the vendor of the affected application
+        for an updated versions that fixes the misconfiguration.</p><p>A manual
+        workaround would be to manually put the binary path into quotes.</p>
+      references:
+        - >-
+          https://www.ired.team/offensive-security/privilege-escalation/unquoted-service-paths
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Powershell Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>PowerShell is a task automation and configuration management
+        framework developed by Microsoft, consisting of a command-line shell and
+        associated scripting language built on the .NET framework. It was
+        designed to provide a more efficient and effective way for Windows
+        administrators to manage and automate various system administration
+        tasks, including managing the Windows operating system and other
+        Microsoft products such as Exchange, SharePoint, and SQL
+        Server.<br><br>PowerShell is often used by adversaries because it
+        provides them with a built-in versatile tool for executing malicious
+        scripts and commands, bypassing security controls, accessing sensitive
+        information, and hiding their actions, making it an attractive tool for
+        malicious actors.<br><br>There are several steps that can be taken to
+        harden the way PowerShell can act on a system or in specific user
+        context:<br></p><ul><li><p>Restrict the Language Mode</p><p>The
+        PowerShell language mode determines the syntax, language elements, and
+        behavior of PowerShell scripts, with the two main modes being "Full" and
+        "Constrained" that can be used to restrict the capabilities of
+        PowerShell scripts for security and administrative
+        purposes.</p></li><li><p>Set an Execution Policy</p><p>The PowerShell
+        execution policy is a security feature that determines what types of
+        PowerShell scripts can run on a system and is used to help protect
+        against malicious scripts by restricting the execution of scripts from
+        unknown or untrusted sources.</p></li><li><p>Uninstall old PowerShell
+        versions</p><p>PowerShell version 5 and above has important built-in
+        security features that make it safer to use in enterprise environments.
+        For example, PowerShell v5 logs every script that is run, making it
+        easier to trace the execution of malware. <br>These security features
+        are not present in PowerShell v2.0, making it less secure, which at the
+        same time makes it a lucrative alternative for
+        attackers.</p></li></ul><p></p>
+      observation: >-
+        <p>Language Mode Failure = Medium<br>Execution Policy =
+        Low<br>PowerShell v2 = High</p>
+      remediation: >-
+        <p>Set the Language Mode to <em>Restricted</em>. This can be activated
+        locally:</p><pre><code>[Environment]::SetEnvironmentVariable(‘__PSLockdownPolicy‘,
+        ‘4’, ‘Machine‘)</code></pre><p>Or via Group Policies
+        Objects:</p><p><em>Computer Configuration\Preferences\Windows
+        Settings\Environment</em><br></p><img class="custom-image"
+        src="63e504b947c5530011586cfc" alt="Setting PowerShell Language Mode via
+        GPO"><p></p><p>Set the Execution Policy to <em>AllSigned</em>. This can
+        be done via GPO here: <em>Computer Configuration &gt; Policies &gt;
+        Administrative Templates &gt; Windows Components &gt; Windows
+        PowerShell</em><br></p><img class="custom-image"
+        src="63e505c447c5530011586cfd" alt="Setting Execution Policy for
+        PowerShell via GPO"><p><br><br>Deactivate PowerShell v2.0 via GPO or
+        remove it locally via the "Windows Features".</p>
+      references:
+        - 'https://adsecurity.org/?p=2604'
+        - >-
+          https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.3
+        - >-
+          https://learn.microsoft.com/en-us/powershell/scripting/learn/security-features?view=powershell-7.3
+        - >-
+          https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: LSA Protection Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>LSA Protection, also known as RunAsPPL (Protected Process Light), is
+        a security feature introduced in Windows 10 and Windows Server 2016. It
+        is designed to protect critical operating system processes by running
+        them with an elevated level of protection.</p><p>LSA (Local Security
+        Authority) is a subsystem in Windows responsible for security-related
+        operations. LSA Protection ensures that certain critical LSA processes
+        are isolated and run in a restricted mode called "Protected Process
+        Light." This mode provides additional security measures to prevent
+        unauthorized access or tampering of these processes.</p><p>Protected
+        Process Light (PPL) restricts the interactions and privileges of a
+        process, making it more resistant to attacks and unauthorized
+        modifications. PPL processes are given a higher integrity level, making
+        it difficult for lower-privileged processes or malware to tamper with
+        them. This helps protect critical system functions and sensitive
+        data.</p><p>By running LSA processes as PPL, Windows enhances the
+        overall security of the operating system and helps mitigate various
+        attack vectors that target system-level processes.</p>
+      observation: <p><br><br></p>
+      remediation: >-
+        <p>Activate LSA Protection by setting the following registry
+        key:<br><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\LSA
+        RunAsPPL= 1</code></p>
+      references:
+        - 'https://itm4n.github.io/lsass-runasppl/'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:P/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Disk Encryption Configuration
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Disk encryption is a security measure used to protect the data stored
+        on a storage device, such as a hard drive or solid-state drive (SSD). It
+        ensures that the data remains unreadable and inaccessible to
+        unauthorized users even if the device is lost, stolen, or accessed
+        without proper authorization.</p><p>The primary purpose of disk
+        encryption is to encrypt the entire contents of the disk, including the
+        operating system, applications, and user data. It prevents unauthorized
+        individuals from accessing or extracting sensitive information from the
+        disk by encrypting it using a cryptographic algorithm.</p><p>One method
+        to enhance the security of disk encryption is through preboot
+        authentication (PBA). PBA adds an additional layer of protection by
+        requiring users to provide authentication credentials before the
+        operating system boots up. This means that even if someone gains
+        physical access to the device, they cannot bypass the encryption without
+        providing the correct authentication.</p><p>Preboot authentication
+        typically involves a separate login screen or interface that prompts
+        users to enter a password or other authentication factors, such as a PIN
+        or biometric data (e.g., fingerprint or facial recognition). Only upon
+        successful authentication will the device proceed to boot up the
+        operating system and decrypt the disk.</p><p>By combining disk
+        encryption with preboot authentication, the data on the encrypted disk
+        remains secure from unauthorized access. Even if an attacker manages to
+        steal or gain physical access to the device, they would need to bypass
+        the preboot authentication to gain access to the encrypted
+        data.</p><p>It is important to choose strong authentication credentials
+        and regularly update them to maintain the security of the disk
+        encryption. Additionally, ensuring the device's firmware and software
+        are up to date helps protect against known vulnerabilities and ensures
+        the effectiveness of the encryption and authentication mechanisms.</p>
+      remediation: >-
+        <p>If the encryption is meant to protect against sophisticated attacks,
+        the TPM only mode for BitLocker is not sufficient. One of the
+        alternative solutions with an additional PIN or USB device should be
+        taken into consideration[2]. Another idea would be to make use of 3rd
+        party applications that will give the user a SSO feeling that integrate
+        with BitLocker.</p>
+      references:
+        - '[1] https://luemmelsec.github.io/Go-away-BitLocker-you-are-drunk/'
+        - >-
+          [2]
+          https://learn.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-countermeasures
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:L/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Credential Guard Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Credential Guard is a security feature introduced in Windows 10 and
+        Windows Server 2016 that helps protect against credential theft and
+        unauthorized access to sensitive credentials on a Windows system. It is
+        specifically designed to defend against Pass-the-Hash (PtH) and
+        Pass-the-Ticket (PtT) attacks.</p><p>Credential theft attacks typically
+        target the authentication process by stealing or manipulating user
+        credentials, such as usernames and passwords, stored in memory or the
+        Local Security Authority (LSA) process. These attacks allow adversaries
+        to gain unauthorized access to systems, networks, or sensitive
+        resources.</p><p>Credential Guard leverages virtualization-based
+        security to isolate and protect these credentials. It utilizes
+        virtualization technology, such as Hyper-V, to create a separate
+        isolated environment called the "security boundary." Within this
+        security boundary, sensitive credentials are stored and processed,
+        effectively isolating them from the rest of the system, including the
+        operating system and user processes.</p><p>By isolating credentials in a
+        protected environment, Credential Guard helps prevent unauthorized
+        access or tampering by malicious actors. It ensures that even if an
+        attacker gains access to the operating system or compromises the system
+        at a lower level, they cannot access or extract sensitive credentials
+        stored within Credential Guard.</p><p>Key features and benefits of
+        Credential Guard include:</p><ol><li><p>Protection against Pass-the-Hash
+        and Pass-the-Ticket attacks.</p></li><li><p>Isolation of credentials in
+        a separate security boundary.</p></li><li><p>Use of virtualization-based
+        security technology for enhanced
+        protection.</p></li><li><p>Compatibility with existing authentication
+        methods, such as Kerberos and NTLM.</p></li><li><p>Integration with
+        other security technologies, like Windows Hello for Business and Windows
+        Defender Credential Guard.</p></li></ol><p>Overall, Credential Guard
+        strengthens the security posture of Windows systems by safeguarding
+        sensitive credentials and mitigating the risk of credential theft
+        attacks.</p>
+      remediation: >-
+        <p>Follow the steps provided by Microsoft [1] to enabled Credential
+        Guard.</p>
+      references:
+        - >-
+          [1]
+          https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-manage
+        - 'https://blog.nviso.eu/2018/01/09/windows-credential-guard-mimikatz/'
+        - >-
+          https://blog.netwrix.com/2023/02/06/using-windows-defender-credential-guard-to-protect-privileged-credentials/
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Applocker Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>AppLocker is a security feature introduced in Windows 7 and Windows
+        Server 2008 R2, and it is available in subsequent versions of Windows.
+        It is designed to help organizations enforce application control
+        policies by allowing or blocking the execution of specified applications
+        and scripts.</p><p>AppLocker enables administrators to define rules that
+        determine which applications are allowed to run on a system. These rules
+        can be based on various criteria, including file path, file hash,
+        publisher, or digital signature. By configuring these rules,
+        administrators have granular control over the types of applications that
+        can be executed on managed systems.</p><p>Key features and benefits of
+        AppLocker include:</p><ol><li><p>Application Whitelisting:
+        Administrators can create rules that specify which applications are
+        allowed to run, effectively whitelisting approved applications. This
+        helps prevent unauthorized or malicious software from running on the
+        system.</p></li><li><p>Rule Enforcement: AppLocker enforces the
+        configured rules at the operating system level, ensuring that only
+        approved applications are allowed to execute. It helps protect against
+        unauthorized software installations and execution
+        attempts.</p></li><li><p>Flexible Rule Criteria: Rules can be created
+        based on various criteria, including file attributes, publisher
+        information, digital signatures, and path locations. This flexibility
+        allows organizations to define specific policies tailored to their
+        needs.</p></li><li><p>Centralized Management: AppLocker can be managed
+        through Group Policy, providing a centralized management interface for
+        creating, deploying, and maintaining application control policies across
+        multiple systems.</p></li><li><p>Auditing and Reporting: AppLocker
+        provides auditing capabilities to track and monitor application
+        execution attempts. Detailed logs and reports help administrators
+        identify and investigate unauthorized or blocked application
+        activities.</p></li></ol><p>AppLocker is primarily aimed at
+        organizations that require strict control over the software running on
+        their systems, such as enterprises, government agencies, and regulated
+        industries. It helps enhance security by preventing the execution of
+        unauthorized or potentially malicious applications, reducing the attack
+        surface and mitigating the risk of malware infections and unauthorized
+        software usage.</p>
+      remediation: >-
+        <p>Where applicable use WDAC (see [1]).</p><p>If not feasible, implement
+        Applocker to further harden the system against attacks.</p><p>Follow the
+        guidelines referenced from Microsoft [2].</p>
+      references:
+        - >-
+          [1]
+          https://learn.microsoft.com/de-de/windows/security/threat-protection/windows-defender-application-control/wdac-and-applocker-overview
+        - >-
+          [2]
+          https://learn.microsoft.com/de-de/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: NetBIOS Name Resolution / LLMNR Configuration
+      vulnType: Misconfiguration
+      description: >-
+        <p>NetBIOS Name Resolution and Link-Local Multicast Name Resolution
+        (LLMNR) are protocols used for name resolution in Windows networks. They
+        allow devices on a local network to discover and communicate with each
+        other by resolving computer names to IP addresses.</p><p>NetBIOS Name
+        Resolution: NetBIOS (Network Basic Input/Output System) is a legacy
+        protocol used for communication between devices on a local network.
+        NetBIOS Name Resolution translates NetBIOS names (computer names) to IP
+        addresses. It relies on broadcast messages to resolve names, which can
+        be inefficient and pose security risks.</p><p>LLMNR: LLMNR is a modern
+        replacement for NetBIOS Name Resolution introduced in Windows Vista and
+        later versions. It performs a similar function as NetBIOS Name
+        Resolution but uses multicast messages instead of broadcasts. LLMNR is
+        intended to resolve names on local networks when DNS name resolution
+        fails.</p><p>Security Concerns: Both NetBIOS Name Resolution and LLMNR
+        can introduce security risks, particularly when they are enabled on
+        systems connected to untrusted networks or outside the local
+        network.</p><ul><li><p>Man-in-the-Middle (MitM) Attacks: When NetBIOS
+        Name Resolution or LLMNR is enabled, an attacker can intercept and
+        respond to name resolution queries, posing as the intended device. This
+        allows them to redirect network traffic to their own system, enabling
+        potential eavesdropping, data interception, or modification of network
+        communications.</p></li><li><p>Name Spoofing and Identity Theft: By
+        responding to name resolution queries, an attacker can potentially spoof
+        the identity of legitimate devices on the network. This can lead to
+        confusion, unauthorized access, or identity
+        theft.</p></li><li><p>Information Disclosure: Name resolution requests
+        can leak sensitive information, such as computer names and domain
+        information, which can be exploited by an attacker for reconnaissance or
+        targeted attacks.</p></li></ul><p>To mitigate these security concerns,
+        it is generally recommended to disable NetBIOS Name Resolution and
+        LLMNR, especially on systems connected to untrusted networks or when not
+        required for local network functionality. Instead, relying on more
+        secure name resolution mechanisms like DNS (Domain Name System) is
+        recommended. Disabling these protocols can help reduce the attack
+        surface and protect against potential MitM attacks and other security
+        vulnerabilities.</p>
+      remediation: >-
+        <p>NetBIOS should be disabled on all systems that don't need to be
+        compatible with Windows 2000 or older OS. It can be disabled via DHCP or
+        GPO.<br></p><img class="custom-image" src="64998d53b1221cb2c209eb7d"
+        alt="NetBIOS settings in registry"><p></p><p>You can change all adapters
+        to 2 like so:</p><p><code>$regkey =
+        "HKLM:SYSTEM\CurrentControlSet\services\NetBT\Parameters\Interfaces"</code></p><p><code>Get-ChildItem
+        $regkey |foreach { Set-ItemProperty -Path "$regkey\$($_.pschildname)"
+        -Name NetbiosOptions -Value 2 -Verbose}</code></p><p>The same applies to
+        LLMNR. However, it can only be disabled via GPO or a script.</p><img
+        class="custom-image" src="64998dceb1221cb2c209eb83" alt="GPO settings to
+        disable LLMNR"><p><code>Computer Configuration -&gt; Administrative
+        Templates -&gt; Network -&gt; DNS Client -&gt; Turn off multicast name
+        resolution</code></p>
+      references:
+        - 'https://luemmelsec.github.io/Relaying-101/'
+        - >-
+          https://woshub.com/how-to-disable-netbios-over-tcpip-and-llmnr-using-gpo/
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
+  details:
+    - locale: EN
+      title: SMB Server Settings
+      vulnType: Misconfiguration
+      description: >-
+        <p>SMB (Server Message Block) is a network protocol used for file and
+        printer sharing between computers. There are different versions of the
+        SMB protocol, including SMB1 (also known as CIFS - Common Internet File
+        System), SMB2, SMB2.1, SMB3, and SMB3.02.</p><p>SMB signing is a
+        security feature that helps protect against tampering and unauthorized
+        access of SMB traffic. When signing is enabled, the SMB server and
+        client sign the SMB packets, providing a way to verify the integrity and
+        authenticity of the data exchanged between them.</p><p>Here's an
+        overview of SMB protocol versions and their support for
+        signing:</p><ol><li><p>SMB1 (CIFS): SMB1 supports SMB message signing.
+        It provides a basic level of security, but it is considered outdated and
+        less secure compared to newer versions.</p></li><li><p>SMB2 and newer:
+        Starting from SMB2, the protocol introduced significant improvements in
+        terms of performance and security. SMB2 supports stronger encryption
+        algorithms and the ability to negotiate signing as a security
+        feature.</p></li></ol><ul><li><p>SMB2.1: This version adds support for
+        larger buffer sizes and better performance.</p></li><li><p>SMB3: SMB3
+        further enhances security and performance. It introduces features like
+        encryption and transparent failover for continuous
+        availability.</p></li><li><p>SMB3.02: This version adds improvements for
+        SMB Direct, which enables high-speed data transfers using RDMA (Remote
+        Direct Memory Access).</p></li></ul><p>Not having SMB signing enabled
+        can pose security risks, especially in the context of relay attacks. A
+        relay attack involves an attacker intercepting and forwarding SMB
+        traffic between a client and a server, potentially tampering with or
+        impersonating the communication.</p><p>When SMB signing is disabled, an
+        attacker can modify SMB packets in transit without detection,
+        potentially injecting malicious code or manipulating data. By enabling
+        SMB signing, the server and client can verify the integrity and
+        authenticity of the SMB traffic, reducing the risk of unauthorized
+        modification or tampering.</p><p>Enabling SMB signing helps protect
+        against attacks like Man-in-the-Middle (MitM) attacks, where an attacker
+        intercepts SMB traffic and manipulates it to gain unauthorized access or
+        extract sensitive information. By ensuring that SMB packets are signed,
+        the receiving party can verify the origin and integrity of the data,
+        making it harder for an attacker to tamper with the
+        communication.</p><p>It is recommended to enable SMB signing for
+        improved security, particularly in environments where sensitive data is
+        being transmitted over SMB connections.</p>
+      remediation: >-
+        <p>Activate SMB Signing wherever possible.</p><p>This can be done e.g.
+        via GPO:</p><p><code>Computer Configuration -&gt; Policies -&gt; Windows
+        Settings -&gt; Security Settings -&gt; Local Policies -&gt; Security
+        Options -&gt; "Microsoft network server: Digitally sign communications
+        (always)"</code></p><p>It's important to test the changes in a
+        controlled environment and verify that SMB signing is working as
+        expected before applying the GPO to production systems.</p>
+      references: []
+      customFields: []
+  category: Network Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Antivirus Configuration
+      vulnType: Misconfiguration
+      description: >-
+        <p>Antivirus (AV) software, also known as antivirus or anti-malware
+        software, is designed to protect computers and other devices from
+        malicious software, such as viruses, worms, Trojans, spyware, adware,
+        and other types of malware. Its primary purpose is to detect, prevent,
+        and remove malicious programs that can harm your computer system or
+        compromise your data.</p><p>Here are some key reasons why it is
+        important to have AV software turned on:</p><ul><li><p>Malware
+        Protection: AV software scans files, programs, and websites for known
+        malware signatures and behavioral patterns, preventing them from
+        infecting your system. It helps safeguard your computer against viruses,
+        which can cause data loss, system crashes, or unauthorized
+        access.</p></li><li><p>Real-Time Protection: AV software provides
+        real-time monitoring of files and activities on your computer, detecting
+        and blocking malware threats as they occur. This proactive approach
+        helps prevent malware from executing and spreading throughout your
+        system.</p></li><li><p>Web Protection: Many AV solutions include web
+        protection features that help block access to malicious websites or warn
+        you about potentially dangerous sites. This protects you from phishing
+        attempts, drive-by downloads, and other web-based
+        threats.</p></li><li><p>Email Protection: AV software often integrates
+        with email clients to scan incoming and outgoing email attachments for
+        malware. It helps prevent the spread of infected files through email and
+        reduces the risk of falling victim to email-borne threats, such as
+        phishing emails or malicious attachments.</p></li><li><p>Vulnerability
+        Detection: Some AV software includes vulnerability scanning features
+        that identify security weaknesses in your operating system or installed
+        applications. By identifying vulnerabilities, you can take necessary
+        steps to patch or update software, minimizing the risk of exploitation
+        by malware.</p></li><li><p>Data Protection: AV software helps protect
+        your personal and sensitive information by preventing unauthorized
+        access or theft. It can detect keyloggers, screen capture tools, and
+        other types of spyware that aim to collect your private
+        data.</p></li><li><p>System Performance: While AV software performs
+        resource-intensive tasks like scanning files and monitoring activities,
+        modern solutions are designed to minimize impact on system performance.
+        They use optimized scanning algorithms and leverage hardware
+        acceleration to ensure efficient protection without significantly
+        slowing down your computer.</p></li></ul><p>In summary, having AV
+        software turned on is crucial for maintaining a secure and safe
+        computing environment. It helps protect your system, data, and privacy
+        from various malware threats, ensuring a smoother and more secure
+        digital experience.</p>
+      observation: >-
+        <p>Rating hardly depends on what is setup.<br>Is AV on or not?<br>Many
+        exclusions that can be reviewed by anyone? Are they lax?<br>All features
+        enabled or are crucial ones missing?</p>
+      remediation: >-
+        <p>An AV solution should be installed and actively running on each
+        system.<br>The product itself as well as its patterns should be kept
+        up-to-date at any time.<br>Harden the systems as much as possible by
+        making use of all features provided by your AV.<br>Ensure that things
+        like tamper protection are enabled and can't be disabled by normal users
+        - best also not by administrators.<br>Exclusions should be kept to a
+        minimum, where possible individually by system. So you should not
+        globally exclude path x or application y, just because you need it on
+        one system out of hundreds.<br></p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: RDP Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p><br>Remote Desktop Protocol (RDP) is a technology developed by
+        Microsoft that allows users to connect to and control a remote computer
+        over a network connection. It enables remote access to resources,
+        applications, and desktop environments on a remote system.</p><p>RDP can
+        be convenient for various purposes, such as remote administration,
+        technical support, and remote work scenarios. However, if not properly
+        secured, RDP can pose security risks. Some of the potential risks
+        include:</p><ul><li><p>Unauthorized access: If RDP is exposed to the
+        internet or not adequately protected, it can become a target for
+        malicious actors attempting to gain unauthorized access to
+        systems.</p></li><li><p>Brute-force attacks: Attackers can launch
+        brute-force attacks against RDP sessions, trying various username and
+        password combinations to gain access.</p></li><li><p>Vulnerabilities:
+        Like any software, RDP implementations can have security vulnerabilities
+        that can be exploited by attackers.</p></li></ul><p>Network Level
+        Authentication (NLA) is a security feature in RDP that can help mitigate
+        some of these risks. NLA requires users to authenticate themselves
+        before establishing a remote desktop connection. It adds an extra layer
+        of security by verifying the user's credentials before allowing access
+        to the remote system. With NLA enabled, the remote system must
+        authenticate the user before a full RDP session is initiated, reducing
+        the risk of unauthorized access.</p><p>By enabling NLA, potential
+        security risks associated with RDP can be mitigated, as it helps ensure
+        that only authenticated and authorized users can establish remote
+        desktop connections. It is recommended to configure RDP with NLA and
+        follow best practices for securing RDP connections, such as using strong
+        passwords, enabling network firewalls, keeping the RDP software up to
+        date, and restricting access to trusted networks or specific IP
+        addresses.</p>
+      remediation: >-
+        <p>If possible disable RDP completely.<br>If not possible, harden access
+        by enforcing NLA. This can be done via GPO or directly via
+        registry:<br><code>Computer Configuration -&gt; Administrative Templates
+        -&gt; Windows Components -&gt; Remote Desktop Services -&gt; Remote
+        Desktop Session Host -&gt; Security -&gt; Require user authentication
+        for remote connections by using Network Level
+        Authentication</code></p><p><code>Set-ItemProperty -Path
+        'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal
+        Server\WinStations\RDP-Tcp' -Name 'UserAuthentication' -Value
+        1</code><br></p><p>Ensure strong passwords or even better MFA for
+        accounts that can login remotely.</p>
+      references: []
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Password Policy
+      vulnType: Weak or Stolen User Credentials
+      description: >-
+        <p>Using weak passwords has several security implications and is posing
+        one of the biggest risks in the IT security threat landscape with the
+        following impacts:</p><ul><li><p>Easy to guess: Bad passwords are often
+        easily predictable, making it easier for hackers to guess or crack
+        them.</p></li><li><p>Dictionary attacks: Poor passwords are susceptible
+        to dictionary attacks, where a hacker uses a list of commonly used
+        passwords to gain access to an account.</p></li><li><p>Brute force
+        attacks: In a brute force attack, a hacker tries every possible
+        combination of characters to crack a password, making a weak password
+        easier to crack.</p></li><li><p>Reuse: People often reuse the same
+        password across multiple accounts, putting all their information at risk
+        if a single password is compromised.</p></li><li><p>...</p><p></p><p>If
+        the passwords used by the users are not complex enough they can easily
+        be guessed or the clear text passwords can trivially be recovered if an
+        attacker gets access to their hashed values.</p></li></ul>
+      remediation: >-
+        <p>The following settings and measures can help to harden access to
+        users and their credentials:</p><ul><li><p>Implementing multi-factor
+        authentication.</p></li><li><p>Implementing a secure domain wide
+        password policy in case of Active Directory. At least 12 characters for
+        low privileged and 14 characters for high privileged accounts. For
+        service accounts at least 20 characters should be
+        used.</p></li><li><p>Using a password manager. Best in combination with
+        the possibility for fine granular rights management and MFA
+        authentication.</p></li><li><p>Password blacklisting. Ban passwords with
+        the company name, seasons, passwords on leaked lists
+        etc.</p></li><li><p>Implementing password policies based on the access
+        rights of the accounts affected.</p></li><li><p>Regular password
+        audits.</p></li><li><p>User awareness campaigns. Especially security
+        related trainings for technical staff.</p><p></p></li></ul><p>Best
+        practices for the Domain Password
+        Policy:</p><ul><li><p>ComplexityEnabled =
+        True</p></li><li><p>LockoutDuration &gt;= 15
+        Minutes</p></li><li><p>LockoutObservationWindow &gt;= 15
+        Minutes</p></li><li><p>LockoutThreshold &lt;= 10
+        Minutes</p></li><li><p>MinPasswordLength &gt;=
+        12</p></li><li><p>ReversibleEncryptionEnabled = False</p></li></ul>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Co-installer Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>The Windows Co-installer [1] feature is a mechanism used in Windows
+        operating systems to facilitate the installation and management of
+        device drivers. Co-installers are DLL (Dynamic Link Library) files that
+        can be included alongside a device driver package. They provide
+        additional functionality and instructions to the Windows Installer
+        service during the installation or update of a
+        driver.</p><p>Co-installers are used to perform various tasks, such as
+        configuring hardware settings, updating firmware, handling complex
+        driver installations or even installing additional
+        software.</p><p>However, the use of Co-installers can have security
+        implications for the following reasons:</p><ul><li><p><strong>Privilege
+        Escalation</strong>: Co-installers might run with elevated privileges
+        during the driver installation process. If a Co-installer has
+        vulnerabilities or malicious code, it could potentially be exploited by
+        attackers to escalate their privileges and gain control of the
+        system.</p></li><li><p><strong>Code Execution</strong>: Co-installers
+        execute code as part of the driver installation process. Malicious
+        Co-installers could execute harmful code, leading to various security
+        issues, such as unauthorized access, data manipulation, or system
+        compromise.</p></li><li><p><strong>Driver Tampering</strong>:
+        Co-installers can modify driver settings and configurations. If an
+        attacker replaces a legitimate Co-installer with a malicious one, they
+        could tamper with the driver's behavior, potentially causing system
+        instability or security vulnerabilities.</p></li><li><p><strong>Driver
+        Signature Bypass</strong>: Co-installers can sometimes be used to bypass
+        driver signature enforcement, which is a security feature that ensures
+        drivers are digitally signed by trusted entities. This could enable the
+        installation of unsigned or malicious drivers, further compromising
+        system security.</p></li></ul><p>There are lots of Co-installers known
+        to attackers that can be abused for privilege escalation. Amongst the
+        most common ones was the one which comes while installing certain Razer
+        devices [2].</p>
+      remediation: >-
+        <p>Disable the ability to install Co-installers by settings the
+        following registry
+        key:</p><p><code>HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device
+        Installer\DisableCoInstallers = 1</code></p><p>Users will have to
+        install the software that comes with the device drivers manual if really
+        needed.</p>
+      references:
+        - >-
+          [1]
+          https://learn.microsoft.com/en-us/windows-hardware/drivers/install/writing-a-co-installer
+        - >-
+          [2]
+          https://www.bleepingcomputer.com/news/microsoft/how-to-block-windows-plug-and-play-auto-installing-insecure-apps
+        - 'https://www.scip.ch/en/?labs.20211209'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Secure Boot Configuration
+      vulnType: Misconfiguration
+      description: >-
+        <p>Secure Boot is a security feature in Windows (and other operating
+        systems) that helps protect the boot process from malware and
+        unauthorized modifications. Here's a brief overview:</p><p>Secure Boot
+        works by ensuring that only digitally signed and trusted bootloaders and
+        operating system components are allowed to run during the startup
+        process. This prevents the execution of malicious code or unauthorized
+        firmware and driver modifications that could compromise the system's
+        integrity.</p><p>Key points about Secure Boot on
+        Windows:</p><ul><li><p><strong>UEFI Requirement</strong>: Secure Boot
+        relies on the Unified Extensible Firmware Interface (UEFI) in modern
+        computers. It's typically enabled or disabled in the UEFI firmware
+        settings.</p></li><li><p><strong>Digital Signatures</strong>:
+        Bootloaders, kernel files, and drivers must have valid digital
+        signatures from trusted Certificate Authorities (CAs) to be loaded
+        during the boot process.</p></li><li><p><strong>Enforcement</strong>:
+        When Secure Boot is enabled, the UEFI firmware checks the digital
+        signatures of boot components and refuses to load them if they're not
+        signed or not signed by trusted
+        sources.</p></li><li><p><strong>Protection Against Rootkits</strong>:
+        Secure Boot helps protect against rootkits and other low-level malware
+        that attempt to compromise the boot
+        process.</p></li><li><p><strong>Compatibility Mode</strong>: Some UEFI
+        systems offer a compatibility mode that allows non-signed or legacy
+        bootloaders to run. However, this weakens the security provided by
+        Secure Boot.</p></li><li><p><strong>Hardware Requirements</strong>:
+        Secure Boot requires hardware support in the form of a UEFI firmware
+        with Secure Boot capabilities.</p></li></ul><p>By enforcing the use of
+        trusted boot components, Secure Boot helps safeguard the integrity of
+        the operating system and protects against certain types of attacks that
+        target the boot process. It's an essential security feature for modern
+        Windows systems, especially those running Windows 8 and later
+        versions.</p><p>If Secure Boot is not enabled on a system, attackers may
+        exploit this vulnerability to carry out various malicious activities,
+        including:</p><ul><li><p><strong>Bootkit Attacks</strong>: Attackers can
+        inject malicious bootloaders or rootkits during the boot process,
+        allowing them to gain control of the system and potentially hide their
+        presence from antivirus and security
+        software.</p></li><li><p><strong>Malware Persistence</strong>: Without
+        Secure Boot, malware can persistently infect the system, making it
+        difficult for users to remove the malicious software, even after
+        traditional disinfection attempts.</p></li><li><p><strong>Unauthorized
+        Kernel Modifications</strong>: Attackers can load unsigned or malicious
+        kernel modules, giving them control over the operating system and
+        potentially compromising its integrity and
+        security.</p></li><li><p><strong>Firmware Tampering</strong>: They can
+        modify firmware settings and configurations, potentially leading to
+        hardware vulnerabilities or backdoors that are difficult to detect and
+        remove.</p></li><li><p><strong>Bypassing Security Measures</strong>:
+        Secure Boot helps enforce driver and operating system component
+        integrity. When it's disabled, attackers can potentially load unsigned
+        or tampered components, bypassing security measures and exposing the
+        system to a higher risk of exploitation.</p></li></ul><p>In summary, the
+        absence of Secure Boot can leave a system more vulnerable to a range of
+        attacks that target the boot process and operating system integrity,
+        making it easier for attackers to compromise and control the system.</p>
+      remediation: >-
+        <p>Enable Secure Boot via the following registry
+        key:</p><p><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecureBoot\State\UEFISecureBootEnabled
+        = 1</code></p><p></p>
+      references:
+        - >-
+          https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: UAC Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Windows UAC (User Account Control) is a security feature in Windows
+        operating systems that helps prevent unauthorized changes to your
+        computer by requiring administrator-level permission for certain actions
+        and system-level tasks. When a user or application attempts to perform
+        an action that requires elevated privileges, UAC prompts the user for
+        permission or prompts for an administrator's password, depending on the
+        UAC settings.</p><p>Security implications of disabling or setting UAC to
+        the weakest setting:</p><ul><li><p><strong>Elevated Attack
+        Surface</strong>: Disabling UAC or setting it to the lowest level
+        reduces the number of prompts for administrator privileges, making it
+        easier for malicious software to execute privileged actions without user
+        consent. This increases the attack surface and the risk of malware
+        infections.</p></li><li><p><strong>Unauthorized System Changes</strong>:
+        Without UAC, applications and scripts can make changes to system
+        settings, install software, or modify critical files without any user
+        intervention. This can lead to unauthorized system changes and
+        potentially compromise the system's stability and
+        security.</p></li><li><p><strong>Credential Theft</strong>: Weaker UAC
+        settings may lead users to enter their administrator credentials more
+        frequently, especially when prompted by malicious software. Attackers
+        can then capture these credentials and use them for malicious
+        purposes.</p></li><li><p><strong>Malware Evasion</strong>: Malware may
+        attempt to disable or weaken UAC to operate more stealthily and avoid
+        detection. This can make it harder for security software to identify and
+        mitigate malware infections.</p></li><li><p><strong>Data Loss</strong>:
+        Weaker UAC settings can allow unauthorized applications to access and
+        modify sensitive user data, potentially leading to data loss or
+        theft.</p></li></ul><p>In summary, UAC is an important security feature
+        in Windows that helps prevent unauthorized changes and reduce the risk
+        of malware infections. Disabling UAC or setting it to a weak level can
+        significantly increase the system's vulnerability to various security
+        threats and should be avoided for the sake of system security. It's
+        generally recommended to keep UAC at its default or strongest
+        setting.</p>
+      remediation: >-
+        <p>Enable UAC via GPO or registry.</p><p><code>"Computer Configuration"
+        &gt; "Windows Settings" &gt; "Security Settings" &gt; "Local Policies"
+        &gt; "Security Options."</code></p><ul><li><p>"Enabled" corresponds to
+        the highest security level, "Always notify
+        me."</p></li><li><p>"Disabled" corresponds to the lowest security level,
+        "Never notify."</p></li><li><p>"Not Configured" leaves the UAC settings
+        at their
+        default.</p></li></ul><p><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System</code></p><ul><li><p>Use
+        "1" for the highest security level, "Always notify
+        me."</p></li><li><p>Use "0" for the lowest security level, "Never
+        notify."</p></li></ul><p></p>
+      references:
+        - >-
+          https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/how-it-works
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N'
+  details:
+    - locale: EN
+      title: WSUS Client Configuration
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>WSUS (Windows Server Update Services) is a Microsoft tool that allows
+        organizations to manage and distribute updates released by Microsoft to
+        Windows computers within their network. WSUS client settings refer to
+        the configurations on individual Windows machines that determine how
+        they interact with a WSUS server to receive and install
+        updates.</p><p>Using HTTP for WSUS communication can pose security risks
+        for several reasons:</p><ul><li><p><strong>Lack of Encryption</strong>:
+        HTTP does not encrypt the data transmitted between the WSUS server and
+        clients. This means that update metadata, files, and potentially
+        sensitive information are sent in plain text over the network. Attackers
+        could intercept and eavesdrop on this traffic, potentially gaining
+        insight into the systems being updated and the updates
+        themselves.</p></li><li><p><strong>Tampering Risk</strong>: Without
+        encryption, there is a risk that malicious actors could tamper with the
+        update files or metadata during transit. This could result in
+        compromised updates being applied to client systems, potentially
+        introducing malware or
+        vulnerabilities.</p></li><li><p><strong>Credential Exposure</strong>: If
+        WSUS clients are configured to use HTTP and require authentication
+        (e.g., for proxy authentication), the credentials used for
+        authentication may also be transmitted in plaintext, making them
+        susceptible to interception.</p></li><li><p><strong>Man-in-the-Middle
+        Attacks</strong>: HTTP traffic is vulnerable to man-in-the-middle (MITM)
+        attacks, where an attacker intercepts and potentially modifies the
+        communication between the client and server. This could allow an
+        attacker to inject malicious updates or steal sensitive
+        data.</p></li></ul>
+      remediation: >-
+        <p>To address these security concerns, it is recommended to use HTTPS
+        for WSUS communication. HTTPS provides encryption and authentication,
+        ensuring the confidentiality and integrity of update data and reducing
+        the risk of tampering, eavesdropping, and MITM attacks.</p>
+      references:
+        - >-
+          https://learn.microsoft.com/en-us/mem/configmgr/sum/get-started/software-update-point-ssl
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N'
+  priority: 4
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-INPV-05: SQL Injection'
+      vulnType: Poor Data Sanitization
+      description: >-
+        <p>SQL injection (SQLi) is a type of attack where an attacker exploits a
+        vulnerability in a web application that allows them to execute malicious
+        SQL statements. This is typically accomplished by inserting SQL commands
+        or fragments of SQL code into input fields or parameters that are sent
+        to a web application's database, which can result in unauthorized access
+        to data, modification or deletion of data, or even complete takeover of
+        the web application.</p><p>For example, an attacker might use SQL
+        injection to bypass authentication mechanisms by entering a specially
+        crafted input that causes the database to return all user records or
+        grant administrative access. They could also modify or delete data by
+        injecting SQL code that modifies or deletes database entries, or even
+        drop or corrupt the entire database.</p>
+      remediation: >-
+        <p>The affected parameters should be checked for validity on the server
+        side and special characters should be filtered out.</p><p>Ideally,
+        prepared statements should be used for the database queries to avoid SQL
+        injection vulnerabilities.</p><p></p>
+      references:
+        - 'https://owasp.org/www-community/attacks/SQL_Injection'
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-CONF-07: HSTS-Header not set'
+      vulnType: Misconfiguration
+      description: >-
+        <p>HSTS stands for HTTP Strict Transport Security. It is a security
+        feature that is implemented using an HTTP response header that instructs
+        web browsers to only connect to a website using HTTPS (HTTP over
+        SSL/TLS) protocol, even if the user types "http" in the URL
+        bar.</p><p>The HSTS header helps prevent "Man-in-the-Middle" (MITM)
+        attacks where an attacker could intercept the user's connection to the
+        website and redirect them to a fake website where they could steal
+        sensitive information like login credentials, credit card details,
+        etc.</p><p>When a website sends the HSTS header to the browser, it
+        instructs the browser to remember that the website should always be
+        accessed via HTTPS for a specified period of time (usually for several
+        months). Once the browser has received this instruction, it will
+        automatically upgrade any HTTP requests to HTTPS requests for that
+        website, even if the user types "http" in the URL bar.</p><p>HSTS is an
+        important security feature for websites, and it is recommended to
+        implement it along with other security features such as SSL/TLS
+        encryption, proper certificate management, and secure authentication
+        methods.</p>
+      remediation: >-
+        <p>It is recommended to set the HTTP Strict-Transport-Security
+        header.</p>
+      references:
+        - >-
+          https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-INFO-02: Revealed Webserver Technology'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Knowing the technology of a webserver can aid an attacker to
+        determine how more targeted attacks can be conducted.<br>Webservers
+        often times reveal the technology they are running on in response
+        headers, even including concrete version numbers.<br>Attackers can then
+        check if the version is affected by some kind of vulnerability and try
+        to abuse it.</p><p></p>
+      remediation: >-
+        <p>It is recommened to publish as little information as possible about
+        installed version statuses and reconfiguring the header information
+        accordingly.</p>
+      references: []
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-CONF-09: Unauthenticated File Access'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>File permissions are meant to restrict access to data so that only
+        people that need access to it are allowed to.</p><p>Unrestricted file
+        access poses a significant security risk due to the following
+        reasons:</p><ul><li><p>Unauthorized Access: Unrestricted file access
+        means that anyone, including malicious actors, can view, modify, or
+        delete sensitive files. It allows unauthorized individuals or attackers
+        to gain access to confidential information, personal data, intellectual
+        property, or system files.</p></li><li><p>Data Leakage: Unrestricted
+        file access increases the risk of data leakage. Sensitive or
+        confidential information may be inadvertently or deliberately shared
+        with unauthorized parties. This can lead to financial losses,
+        reputational damage, compliance violations, or legal
+        consequences.</p></li><li><p>Malware Injection: Malicious actors can
+        exploit unrestricted file access to inject malware into the system. By
+        accessing and modifying critical files, they can introduce malicious
+        code, viruses, or ransomware that can compromise the integrity and
+        functionality of the system.</p></li><li><p>Unauthorized Modifications:
+        Unrestricted file access allows unauthorized users to modify or tamper
+        with files. This can result in unauthorized changes to system
+        configurations, application settings, or critical data, leading to
+        system instability, operational disruptions, or compromised
+        functionality.</p></li><li><p>Privilege Escalation: Unrestricted file
+        access can enable privilege escalation attacks. If an attacker gains
+        access to certain files with elevated privileges, they can exploit
+        vulnerabilities or weak security controls to escalate their privileges,
+        gaining unauthorized administrative access to the system or sensitive
+        resources.</p></li><li><p>Insider Threats: Unrestricted file access
+        increases the risk of insider threats. Employees or insiders with
+        legitimate access to files may misuse their privileges, intentionally or
+        unintentionally, by leaking sensitive information, modifying critical
+        files, or stealing valuable data.</p></li><li><p>Compliance Violations:
+        Unrestricted file access may lead to non-compliance with industry
+        regulations and data protection standards. Many regulatory frameworks,
+        such as the General Data Protection Regulation (GDPR), require
+        organizations to implement appropriate access controls and restrictions
+        to protect personal data and ensure privacy.</p></li></ul><p>To mitigate
+        these risks, it is essential to implement strong access controls, file
+        permissions, and security measures. Access should be restricted to
+        authorized individuals based on the principle of least privilege, where
+        users only have access to the files necessary for their roles and
+        responsibilities. Regular monitoring, auditing, and encryption of
+        sensitive files can further enhance security.</p>
+      remediation: >-
+        <p>Restrict access to the files according to the principle of least
+        privileges.</p>
+      references:
+        - 'https://owasp.org/www-community/Broken_Access_Control'
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:L/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-ATHN-01: Unencrypted Login via HTTP'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Credentials, such as usernames and passwords, are sensitive
+        information that should be protected from unauthorized access or
+        interception. Transporting them over encrypted channels helps to ensure
+        their confidentiality, integrity, and authenticity.</p><p>Encryption is
+        a process of converting plaintext into ciphertext using an encryption
+        algorithm and a secret key. The resulting ciphertext can only be
+        decrypted back into plaintext using the same key. This ensures that only
+        authorized parties with access to the key can read the contents of the
+        message.</p><p>When credentials are transported over an encrypted
+        channel, such as HTTPS, the data is protected from interception and
+        tampering. This is because the encryption process makes it difficult for
+        attackers to read or modify the contents of the message. It also
+        provides assurance that the sender is who they claim to be, and that the
+        message has not been altered in transit.</p><p>Without encryption,
+        credentials can be easily intercepted by attackers who have access to
+        the communication channel, such as through packet sniffing or
+        man-in-the-middle attacks. This can lead to unauthorized access to
+        sensitive data, such as personal information, financial data, or
+        intellectual property.</p><p>In summary, transporting credentials over
+        encrypted channels is essential to protect them from interception and
+        ensure their confidentiality, integrity, and authenticity.</p>
+      observation: >-
+        <p>The application can be accessed over HTTP as well as HTTPS.<br>As
+        there are no HSTS headers set (refer to chapter XYZ), the user can
+        freely decide if to use the encrypted or unencrypted version.<br>In the
+        case of the latter one, the credentials are transported unencrypted and
+        as such easily to retrieve in Man-in-the-Middle attacks.</p>
+      remediation: >-
+        <p>Only use secured protocols and services to run applications.<br>In
+        this case turn of the possibility to use the unencrypted HTTP version of
+        the webapplication.</p>
+      references: []
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-ATHN-03: Weak Lockout Policy'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>A lockout policy is a security mechanism used to prevent unauthorized
+        access to an account by locking the account after a certain number of
+        failed login attempts. This is done to prevent brute-force attacks, in
+        which an attacker tries to guess a user's login credentials by
+        repeatedly submitting different username and password
+        combinations.</p><p>The lockout policy typically includes the number of
+        failed login attempts that trigger the account lockout, as well as the
+        duration of the lockout period. For example, a lockout policy might
+        specify that after five failed login attempts, the account will be
+        locked for 30 minutes.</p><p>Lockout policies help to improve the
+        security of user accounts by preventing attackers from gaining
+        unauthorized access through brute-force attacks. They also encourage
+        users to create strong passwords and take other security measures to
+        protect their accounts, as they know that repeated failed login attempts
+        could lead to a lockout.</p><p>However, lockout policies can also have
+        drawbacks if they are set too strictly. For example, if the number of
+        failed login attempts is set too low, users may accidentally trigger the
+        lockout policy by mistyping their password or forgetting their password
+        and attempting to reset it. Additionally, if the lockout period is too
+        long, it can be frustrating for users who need to access their account
+        urgently. As such, lockout policies should be carefully designed and
+        tested to balance security needs with user experience.</p>
+      remediation: >-
+        <p>Implement according policies that lockout accounts after a predefined
+        amount of failed attempts.</p>
+      references:
+        - >-
+          https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-ATHN-07: Weak Password Policy'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>A password policy is a set of rules and guidelines that dictate the
+        requirements for creating and using passwords in a system. The primary
+        purpose of a password policy is to improve the security of user accounts
+        by ensuring that passwords are strong, unique, and not easily
+        guessable.</p><p>Password policies may include requirements such as
+        minimum length, complexity, and expiration period. For example, a
+        password policy might require that passwords be at least 8 characters
+        long, contain a combination of letters, numbers, and symbols, and expire
+        every 90 days. The policy may also prohibit the use of common passwords
+        or dictionary words, and may enforce a limit on the number of failed
+        login attempts before locking the account.</p><p>Password policies are
+        important because weak passwords are a common vulnerability that can be
+        easily exploited by attackers. By requiring strong passwords and
+        enforcing regular password changes, password policies can help to
+        prevent unauthorized access and data breaches.</p><p>However, password
+        policies can also have drawbacks if they are too strict or complicated.
+        For example, if the requirements for password complexity are too
+        difficult to remember, users may resort to writing down their passwords
+        or reusing the same password across multiple accounts, which can also
+        pose security risks. As such, password policies should be carefully
+        designed to balance security needs with user experience and
+        convenience.</p>
+      remediation: >-
+        <p>Implement a strong password policy that hinders users to set weak
+        passwords.</p><p>Best practices include:<br></p><ol><li><p>Length:
+        Encourage the use of longer passwords, typically a minimum of 12
+        characters or more. Longer passwords are generally more secure as they
+        increase the number of possible combinations, making them harder to
+        guess or crack.</p></li><li><p>Complexity: Require a combination of
+        uppercase and lowercase letters, numbers, and special characters. This
+        ensures a broader range of characters are used, making passwords more
+        resistant to dictionary-based attacks.</p></li><li><p>Avoid common
+        patterns and predictable information: Discourage the use of easily
+        guessable patterns (e.g., "123456" or "abcdef") and information commonly
+        associated with users (e.g., names, birthdates, or common words). These
+        can be easily exploited by attackers.</p></li><li><p>Avoid forced
+        regular password changes: Research suggests that frequent password
+        changes may lead to weaker passwords, as users tend to choose simpler
+        passwords when forced to change them frequently. Instead, encourage
+        password changes when there is a suspected compromise or evidence of
+        weak security.</p></li><li><p>Password blacklisting: Maintain a list of
+        commonly used or compromised passwords and prevent users from selecting
+        them. This helps to block the use of easily guessable or breached
+        passwords.</p></li><li><p>Two-factor authentication (2FA): Encourage or
+        require the use of additional authentication factors, such as SMS codes,
+        authenticator apps, or hardware tokens, to add an extra layer of
+        security to user accounts. This helps protect against unauthorized
+        access even if the password is compromised.</p></li><li><p>User
+        education and awareness: Provide clear guidelines to users on how to
+        create strong passwords and the importance of good password hygiene.
+        Educate users about the risks of password reuse, phishing attacks, and
+        the significance of protecting their accounts.</p></li></ol><p>Remember
+        that password complexity policies should be balanced to ensure they are
+        strong enough to resist attacks but not overly burdensome for users.
+        Striking the right balance promotes better security practices and user
+        compliance.<br></p>
+      references:
+        - >-
+          https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: 'WSTG-ATHZ-03: Elevation of Privileges'
+      vulnType: Privilege Escalation
+      description: >-
+        <p>Privilege escalation refers to the act of gaining increased access or
+        permissions on a computer system, network, or application beyond what
+        was originally authorized. This can be achieved through exploiting
+        vulnerabilities, misconfigurations, or weaknesses in security
+        controls.</p><p>Privilege escalation is generally considered a bad thing
+        because it can lead to unauthorized access and control over sensitive
+        information, systems, and resources. Attackers can use privilege
+        escalation to perform malicious activities such as stealing data,
+        modifying data, installing malware, or disrupting
+        services.</p><p>Privilege escalation can also undermine the integrity
+        and confidentiality of data, as well as violate privacy laws and
+        regulations. It can lead to financial losses, reputational damage, and
+        legal consequences for both individuals and organizations.</p><p>In
+        summary, privilege escalation is a bad thing because it can lead to
+        unauthorized access and control, which can result in serious security
+        and privacy breaches.</p>
+      remediation: >-
+        <p>The separation of user rights should not only take place on the GUI
+        level. Functions and endpoints meant for administrative purposes should
+        only be available to users that are assigned to the according
+        groups.</p><p>Implement according measures to ensure a correct
+        separation of user rights and functions.</p><p></p>
+      references: []
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-SESS-02: Session-Cookie without httpOnly-Flag'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>The httpOnly flag is an optional parameter for cookies and specifies
+        that cookies secured with this flag may not be read via client-side
+        scripts.</p><p>In the context of cross-site scripting attacks, for
+        example, attempts are often made to take over a user's session by
+        reading the cookie via JavaScript. This attack vector is prevented by
+        setting the httpOnly flag.</p>
+      remediation: <p>Set the <em>httpOnly </em>flag for all session relevant cookies.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N'
+  priority: 4
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-SESS-05: Cross Site Request Forgery (CSRF)'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Cross-site request forgery (CSRF or XSRF) is a type of attack where a
+        malicious actor tricks a user into performing an action on a website
+        without their knowledge or consent. This is achieved by sending a
+        request from a user's browser that appears to originate from a
+        legitimate website that the user is logged into, but is actually sent by
+        the attacker. <br>The purpose of a CSRF attack is to exploit the trust
+        that a website has in a user's browser, allowing the attacker to perform
+        actions on the user's behalf, such as making unauthorized purchases or
+        changing account settings.</p>
+      remediation: >-
+        <p>To protect against CSRF attacks, websites can implement
+        countermeasures such as using CSRF tokens or requiring user confirmation
+        for sensitive actions.<br>The tokens should be set for all critical
+        functions.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/05-Testing_for_Cross_Site_Request_Forgery
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:L'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-INPV-01: Reflected Cross-Site-Scripting'
+      vulnType: Poor Data Sanitization
+      description: >-
+        <p>Cross-Site Scripting (XSS) is a type of web security vulnerability
+        where attackers inject malicious scripts into a website or web
+        application. These scripts are then executed in the context of other
+        users' browsers, allowing the attacker to carry out malicious actions.
+        XSS attacks exploit the trust between a user and a website, often
+        targeting areas where user-generated content is displayed without proper
+        validation or escaping.</p><p>By exploiting this vulnerability,
+        cross-site scripting attacks on website visitors are possible. Possible
+        effects of successful cross-site scripting attacks
+        include:</p><ul><li><p>Stealing credentials, session information,
+        cookies,</p></li><li><p>Complete takeover of the client browser,
+        including remote control of the client, if exploits exist for the
+        browser used,</p></li><li><p>compromising the functionality of the web
+        application,</p></li><li><p>alteration of the content and design of the
+        pages.</p></li></ul><p>In the case of reflected XSS the attacker needs
+        the victim to execute the code, e.g. by sending him a malicious link he
+        needs to click.</p>
+      remediation: >-
+        <p>Countermeasures against XSS include input validation, output
+        encoding, and implementing content security policies. This includes
+        verifying that input is of the correct type and length, and that it does
+        not contain any potentially malicious characters or code. Input
+        validation ensures only legitimate data is accepted, output encoding
+        prevents script execution, and content security policies restrict the
+        sources of allowed scripts, reducing the attack surface. Regular updates
+        and secure coding practices enhance protection.</p><p>A check via
+        JavaScript on the client side is not sufficient, since this can also be
+        manipulated by the client.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/01-Testing_for_Reflected_Cross_Site_Scripting
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:L'
+  priority: 4
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-INPV-02: Stored Cross-Site-Scripting'
+      vulnType: Poor Data Sanitization
+      description: >-
+        <p>Cross-Site Scripting (XSS) is a type of web security vulnerability
+        where attackers inject malicious scripts into a website or web
+        application. These scripts are then executed in the context of other
+        users' browsers, allowing the attacker to carry out malicious actions.
+        XSS attacks exploit the trust between a user and a website, often
+        targeting areas where user-generated content is displayed without proper
+        validation or escaping.</p><p>By exploiting this vulnerability,
+        cross-site scripting attacks on website visitors are possible. Possible
+        effects of successful cross-site scripting attacks
+        include:</p><ul><li><p>Stealing credentials, session information,
+        cookies,</p></li><li><p>Complete takeover of the client browser,
+        including remote control of the client, if exploits exist for the
+        browser used,</p></li><li><p>compromising the functionality of the web
+        application,</p></li><li><p>alteration of the content and design of the
+        pages.</p></li></ul><p>In the case of stored XSS the attacker is able to
+        place the malicious code inside the application. He then needs to wait
+        for his victims to trigger the code e.g. by using a specific function
+        inside the application.</p>
+      remediation: >-
+        <p>Countermeasures against XSS include input validation, output
+        encoding, and implementing content security policies. This includes
+        verifying that input is of the correct type and length, and that it does
+        not contain any potentially malicious characters or code. Input
+        validation ensures only legitimate data is accepted, output encoding
+        prevents script execution, and content security policies restrict the
+        sources of allowed scripts, reducing the attack surface. Regular updates
+        and secure coding practices enhance protection.</p><p>A check via
+        JavaScript on the client side is not sufficient, since this can also be
+        manipulated by the client.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-CRYP-01: Weak TLS Configuration'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses. Some of the
+        weaknesses of TLS include:</p><ul><li><p>Weak cipher suites: Some older
+        cipher suites used in TLS are now considered weak and vulnerable to
+        attacks, such as the infamous POODLE attack. It is important to use
+        strong cipher suites and disable any deprecated or insecure cipher
+        suites.</p></li><li><p>Certificate authority (CA) vulnerabilities: The
+        trust model of TLS relies on the security of the CA system, which can be
+        vulnerable to attacks such as phishing or compromise of CAs. This can
+        result in fake or fraudulent certificates being issued, which can then
+        be used to perform man-in-the-middle
+        attacks.</p></li><li><p>Implementation flaws: TLS implementations can
+        contain flaws that could be exploited by attackers, such as the
+        Heartbleed vulnerability, which allowed attackers to steal sensitive
+        information from servers using a specific version of the OpenSSL
+        cryptographic library.</p></li><li><p>Key management: TLS relies on
+        secure key management practices to ensure the integrity and
+        confidentiality of data in transit. If keys are compromised or not
+        managed properly, it can result in the encryption being broken and
+        sensitive information being exposed.</p></li><li><p>Attacks against the
+        protocol itself: New attacks against the TLS protocol are regularly
+        discovered and may require updates or changes to the protocol to address
+        them.</p></li></ul><p>It is important to stay up to date with the latest
+        best practices for using TLS, including using strong cipher suites,
+        implementing proper certificate validation, and regularly updating TLS
+        implementations to address new vulnerabilities.</p>
+      remediation: >-
+        <p>Disable SSLv3.<br>Update the Webserver and SSL implementation to the
+        latest version.<br>Disable weak ciphers (SEED, IDEA, RC2, RC4) on the
+        server.<br>Configure the server to use a 2048-bit Diffie-Hellman
+        group.<br>Disable cipher with 64-bit block size (3DES, DES,
+        Blowfish).<br>Disable HTTP compression on the server or ignore if there
+        is no secret in the page.</p>
+      references: []
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-BUSL-09: Upload of Malicious Files'
+      vulnType: Poor Data Sanitization
+      description: >-
+        <p>Allowing users to upload files to a web server can pose significant
+        risks, as it can provide an opportunity for attackers to upload and
+        execute malicious code on the server. Some of the risks of allowing file
+        uploads include:</p><ul><li><p>Malware distribution: Attackers can use
+        file uploads to distribute malware, such as viruses, worms, or Trojans,
+        to other users who download the infected files.</p></li><li><p>Website
+        defacement: Attackers can upload malicious files that can deface the
+        website, altering its appearance and possibly damaging its
+        reputation.</p></li><li><p>Server compromise: Attackers can use file
+        uploads to gain access to the server and execute remote code, allowing
+        them to take full control of the system and potentially steal sensitive
+        information.</p></li><li><p>Backdoor access: Attackers can use file
+        uploads to create a backdoor on the server, allowing them to access the
+        system even after they are removed.</p></li><li><p>Resource exhaustion:
+        Attackers can upload files that consume a large amount of server
+        resources, such as disk space or memory, causing the server to crash or
+        become unavailable.</p></li></ul>
+      remediation: >-
+        <p>It is recommended performing a server-side check of the file
+        extensions as well as the file type. However, checking the file
+        extension itself is not a sufficient protection and in addition the
+        magic bytes of the files uploaded should be checked.</p><p>Furthermore,
+        uploaded files should be checked for malware using antivirus software.
+        Possible embedded objects should be removed. Among other things,
+        Microsoft Office documents, PDF files and images can contain embedded
+        objects, which are not always detected by antivirus programs. These can
+        be converted to safe files using file disinfection (for example, PDF to
+        PDFA). Further recommendations can be found in the OWASP Guideline.</p>
+      references:
+        - >-
+          https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-BUSL-07: Application Logic Flaw - Passwords length visible'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Hiding passwords in applications in general is a good
+        idea.</p><p>Access to such sensitive info should be restricted as good
+        as possible and revealing should ask you for confirmation. The length of
+        the hiding characters should always be the same so that no conclusions
+        can be drawn on the actual length of the password.</p>
+      remediation: >-
+        <p>Mask the password in a way that no conclusions regarding the length
+        can be drawn.</p>
+      references: []
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:L/A:N'
+  priority: 2
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: 'WSTG-SESS-03: Session Fixation'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Session fixation is a vulnerability that allows an attacker to hijack
+        a user's session on a web application. This type of attack involves
+        manipulating the session ID (identifier) used to authenticate a user's
+        session.</p><p>An attacker can exploit this vulnerability by providing a
+        user with a valid session ID, often obtained by sending a crafted link
+        or through a phishing attack. If the user logs in using the provided
+        session ID, the attacker can then use the same session ID to gain access
+        to the user's account or carry out actions on behalf of the
+        user.</p><p>To prevent session fixation, web applications should ensure
+        that a new session ID is generated for each user upon login, rather than
+        accepting a pre-existing session ID. Additionally, the session ID should
+        be regenerated upon certain events such as a change in user privilege or
+        login status. This helps to ensure that the session ID cannot be fixed
+        and is therefore more secure.</p>
+      remediation: >-
+        <p>To protect against session fixation, there are several best practices
+        that web applications should follow:</p><ul><li><p>Regenerate Session
+        IDs: Upon login, web applications should generate a new session ID for
+        each user. This ensures that the session ID cannot be predetermined or
+        fixed by an attacker. Additionally, the session ID should be regenerated
+        upon certain events such as a change in user privilege or login
+        status.</p></li><li><p>Use Strong Session IDs: Session IDs should be
+        long, random, and complex. This makes them difficult for an attacker to
+        guess or brute-force.</p></li><li><p>Use HTTPS: Web applications should
+        use HTTPS to encrypt all communication between the client and server.
+        This helps to prevent session hijacking and other types of attacks that
+        can compromise the user's session.</p></li><li><p>Use HttpOnly and
+        Secure Cookies: HttpOnly cookies cannot be accessed by client-side
+        scripts, which helps to prevent cross-site scripting (XSS) attacks.
+        Secure cookies can only be transmitted over HTTPS, which helps to
+        prevent the interception of session IDs over unsecured
+        connections.</p></li><li><p>Implement Session Timeout: Web applications
+        should implement a session timeout to automatically log out users after
+        a period of inactivity. This reduces the risk of session hijacking if
+        the user leaves their session open on a public computer or if their
+        device is lost or stolen.</p></li></ul><p>For ASP applications the OWASP
+        foundation has some additional recommnedations on how this situation
+        could be
+        tackled:<br>https://owasp.org/www-community/controls/Session_Fixation_Protection</p>
+      references:
+        - 'https://owasp.org/www-community/attacks/Session_fixation'
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:L/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-SESS-01: Session-Token in URL'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Session tokens are used to identify and authenticate a user's session
+        on a website or application. They need to be secured to prevent
+        unauthorized access to a user's account and sensitive information, such
+        as personal data or financial information. If a session token is
+        compromised, an attacker could hijack a user's session and gain access
+        to their account, potentially causing significant harm to the user and
+        the organization.</p><p>When session tokens are sent as part of the URL,
+        they appear in the user's browser history and in log files on web
+        servers or proxies. A compromise of the user's client might allow an
+        attacker to get access to the session token via the history and take
+        over the session if it has not already been invalidated.
+        <br>Administrators may have access the session tokens of all users via
+        the logs of proxies or web servers. <br>A compromised web server would
+        allow an attacker to access all sessions or accounts.</p>
+      remediation: >-
+        <p>Session tokens should not be send as part of the URL. <br>Using HTTP
+        cookies or hidden fields in forms submitted with POST parameters should
+        be used as a safe way of transmitting session tokens. This measure
+        ensures that the session tokens are not visible in the browser history
+        or in log files.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/01-Testing_for_Session_Management_Schema
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-IDNT-04: User Enumeration'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>User enumeration is a technique used by attackers to discover valid
+        usernames or email addresses associated with user accounts in a web
+        application. This is typically done by submitting login requests with
+        various usernames or email addresses and observing the response from the
+        server.</p><p>The response from the server can indicate whether a
+        username or email address is valid or not. For example, if an attacker
+        submits a login request with an invalid username, the server may respond
+        with a message indicating that the username is incorrect. On the other
+        hand, if the attacker submits a login request with a valid username, the
+        server may respond with a message indicating that the password is
+        incorrect. By using this technique, attackers can gradually build a list
+        of valid usernames or email addresses that can be used in further
+        attacks, such as password guessing or targeted phishing
+        attacks.</p><p>User enumeration is dangerous because it provides
+        attackers with a list of valid usernames or email addresses that can be
+        used to launch more targeted attacks against the web application or its
+        users. For example, if an attacker knows that a particular email address
+        is associated with a user account on the web application, they can
+        launch a phishing attack that appears to come from the web application
+        and requests the user to reset their password, giving the attacker
+        access to the user's account.</p><p>Furthermore, user enumeration can
+        also help attackers understand the structure of the web application and
+        identify potential vulnerabilities. For instance, if the server responds
+        differently to invalid and valid usernames, this may indicate that the
+        application is vulnerable to a timing attack, where an attacker can use
+        timing differences to determine valid usernames or
+        passwords.</p><p>Overall, user enumeration is a dangerous vulnerability
+        in web applications that can be exploited by attackers to launch
+        targeted attacks and gain unauthorized access to sensitive data. It is
+        important for web application developers to implement measures to
+        prevent user enumeration, such as returning the same error message for
+        all login failures or using CAPTCHA to prevent automated login
+        attempts.</p>
+      remediation: >-
+        <p>Generate unspecific error messages that do not allow an attacker to
+        draw conclusions if a user exists or not.</p>
+      references: []
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-ATHN-06: Browser Cache holding Sensitive Data'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Browser Cache Weaknesses refer to vulnerabilities in web applications
+        that allow sensitive information, such as personal data, authentication
+        tokens, or other confidential information, to be stored in the cache of
+        the user's web browser. This information can remain in the cache even
+        after the user logs out of the web application or closes the browser,
+        and can be accessible to attackers who gain access to the user's
+        computer or device.</p><p>These weaknesses are dangerous because they
+        can enable attackers to obtain sensitive information without needing to
+        directly attack the web application itself. Instead, attackers can
+        exploit the weakness by accessing the user's cache, either through
+        physical access to the user's device or by using malware or other
+        techniques to gain remote access.</p><p>Once an attacker gains access to
+        the cached information, they can use it for a variety of malicious
+        purposes, such as identity theft, fraud, or unauthorized access to the
+        web application or other systems that use the same authentication
+        tokens.</p><p>To mitigate Browser Cache Weaknesses, developers should
+        implement appropriate measures, such as using HTTPS connections, setting
+        proper caching headers, and implementing mechanisms to clear the cache
+        of sensitive information when the user logs out or closes the browser.
+        Additionally, users should be educated on the risks of cached
+        information and advised to clear their browser cache regularly.</p>
+      observation: <p></p><p></p>
+      remediation: >-
+        <p>Implement a strict control of the browser's cache for sensitive data
+        by using the Cache-Control headers.<br>More info can be found here:
+        https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-APIT-01: Exposed GraphQL Playground'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>GraphQL Playground is a graphical user interface (GUI) that is used
+        to test, explore, and interact with GraphQL APIs. It provides an
+        interactive environment that allows developers to query a GraphQL API,
+        see the schema, and test various queries and mutations.</p><p>GraphQL
+        Playground is a useful tool for both frontend and backend developers, as
+        it enables them to easily test and iterate on their GraphQL API without
+        having to manually construct requests and parse responses. With GraphQL
+        Playground, developers can quickly test out new queries and mutations,
+        see the results in real-time, and experiment with different parameters
+        and inputs.</p><p>Additionally, GraphQL Playground provides a variety of
+        features that make working with GraphQL APIs easier, such as syntax
+        highlighting, autocomplete, and documentation. It can also be used to
+        view the GraphQL schema, explore the available types, and understand the
+        structure of the API.</p><p>Overall, GraphQL Playground is a powerful
+        tool that simplifies the process of developing and testing GraphQL APIs,
+        and makes it easier for developers to build high-quality
+        applications.<br><br>From an attacker's perspective all this info can
+        come in useful, leaving them with a documentation what and how things
+        are working.</p>
+      remediation: >-
+        <p>Restrict access to the GrapQL Playground, so only authorized users or
+        systems can access it.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:L'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-BUSL-07: Application Misuse due to missing Throttling'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Abusing an application by sending masses of requests can have several
+        negative impacts on an application:<br>- It might get slow or even
+        unresponsive<br>- It gets flooded with garbage data which makes it
+        harder to use the app<br>- Flooding the database might kill backend
+        systems or result in unexpected behavior<br>- ...<br></p>
+      remediation: >-
+        <p>Implement measures that reduce the amount of requests that can be
+        made within a certain timeframe from a dedicated IP.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/10-Business_Logic_Testing/07-Test_Defenses_Against_Application_Misuse
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:L/I:L/A:N'
+  priority: 1
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-SESS-06: Missing Session Termination'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Session termination is an important part of the session lifecycle.
+        Reducing to a minimum the lifetime of the session tokens decreases the
+        likelihood of a successful session hijacking attack. This can be seen as
+        a control against preventing other attacks like Cross Site Scripting and
+        Cross Site Request Forgery. Such attacks have been known to rely on a
+        user having an authenticated session present. Not having a secure
+        session termination only increases the attack surface for any of these
+        attacks.</p><p>A secure session termination requires at least the
+        following components:</p><ul><li><p>Availability of user interface
+        controls that allow the user to manually log out.</p></li><li><p>Session
+        termination after a given amount of time without activity (session
+        timeout).</p></li><li><p>Proper invalidation of server-side session
+        state.</p></li></ul>
+      remediation: >-
+        <p>Sessions should get terminated automatically after a certain amount
+        of time.<br>Sessions should also get terminated when a user uses the
+        logout function of the application.<br>Make sure to find the right
+        balance between user experience and security.<br><br></p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/06-Testing_for_Logout_Functionality
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:H/A:N'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-BUSL-07: Application Misuse Input Validation'
+      vulnType: Poor Data Sanitization
+      description: >-
+        <p>Input validation is a crucial aspect of web security that involves
+        verifying and sanitizing user input to prevent malicious or unintended
+        actions. In web applications, user input can come from various sources,
+        such as form submissions, URL parameters, and HTTP headers, and it is
+        important to ensure that this input is valid and safe to use before
+        processing it.</p><p>Input validation involves checking that the user
+        input conforms to expected formats, types, and ranges, and rejecting any
+        input that does not meet these criteria. This can help prevent a wide
+        range of attacks, including SQL injection, cross-site scripting (XSS),
+        and command injection, which can be used to steal sensitive data, modify
+        application behavior, or take over the server.</p><p>In addition to
+        validating input, it is also important to sanitize it by removing any
+        potentially dangerous characters or sequences, such as HTML tags,
+        JavaScript code, or shell commands. This can help prevent attacks that
+        rely on injecting malicious code into the application, and can help
+        ensure that the user input is used only for its intended
+        purpose.</p><p>Overall, input validation and sanitization are essential
+        techniques for ensuring web security, and should be applied consistently
+        throughout the application to help prevent a wide range of attacks. By
+        carefully validating and sanitizing user input, developers can help
+        protect their users' data and prevent malicious actors from exploiting
+        vulnerabilities in the application.</p>
+      remediation: >-
+        <p>Input validation should be implemented throughout the application.
+        Special characters and things like URLs should be sanitized.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/10-Business_Logic_Testing/07-Test_Defenses_Against_Application_Misuse
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-ATHN-03: Faulty Brute-Force Protection'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Brute-force protection is a mechanism used to prevent attackers from
+        guessing a user's login credentials through a trial-and-error process
+        known as a brute-force attack. In this type of attack, an attacker tries
+        multiple combinations of usernames and passwords until they find the
+        correct one, allowing them to gain unauthorized access to the
+        system.</p><p>To prevent brute-force attacks, login functionality may
+        include various brute-force protection measures. One common method is to
+        limit the number of login attempts within a specified time frame. For
+        example, after three failed login attempts, the system may lock the
+        account or impose a time delay before allowing additional login
+        attempts. This prevents an attacker from trying an unlimited number of
+        combinations in a short period.</p><p>Another method of brute-force
+        protection is to implement a CAPTCHA (Completely Automated Public Turing
+        test to tell Computers and Humans Apart) system, which requires the user
+        to enter a visual or audio challenge-response test that only humans can
+        solve. This helps to prevent automated bots from attempting multiple
+        login attempts in quick succession.</p><p>In summary, brute-force
+        protection is used to prevent attackers from guessing a user's login
+        credentials through a trial-and-error process. This is typically
+        achieved by limiting the number of login attempts within a specified
+        time frame, or by implementing a CAPTCHA system to prevent automated
+        attacks. These measures help to improve the security of login
+        functionality and protect user accounts from unauthorized access.</p>
+      remediation: >-
+        <p>Implement a valuable protection mechanism against brute-force
+        attempts.<br>Detailed info can be found in the description section of
+        this finding.<br>In this case check why the implemented protection is
+        not working as designed.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/04-Authentication_Testing/03-Testing_for_Weak_Lock_Out_Mechanism
+        - 'https://owasp.org/www-community/attacks/Brute_force_attack'
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-ERRH-01: Detailed Stack Traces'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>In a web app, a stack trace is a report that shows the sequence of
+        function calls that led to an error or exception being thrown. It helps
+        developers diagnose and fix issues in the code by identifying the
+        specific code paths that caused the error.</p><p>However, if a detailed
+        stack trace is visible to an attacker, it can reveal sensitive
+        information about the application, including the underlying
+        architecture, technologies, and potential vulnerabilities. An attacker
+        can use this information to exploit the application, gain unauthorized
+        access, or launch other types of attacks. Therefore, it is crucial to
+        protect the stack trace from being accessible to unauthorized users and
+        to minimize the amount of sensitive information it reveals.</p>
+      remediation: >-
+        <p>Stack traces should be disabled to not reveal any sensitive info that
+        might be useful to an attacker.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:L'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: FTP Server Configuration
+      vulnType: Misconfiguration
+      description: >-
+        <p>The remote host is running a FTP service that allows cleartext logins
+        over unencrypted connections. An attacker can uncover login names and
+        passwords by sniffing traffic to the FTP service. Based on the files
+        accessible via this FTP login and the permissions of this account an
+        attacker might be able to gain access to sensitive files and upload or
+        delete files.</p>
+      observation: >-
+        <p>The remote host is running a FTP service that allows cleartext logins
+        over unencrypted connections.</p><p>This FTP Server allows anonymous
+        logins.</p>
+      remediation: >-
+        <p>Enable FTPS or enforce the connection via the AUTH TLS command.
+        Please see the manual of the FTP service for more
+        information.</p><p>Disable anonymous login if not needed.</p>
+      references:
+        - >-
+          https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/sites/site/ftpserver/security/ssl
+        - >-
+          https://wiki.filezilla-project.org/FTPS_using_Explicit_TLS_howto_(Server)
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:L/A:L'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: LDAP Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Unsigned network traffic is susceptible to man-in-the-middle attacks
+        in which an intruder captures the packets between the client and server,
+        modifies them, and then forwards them to the server. When Channel
+        Binding is not enforced it is possible to abuse protocol transition to
+        relay logins from http to ldap.</p>
+      observation: >-
+        <p>The server doesn’t require LDAP clients to negotiate data signing.
+        </p><p>The Server is not using LDAP Channel Binding Token.</p><p></p>
+      remediation: >-
+        <p>Use local, remote, generic, or device-specific tracing tools. These
+        include network captures, process manager, or debug traces. Determine
+        whether the core operating system, a service, or an application is
+        performing unsigned LDAP binds or is not using CBT.</p>
+      references:
+        - >-
+          https://support.microsoft.com/en-au/topic/2020-and-2023-ldap-channel-binding-and-ldap-signing-requirements-for-windows-kb4520412-ef185fb8-00f7-167d-744c-f299a66fc00a
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:N'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SSH Server Configuration
+      vulnType: Misconfiguration
+      description: >-
+        <p>The SSH Server allows login in unsecured manner or as root user. The
+        root account should not be allowed to login via SSH with a password. It
+        is best practice, also for auditing purpose, to log in with a
+        personalized account and secure the privilege elevation with an
+        additional security mechanism.</p><p>Ensure permissions are properly set
+        on folders containing sensitive private keys to prevent unintended
+        access. When possible, store keys on separate cryptographic hardware
+        instead of on the local system.</p>
+      observation: >-
+        <p>SSH root login via password possible.</p><p>Unprotected SSH Keys
+        found.</p>
+      remediation: >-
+        <p>Disable SSH root login if not strictly needed.</p><p>Restrict SSH
+        root login to public key authentication or GSSAPI.</p>
+      references:
+        - >-
+          https://www.beyondtrust.com/blog/entry/ssh-key-management-overview-6-best-practices
+        - 'https://www.howtoforge.com/tutorial/openssh-security-best-practices/'
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L'
+  priority: 3
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Client Isolation
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>It is best practice to isolate Clients in their own VLAN or restrict
+        LAN communication via Host based Firewall to reduce Lateral Movement
+        possibilities.</p>
+      observation: >-
+        <p>Other Clients have been seen on the network and did not restrict
+        Client to Client communication.</p>
+      remediation: >-
+        <p>Configure the firewall in such a way that clients cannot communicate
+        to every service another client hosts. Drop Inbound communication to the
+        clients on port 445, if they do not host a file share that needs to be
+        accessible.</p><p>Implement private VLANs for the Clients.</p>
+      references:
+        - >-
+          https://support.microsoft.com/en-us/topic/preventing-smb-traffic-from-lateral-connections-and-entering-or-leaving-the-network-c0541db7-2244-0dce-18fd-14a3ddeb282a
+        - >-
+          https://learn.microsoft.com/de-de/windows/security/threat-protection/windows-firewall/firewall-policy-design-example
+        - >-
+          https://community.fs.com/de/blog/what-is-private-vlan-and-how-it-works.html
+        - >-
+          https://www.prosec-networks.com/blog/netztrennung-und-network-access-control
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Endangering network traffic based on Spanning-Tree
+      vulnType: Misconfiguration
+      description: >-
+        <p>The spanning tree protocol protects networks from unwanted frame
+        duplications or so-called broadcast storms as a result of intended
+        redundancies in networks by determining on layer 2, on a tree structure
+        among the switches, which path the data frames should take depending on
+        the STP version used.</p><p>For this purpose STP uses BPDU Packets to
+        create, propagate, maintain and adapt this important tree
+        structure.</p><p>Sent or received BPDU packets are generally
+        trusted.</p><p>This means that any device that can process BPDU packets
+        can also participate in and influence the spanning tree process of the
+        switches of a network.</p><p>This gives attackers the opportunity to try
+        to become the root bridge themselves and consequently to run all
+        possible network traffic through themselves as man in the middle. With
+        more destructive intent, this can also be used as an attack vector to
+        cause a denial of service.</p>
+      observation: <p>STP on Access Ports.</p><p>Reaction on malicious BPDUs.</p>
+      remediation: >-
+        <p>Implement BPDU Guard and / or BPDU Filter on Access Ports. Cisco has
+        a Feature called edge port where BPDU Guard and Filter and Portfast are
+        activated, as long as no BPDU is received by that port. Use STP Root
+        Guard to prevent unsuitable ports from becoming STP root ports. An
+        example of an unsuitable port is a port that link to a device that is
+        outside direct network administrative control.</p>
+      references:
+        - >-
+          https://community.cisco.com/t5/switching/difference-between-portfast-and-edge-port/td-p/3898714
+        - >-
+          https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst6500/ios/12-2SX/best/practices/recommendations.html#wp1061957
+        - >-
+          https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst6500/ios/12-2SX/best/practices/recommendations.html#wp1052377
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Certificate ESC1 - Subject Alternative Name
+      vulnType: Misconfiguration
+      description: >-
+        <p>A Subject Alternative Name (SAN) is an X.509v3 extension. When added
+        to a certificate, it allows additional identities to be bound to a
+        certificate beyond just the subject of the certificate.</p><p>A common
+        use for SANs is supplying additional host names for HTTPS certificates.
+        For example, if a web server hosts content for multiple domains, each
+        applicable domain could be included in the SAN so that the web server
+        only needs a single HTTPS certificate instead of one for each
+        domain.</p><p>If an attacker can specify an arbitrary SAN when
+        requesting a certificate that has an EKU enabling client authentication
+        and the CA creates and signs a certificate using the attacker- supplied
+        SAN, the attacker can become any user in the domain.</p>
+      observation: <p>SAN available</p>
+      remediation: >-
+        <p>Do not publish templates such as Root CA or Sub CA.</p><p>Where
+        possible add issuance requirements such as Manager Approval.</p><p>Do
+        not allow Subject alternative Names in Certificates, when possible.</p>
+      references:
+        - 'https://www.specterops.io/assets/resources/Certified_Pre-Owned.pdf'
+        - 'https://luemmelsec.github.io/Skidaddle-Skideldi-I-just-pwnd-your-PKI/'
+        - >-
+          https://itpro.outsidesys.com/2018/03/21/adcs-manage-pki-certificate-templates/
+        - >-
+          https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx
+        - >-
+          https://social.technet.microsoft.com/Forums/windows/en-US/492e2838-18d8-4917-98b8-40ca8fde40c9/ad-cs-best-practices-when-creating-certificates-and-their-templates?forum=winservergen
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Certificate ESC2 - Any Purpose
+      vulnType: Misconfiguration
+      description: >-
+        <p>Certificates with empty or "Any Purpose" "Extended Key Usage" are
+        enabled for enrollment. Any user with enrollment rights for such
+        certificates can become a Subordinate Certificate Authority and can
+        create valid certificates. By abusing the certificate, the owner can get
+        high privileges and persistence.</p>
+      observation: <p>Certificate with "Any Purpose" published.</p>
+      remediation: >-
+        <p>Do not publish templates such as Root CA or Sub CA.</p><p>Add where
+        possible, issuance requirements such as manager approval.</p>
+      references:
+        - 'https://www.specterops.io/assets/resources/Certified_Pre-Owned.pdf'
+        - 'https://luemmelsec.github.io/Skidaddle-Skideldi-I-just-pwnd-your-PKI/'
+        - >-
+          https://itpro.outsidesys.com/2018/03/21/adcs-manage-pki-certificate-templates/
+        - >-
+          https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx
+        - >-
+          https://social.technet.microsoft.com/Forums/windows/en-US/492e2838-18d8-4917-98b8-40ca8fde40c9/ad-cs-best-practices-when-creating-certificates-and-their-templates?forum=winservergen
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N'
+  priority: 4
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Certificate ESC8 - Web Enrollment Service
+      vulnType: Misconfiguration
+      description: >-
+        <p>The Server is an Certificate Authority with Web Enrollment features
+        activated. A successful exploitation enables an attacker, e.g. by
+        chaining a coercion exploit to obtain the Domain Controller certificate.
+        This can be used to get a Kerberos ticket and take full control of the
+        domain. </p>
+      observation: <p>Web enrollment active with NTLM authentication enabled.</p>
+      remediation: >-
+        <p>To prevent NTLM Relay Attacks on networks with NTLM enabled, domain
+        administrators must ensure that services that permit NTLM authentication
+        make use of protections such as Extended Protection for Authentication
+        (EPA) or signing features such as SMB signing.</p>
+      references:
+        - 'https://msrc.microsoft.com/update-guide/vulnerability/ADV210003'
+        - >-
+          https://support.microsoft.com/de-de/topic/kb5005413-mitigating-ntlm-relay-attacks-on-active-directory-certificate-services-ad-cs-3612b773-4043-4aa9-b23d-b87910cd3429
+        - 'https://www.specterops.io/assets/resources/Certified_Pre-Owned.pdf'
+        - 'https://luemmelsec.github.io/Skidaddle-Skideldi-I-just-pwnd-your-PKI/'
+        - >-
+          https://itpro.outsidesys.com/2018/03/21/adcs-manage-pki-certificate-templates/
+        - >-
+          https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx
+        - >-
+          https://social.technet.microsoft.com/Forums/windows/en-US/492e2838-18d8-4917-98b8-40ca8fde40c9/ad-cs-best-practices-when-creating-certificates-and-their-templates?forum=winservergen
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Certificate ESC6 - EDITF_ATTRIBUTESUBJECTALTNAME2
+      vulnType: Misconfiguration
+      description: >-
+        <p>The EDITF_ATTRIBUTESUBJECTALTNAME2 flag is set on the CA. This flag
+        allows the enrollee to specify an arbitrary SAN on all certificates
+        despite a certificate template’s configuration.</p>
+      observation: <p>The EDITF_ATTRIBUTESUBJECTALTNAME2 flag is set on the CA.</p>
+      remediation: '<p>Apply the vendors update: May 2022 security (CVE-2022-26923)</p>'
+      references:
+        - 'https://www.specterops.io/assets/resources/Certified_Pre-Owned.pdf'
+        - 'https://luemmelsec.github.io/Skidaddle-Skideldi-I-just-pwnd-your-PKI/'
+        - >-
+          https://itpro.outsidesys.com/2018/03/21/adcs-manage-pki-certificate-templates/
+        - >-
+          https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx
+        - >-
+          https://social.technet.microsoft.com/Forums/windows/en-US/492e2838-18d8-4917-98b8-40ca8fde40c9/ad-cs-best-practices-when-creating-certificates-and-their-templates?forum=winservergen
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Certificate ESC11 - ICertPassage Remote Protocol
+      vulnType: Misconfiguration
+      description: >-
+        <p>The <a target="_blank" rel="noopener noreferrer nofollow"
+        href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-icpr/9b8ed605-6b00-41d1-9a2a-9897e40678fc">MS-ICPR</a>
+        protocol is used (e.g. by <code>certreq.exe </code>with the
+        <code>-rpc</code> flag) to request certificates. It offers the same
+        functionalities as the Windows Client Certificate Enrollment (<a
+        target="_blank" rel="noopener noreferrer nofollow"
+        href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wcce/446a0fca-7f27-4436-965d-191635518466">MS-WCCE</a>)
+        protocol but does this over its own interface and not over
+        MS-DCOM.</p><p>The documentation for the CertServerRequest function (<a
+        target="_blank" rel="noopener noreferrer nofollow"
+        href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-icpr/0c6f150e-3ead-4006-b37f-ebbf9e2cf2e7">MS-ICPR
+        3.2.4.1.1</a>) states:</p><p>If the ADM element <a target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://Config.CA"><em>Config.CA</em></a><em>.Interface.Flags</em>
+        contains the value IF_ENFORCEENCRYPTICERTREQUEST and the
+        RPC_C_AUTHN_LEVEL_PKT_PRIVACY authentication level ([MS-RPCE] section <a
+        target="_blank" rel="noopener noreferrer nofollow"
+        href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rpce/425a7c53-c33a-4868-8e5b-2a850d40dc73">2.2.1.1.8</a>)
+        is not specified on the RPC connection from the client, the CA MUST
+        refuse to establish a connection with the client by returning
+        E_ACCESSDENIED (0x80000009).</p><p>In other words, packet privacy is
+        enabled if the <code>IF_ENFORCEENCRYPTICERTREQUEST</code> flag is set
+        and relaying is hence not possible.</p><p>This flag is set by default on
+        Windows Server 2012 and higher.</p>
+      observation: <p>IF_ENFORCEENCRYPTICERTREQUEST flag not set.</p>
+      remediation: >-
+        <p>Enforce encryption for ICPR by setting the
+        IF_ENFORCEENCRYPTICERTREQUEST flag on the CA and restrat the
+        service:</p><p>certutil -setreg CA\InterfaceFlags
+        +IF_ENFORCEENCRYPTICERTREQUEST</p><p>net stop certsvc &amp; net start
+        certsvc</p><p>Be aware this could break compatibility with older windows
+        client or non-windows clients.</p>
+      references:
+        - >-
+          https://blog.compass-security.com/2022/11/relaying-to-ad-certificate-services-over-rpc/
+        - >-
+          https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-icpr/9b8ed605-6b00-41d1-9a2a-9897e40678fc
+        - 'https://www.specterops.io/assets/resources/Certified_Pre-Owned.pdf'
+        - 'https://luemmelsec.github.io/Skidaddle-Skideldi-I-just-pwnd-your-PKI/'
+        - >-
+          https://itpro.outsidesys.com/2018/03/21/adcs-manage-pki-certificate-templates/
+        - >-
+          https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx
+        - >-
+          https://social.technet.microsoft.com/Forums/windows/en-US/492e2838-18d8-4917-98b8-40ca8fde40c9/ad-cs-best-practices-when-creating-certificates-and-their-templates?forum=winservergen
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Certificate ESC4 - Vulnerable Certificate Template Access Control
+      vulnType: Misconfiguration
+      description: >-
+        <p>Certificate Templates are the basis for Certificate requesting. They
+        are published on an issuing Certificate Authority (MS ADCS). Any User
+        with write access to such Templates can modify them without invalidating
+        existing Certificates. By modifying the template to having additional
+        vulnerabilities such as Enrollee supplies Subject (ESC1 - Subject
+        alternative name), this template may serve as a privilege
+        escalation.</p>
+      observation: <p>Unnecessary write access to Certificate Templates.</p>
+      remediation: <p>Restrict writable access to only necessary accounts or groups.</p>
+      references:
+        - 'https://www.specterops.io/assets/resources/Certified_Pre-Owned.pdf'
+        - 'https://luemmelsec.github.io/Skidaddle-Skideldi-I-just-pwnd-your-PKI/'
+        - >-
+          https://itpro.outsidesys.com/2018/03/21/adcs-manage-pki-certificate-templates/
+        - >-
+          https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx
+        - >-
+          https://social.technet.microsoft.com/Forums/windows/en-US/492e2838-18d8-4917-98b8-40ca8fde40c9/ad-cs-best-practices-when-creating-certificates-and-their-templates?forum=winservergen
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N'
+  priority: 4
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Certificate ESC3 - Misconfigured Enrollment Agent Templates
+      vulnType: Misconfiguration
+      description: >-
+        <p>Certificate Templates are the basis for Certificate requesting. They
+        are published on an issuing Certificate Authority (MS ADCS).
+        Certificates can be Certificate Request Agent EKU. This EKU can be used
+        to request certificates on behalf of other users. With an Enrollment
+        Agent Certificate it is possible to request Certificates on behalf ot
+        other users. The certificate owner has the posibillity to request a
+        usercertificate for administrators.</p>
+      observation: <p>Access to Enrollment Agent Certificates / Templates.</p>
+      remediation: >-
+        <p>Restrict enrollment rights to only nessesary accounts or groups.
+        Implement Manager Approval or/and require aditional authorized
+        signatures.</p>
+      references:
+        - 'https://www.specterops.io/assets/resources/Certified_Pre-Owned.pdf'
+        - 'https://luemmelsec.github.io/Skidaddle-Skideldi-I-just-pwnd-your-PKI/'
+        - >-
+          https://itpro.outsidesys.com/2018/03/21/adcs-manage-pki-certificate-templates/
+        - >-
+          https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx
+        - >-
+          https://social.technet.microsoft.com/Forums/windows/en-US/492e2838-18d8-4917-98b8-40ca8fde40c9/ad-cs-best-practices-when-creating-certificates-and-their-templates?forum=winservergen
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N'
+  priority: 3
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Coercion Attack
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Successful exploitation will allow an attacker to relay the domain
+        controller NetNTLMv2 authentication against a target, primarily
+        preferred the Active Directory Certificate Services
+        (ADCS).</p><p>Microsoft's Distributed File System Namespace Management
+        protocol (MS-DFSNM) coerce authentication using NetrDfsRemoveStdRoot and
+        NetrDfsAddStdRoot methods.</p><p>The Local Security Authority Remote
+        Procedure Call (LSARPC) and Encrypting File System Remote Procedure Call
+        (EFSRPC) named pipes.</p><p>MS-FSRVP is Microsoft's File Server Remote
+        VSS Protocol.</p>
+      observation: >-
+        <p>Possibility to abuse the Coercion to gain more access =
+        High</p><p>else Medium</p>
+      remediation: >-
+        <p>Use the Windows built-in RPC Filters or RPC Firewall to prevent
+        servers from being coerced.</p>
+      references:
+        - 'https://github.com/zeronetworks/rpcfirewall/releases/'
+        - 'https://github.com/p0dalirius/Coercer'
+        - >-
+          https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31
+        - 'https://github.com/topotam/PetitPotam'
+        - 'https://msrc.microsoft.com/update-guide/vulnerability/ADV210003'
+        - 'https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36942'
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: MS12-020 RDP DoS or RCE
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>The Remote Desktop Protocol (RDP) implementation in Microsoft Windows
+        XP SP2 and SP3, Windows Server 2003 SP2, Windows Vista SP2, Windows
+        Server 2008 SP2, R2, and R2 SP1, and Windows 7 Gold and SP1 does not
+        properly process packets in memory, which allows remote attackers to
+        execute arbitrary code by sending crafted RDP packets triggering access
+        to an object that (1) was not properly initialized or (2) is deleted,
+        aka "Remote Desktop Protocol Vulnerability."</p>
+      observation: <p>MS12-020 via MSF</p>
+      remediation: <p>Apply the patches released by Microsoft.</p>
+      references:
+        - >-
+          https://learn.microsoft.com/en-us/security-updates/securitybulletins/2012/ms12-020
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: noPac Exploit
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>An attacker could abuse the "SAM Name Impersonation" and default
+        "MS-DS-Machine-Account-Quota" of 10 to create a new Computer Account in
+        the Active Directory and rename it to the Domain Controller, without the
+        trailing $. After that he could request a Ticket-Granting-Ticket and
+        abuse the second vulnerability "KDC bamboozling" by changing the
+        Computer to its original name and requesting a Ticket-Granting-Service
+        Ticket. The "Key Distribution Center" will fail and search the name with
+        a trailing $. The KDC will issue a TGS Ticket with DC
+        privileges.</p><p>CVE-2021-42278, CVE-2021-42287</p><p></p>
+      observation: <p>Different PAC Size</p>
+      remediation: >-
+        <p>Apply the November 2021 patches provided by Microsoft to all Domain
+        Controllers.</p><p>Change the MS-DS-Machine-Account-Quota attribute,
+        that no "regular" Domain User can create computers in the Active
+        Directory.</p>
+      references:
+        - >-
+          https://techcommunity.microsoft.com/t5/security-compliance-and-identity/sam-name-impersonation/ba-p/3042699
+        - >-
+          https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2021-42278
+        - >-
+          https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2021-42287
+        - >-
+          https://learn.microsoft.com/en-us/windows/win32/adschema/a-ms-ds-machineaccountquota
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: IIS Shortname Disclosure
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Microsoft IIS Webserver is prone to a information disclosure
+        vulnerability. Tilde character "~" can be used to find short names of
+        files and folders when the website is running on IIS. The attacker can
+        find important file and folders that they are not normaly visible.</p>
+      observation: <p>MSF IIS ~Char Finding</p>
+      remediation: >-
+        <p>Using a configured WAF may be useful (discarding web requests
+        including the tilde "~" character).</p><p>Deploy IIS with 8.3 names
+        disabled by creating the following registry key on a Windows operating
+        system:</p><p>Key:
+        HKLMSYSTEMCurrentControlSetControlFileSystem</p><p>Name:
+        NtfsDisable8dot3NameCreation </p><p>Value: 1 </p><p>The web folder needs
+        to be recreated, as the change to the NtfsDisable8dot3NameCreation
+        registry entry affects only files and directories that are created after
+        the change, so the files that already exist are not affected.</p>
+      references:
+        - >-
+          https://soroush.secproject.com/downloadable/iis_tilde_shortname_disclosure.txt
+        - 'https://github.com/irsdl/iis-shortname-scanner/tree/master/'
+        - 'http://support.microsoft.com/kb/142982/en-us'
+        - >-
+          http://soroush.secproject.com/blog/2010/07/iis5-1-directory-authentication-bypass-by-using-i30index_allocation/
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: RPC Portmap Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>The port mapper is an Open Network Computing Remote Procedure Call
+        (ONC RPC) service that runs on network nodes that provide other ONC RPC
+        services.</p><p>Version 2 of the port mapper protocol maps ONC RPC
+        program number/version number pairs to the network port number for that
+        version of that program.</p><p>Versions 3 and 4 of the protocol, called
+        the rpcbind protocol, map a program number/version number pair, and an
+        indicator that specifies a transport protocol, to a transport-layer
+        endpoint address for that program number/version number pair on that
+        transport protocol.</p><p>An Attacker can misuse the Portmap service for
+        a DRDoS attack on third-party devices in the network.</p>
+      observation: <p>MSF Amplification Check</p>
+      remediation: >-
+        <p>Disable RPC if not needed.</p><p>Restrict access to approved clients
+        only.</p><p></p>
+      references:
+        - 'https://www.debian.org/doc/manuals/securing-debian-manual/rpc.en.html'
+        - >-
+          https://www.a10networks.com/blog/how-defend-against-amplified-reflection-ddos-attacks/
+        - >-
+          https://security.stackexchange.com/questions/17210/sun-remote-procedure-call-port-111
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Network segmentation and segregation
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Sensitive services and devices are located in the same network range
+        or are reachable from other networks (especially the client network) and
+        are not sufficiently protected against manipulation or theft of data by
+        restrictive permissions and limitations implemented by firewalls,
+        routing, ACLs and Role Based Access Controls (RBAC) for
+        example.</p><p>Network segmentation is a best practice to ensure the
+        safety of your network assets by separating the systems containing
+        sensitive information from those that do not. The idea is to limit risk
+        and damage to a network, should an attacker be able to gain access.</p>
+      observation: >-
+        <p>It was possible to communicate with sensitive services and devices,
+        tap into their data flow, intercept, manipulate and redirect it, or
+        exploit any vulnerabilities in their configuration or design to
+        compromise data, services, users or devices.</p>
+      remediation: >-
+        <p>Plan and implement network segregation to separate sensitive,
+        critical and administrative devices and services into separate networks
+        based on their importance to the business, to regulate and monitor
+        access according to the business use cases.</p>
+      references:
+        - >-
+          https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/network-hardening/implementing-network-segmentation-and-segregation
+        - >-
+          https://www.prosec-networks.com/blog/netztrennung-und-network-access-control
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: PostgreSQL Server Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>PostgreSQL Services allow Remote login. If not configured correctly,
+        every client on network could connect to this service. An attacker could
+        bruteforce the service to gain access.</p>
+      observation: <p>PGSQL accessible</p>
+      remediation: >-
+        <p>Make sure to implement user and IP restrictions on PostgreSQL
+        database.</p>
+      references:
+        - 'https://www.postgresql.org/docs/8.1/client-authentication.html'
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: MySQL Server Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>MYSQL Services allows remote login. If not configured correctly,
+        every client on the network could connect to this service. An attacker
+        could brute-force the service to gain access.</p>
+      observation: <p>MySQL Server accessible.</p>
+      remediation: >-
+        <p>Make sure to implement user and IP restrictions on MySQL
+        database.</p>
+      references:
+        - >-
+          https://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: MSSQL Server Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Microsoft SQL-Server (MSSQL) includes a browser service which lets
+        users connect to instances of the database engine that are not listening
+        on the default port, without knowing the port number. In addition to
+        disclosing information about the network the SQL-Server is running on,
+        which can be used by potential attackers for preparation of further
+        attacks, openly accessible MSSQL browser services can be abused for DDoS
+        reflection attacks against third parties.</p><p>MSSQL Services allows
+        Remote login. If not configured correctly, every client on network could
+        connect to this service. An attacker could bruteforce the service to
+        gain access.</p>
+      remediation: >-
+        <p>If the MSSQL browser service is not needed, disable it. Otherwise,
+        restrict access to trusted clients, for example by blocking incoming
+        connections to port 1434/udp on the firewall.</p>
+      references:
+        - >-
+          https://dba.stackexchange.com/questions/206142/how-to-restrict-in-ssms-to-allow-remote-connections-only-specific-ip-host
+        - >-
+          https://community.spiceworks.com/topic/255162-restrict-access-to-ms-sql-server-per-user-by-ip-address
+        - >-
+          https://support.tilaa.com/hc/en-us/articles/228652467-How-can-I-disable-an-Open-Microsoft-SQL-Browser-
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SNMP Configuration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Simple Network Management Protocol is in versions 1-2c unencrypted
+        and the "Community String" is used as Access Control to the Systems.
+        There are some well known default Community Strings (public, private,
+        internal ...) which are often in use.</p>
+      remediation: >-
+        <p>Use SNMPv3 with authentication and privacy.</p><p>Restrict access to
+        management interfaces.</p><p>Restrict access to SNMP Service.</p>
+      references:
+        - 'https://checkmk.com/guides/network-monitoring#snmp-monitoring'
+        - 'https://www.paessler.com/de/it-explained/snmp'
+        - 'https://home.cyber.ee/~ahtbu/CDS2011/MaunoPihelgasSlides.pdf'
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: IPMI Hash disclosure
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>The IPMI 2.0 specification supports RMCP+ Authenticated Key-Exchange
+        Protocol (RAKP) authentication, which allows remote attackers to obtain
+        password hashes and conduct offline password guessing attacks by
+        obtaining the HMAC from a RAKP message 2 response from a
+        BMC.</p><p>CVE-2013-4786</p>
+      observation: >-
+        <p>It was possible to retrieve the password hash for a known or default
+        username.</p>
+      remediation: >-
+        <p>Disable the "IPMI over LAN" service if not needed.</p><p>If needed
+        disable the default accounts and create accounts with complex, not
+        guessable names. Use complex passwords that can hardly be
+        cracked.</p><p>Restrict access to the service.</p>
+      references:
+        - 'https://nvd.nist.gov/vuln/detail/cve-2013-4786'
+        - 'https://www.thomas-krenn.com/de/wiki/IPMI_Grundlagen'
+        - 'http://fish2.com/ipmi/remote-pw-cracking.html'
+        - >-
+          https://blog.rapid7.com/2013/07/02/a-penetration-testers-guide-to-ipmi/
+      customFields: []
+  category: Network Security
