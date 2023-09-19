@@ -2514,7 +2514,7 @@
   remediationComplexity: 1
   details:
     - locale: EN
-      title: Endangering network traffic based on Spanning-Tree
+      title: STP Configuration
       vulnType: Misconfiguration
       description: >-
         <p>The spanning tree protocol protects networks from unwanted frame
@@ -2815,12 +2815,12 @@
         - 'https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36942'
       customFields: []
   category: Network Security
-- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L'
   priority: 4
   remediationComplexity: 1
   details:
     - locale: EN
-      title: MS12-020 RDP DoS or RCE
+      title: RDP Vulnerability MS12-020
       vulnType: Outdated or Unpatched Software
       description: >-
         <p>The Remote Desktop Protocol (RDP) implementation in Microsoft Windows
@@ -2829,7 +2829,8 @@
         properly process packets in memory, which allows remote attackers to
         execute arbitrary code by sending crafted RDP packets triggering access
         to an object that (1) was not properly initialized or (2) is deleted,
-        aka "Remote Desktop Protocol Vulnerability."</p>
+        aka "Remote Desktop Protocol
+        Vulnerability."</p><p><em>CVE</em>-2012-0152</p>
       observation: <p>MS12-020 via MSF</p>
       remediation: <p>Apply the patches released by Microsoft.</p>
       references:
@@ -3085,5 +3086,53 @@
         - 'http://fish2.com/ipmi/remote-pw-cracking.html'
         - >-
           https://blog.rapid7.com/2013/07/02/a-penetration-testers-guide-to-ipmi/
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Layer 2 Neighbour Protocols Information disclosure
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Link Layer Discovery Protocol (LLDP) and Cisco Discovery Protocol
+        (CDP) are layer 2 neighbour discovery protocols that allows devices to
+        advertise device information to their directly connected
+        peers/neighbours. It is possible to acquire network information via
+        LLDP/CDP.</p>
+      observation: <p>LLDP / CDP Packets in TCP Dump or via yersinia.</p>
+      remediation: >-
+        <p>Disable the protocol if not needed.</p><p>Restrict access via
+        ACL.</p>
+      references:
+        - >-
+          https://www.linkedin.com/pulse/secure-l2-discovery-protocols-cdp-lldp-ali-almhdi
+        - >-
+          https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/cdp/configuration/15-mt/cdp-15-mt-book/nm-cdp-secure-cdp.html
+        - >-
+          https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-small-business-300-series-managed-switches/smb5578-configure-link-layer-discovery-protocol-lldp-port-settings-o.html
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Cisco DTP Auto Negotiation
+      vulnType: Misconfiguration
+      description: >-
+        <p>The default Port configuration for all Cisco Switches is dynamic
+        auto, which means that the Port can be either Access or Trunk and can
+        change it dynamically. Successful exploitation will allow an attacker to
+        change his Port to a Trunk and evade the Firewall. Also he may access
+        all other VLANs.</p>
+      observation: <p>DTP via yersinia.</p>
+      remediation: >-
+        <p>Disable DTP on all Accessports.</p><p><code>switchport
+        nonegotiation</code></p><p>on all Ports and configure all Trunk and
+        Accessports static.</p>
+      references:
+        - 'https://www.ciscopress.com/articles/article.asp?p=2181837&seqNum=8'
       customFields: []
   category: Network Security
