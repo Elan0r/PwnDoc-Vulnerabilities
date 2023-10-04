@@ -110,8 +110,7 @@
         to define policies that allow only trusted applications to run on a
         system. By enforcing strict application control policies, organizations
         can reduce the risk of "Bad USB" attacks by blocking the execution of
-        unauthorized or malicious code from USB
-        devices.</p></li></ol><p></p><p><br></p>
+        unauthorized or malicious code from USB devices.</p></li></ol>
       references: []
       customFields: []
   category: System Security
@@ -724,8 +723,7 @@
         For example, PowerShell v5 logs every script that is run, making it
         easier to trace the execution of malware. <br>These security features
         are not present in PowerShell v2.0, making it less secure, which at the
-        same time makes it a lucrative alternative for
-        attackers.</p></li></ul><p></p>
+        same time makes it a lucrative alternative for attackers.</p></li></ul>
       observation: >-
         <p>Language Mode Failure = Medium<br>Execution Policy =
         Low<br>PowerShell v2 = High</p>
@@ -778,7 +776,6 @@
         data.</p><p>By running LSA processes as PPL, Windows enhances the
         overall security of the operating system and helps mitigate various
         attack vectors that target system-level processes.</p>
-      observation: <p><br><br></p>
       remediation: >-
         <p>Activate LSA Protection by setting the following registry
         key:<br><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\LSA
@@ -1130,7 +1127,7 @@
         - best also not by administrators.<br>Exclusions should be kept to a
         minimum, where possible individually by system. So you should not
         globally exclude path x or application y, just because you need it on
-        one system out of hundreds.<br></p>
+        one system out of hundreds.</p>
       references: []
       customFields: []
   category: System Security
@@ -1357,7 +1354,7 @@
       remediation: >-
         <p>Enable Secure Boot via the following registry
         key:</p><p><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecureBoot\State\UEFISecureBootEnabled
-        = 1</code></p><p></p>
+        = 1</code></p>
       references:
         - >-
           https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot
@@ -1526,6 +1523,8 @@
       references:
         - >-
           https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/07-Test_HTTP_Strict_Transport_Security
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N'
@@ -1546,7 +1545,9 @@
         <p>It is recommened to publish as little information as possible about
         installed version statuses and reconfiguring the header information
         accordingly.</p>
-      references: []
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N'
@@ -1604,6 +1605,8 @@
         privileges.</p>
       references:
         - 'https://owasp.org/www-community/Broken_Access_Control'
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/09-Test_File_Permission
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:L/A:N'
@@ -1645,7 +1648,9 @@
         <p>Only use secured protocols and services to run applications.<br>In
         this case turn of the possibility to use the unencrypted HTTP version of
         the webapplication.</p>
-      references: []
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/01-Testing_for_Credentials_Transported_over_an_Encrypted_Channel
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N'
@@ -1684,6 +1689,8 @@
       references:
         - >-
           https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/03-Testing_for_Weak_Lock_Out_Mechanism
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:N'
@@ -1753,6 +1760,8 @@
       references:
         - >-
           https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/07-Testing_for_Weak_Password_Policy
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H'
@@ -1785,7 +1794,9 @@
         only be available to users that are assigned to the according
         groups.</p><p>Implement according measures to ensure a correct
         separation of user rights and functions.</p><p></p>
-      references: []
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/03-Testing_for_Privilege_Escalation
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N'
@@ -1969,7 +1980,11 @@
         group.<br>Disable cipher with 64-bit block size (3DES, DES,
         Blowfish).<br>Disable HTTP compression on the server or ignore if there
         is no secret in the page.</p>
-      references: []
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+        - >-
+          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.html
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L'
@@ -2011,6 +2026,8 @@
       references:
         - >-
           https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/09-Test_Upload_of_Malicious_Files
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N'
@@ -2029,7 +2046,9 @@
       remediation: >-
         <p>Mask the password in a way that no conclusions regarding the length
         can be drawn.</p>
-      references: []
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/07-Test_Defenses_Against_Application_Misuse
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:L/A:N'
@@ -2160,7 +2179,9 @@
       remediation: >-
         <p>Generate unspecific error messages that do not allow an attacker to
         draw conclusions if a user exists or not.</p>
-      references: []
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
@@ -2439,8 +2460,8 @@
         Binding is not enforced it is possible to abuse protocol transition to
         relay logins from http to ldap.</p>
       observation: >-
-        <p>The server doesn’t require LDAP clients to negotiate data signing.
-        </p><p>The Server is not using LDAP Channel Binding Token.</p><p></p>
+        <p>The server doesn’t require LDAP clients to negotiate data
+        signing.</p><p>The Server is not using LDAP Channel Binding Token.</p>
       remediation: >-
         <p>Use local, remote, generic, or device-specific tracing tools. These
         include network captures, process manager, or debug traces. Determine
@@ -2466,17 +2487,25 @@
         additional security mechanism.</p><p>Ensure permissions are properly set
         on folders containing sensitive private keys to prevent unintended
         access. When possible, store keys on separate cryptographic hardware
-        instead of on the local system.</p>
+        instead of on the local system.</p><p>The remote SSH server is
+        configured to allow / support weak key exchange (KEX)
+        algorithm(s).</p><p>The remote SSH server is configured to allow /
+        support weak host key algorithm(s).</p><p>The remote SSH server is
+        configured to allow / support weak encryption algorithm(s).</p><p>The
+        remote SSH server uses a weak (too small) public key size.</p>
       observation: >-
         <p>SSH root login via password possible.</p><p>Unprotected SSH Keys
-        found.</p>
+        found.</p><p>Weak Algorithms</p>
       remediation: >-
         <p>Disable SSH root login if not strictly needed.</p><p>Restrict SSH
-        root login to public key authentication or GSSAPI.</p>
+        root login to public key authentication or GSSAPI.</p><p>Use secure
+        Algorithmy as defined in the BSI TR-02102-4.</p>
       references:
         - >-
           https://www.beyondtrust.com/blog/entry/ssh-key-management-overview-6-best-practices
         - 'https://www.howtoforge.com/tutorial/openssh-security-best-practices/'
+        - >-
+          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-4.pdf
       customFields: []
   category: Network Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L'
@@ -2829,9 +2858,8 @@
         properly process packets in memory, which allows remote attackers to
         execute arbitrary code by sending crafted RDP packets triggering access
         to an object that (1) was not properly initialized or (2) is deleted,
-        aka "Remote Desktop Protocol
-        Vulnerability."</p><p><em>CVE</em>-2012-0152</p>
-      observation: <p>MS12-020 via MSF</p>
+        aka "Remote Desktop Protocol Vulnerability."</p>
+      observation: <p>MS12-020; <em>CVE</em>-2012-0152</p>
       remediation: <p>Apply the patches released by Microsoft.</p>
       references:
         - >-
@@ -2853,9 +2881,8 @@
         abuse the second vulnerability "KDC bamboozling" by changing the
         Computer to its original name and requesting a Ticket-Granting-Service
         Ticket. The "Key Distribution Center" will fail and search the name with
-        a trailing $. The KDC will issue a TGS Ticket with DC
-        privileges.</p><p>CVE-2021-42278, CVE-2021-42287</p><p></p>
-      observation: <p>Different PAC Size</p>
+        a trailing $. The KDC will issue a TGS Ticket with DC privileges.</p>
+      observation: '<p>Different PAC Size; CVE-2021-42278, CVE-2021-42287</p>'
       remediation: >-
         <p>Apply the November 2021 patches provided by Microsoft to all Domain
         Controllers.</p><p>Change the MS-DS-Machine-Account-Quota attribute,
@@ -2922,10 +2949,13 @@
         endpoint address for that program number/version number pair on that
         transport protocol.</p><p>An Attacker can misuse the Portmap service for
         a DRDoS attack on third-party devices in the network.</p>
-      observation: <p>MSF Amplification Check</p>
+      observation: >-
+        <p>Distributed Computing Environment / Remote Procedure Calls (DCE/RPC)
+        or MSRPC services running on the remote host can be enumerated by
+        connecting on port 135 and doing the appropriate queries.</p>
       remediation: >-
-        <p>Disable RPC if not needed.</p><p>Restrict access to approved clients
-        only.</p><p></p>
+        <p>Disable RPC if not needed. (non Microsoft only)</p><p>Restrict access
+        to approved clients only.</p>
       references:
         - 'https://www.debian.org/doc/manuals/securing-debian-manual/rpc.en.html'
         - >-
@@ -3012,7 +3042,7 @@
   remediationComplexity: 1
   details:
     - locale: EN
-      title: MSSQL Server Configuration
+      title: Microsoft SQL Server Configuration
       vulnType: Access Control or Unauthorized Access
       description: >-
         <p>Microsoft SQL-Server (MSSQL) includes a browser service which lets
@@ -3136,3 +3166,512 @@
         - 'https://www.ciscopress.com/articles/article.asp?p=2181837&seqNum=8'
       customFields: []
   category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Apache Tomcat multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>Apache Tomcat is prone to multiple vulnerabilities.</p>
+      observation: >-
+        <p>- HTTP request smuggling vulnerability (CVE-2020-1935)</p><p>- AJP
+        Request Injection and potential Remote Code Execution dubbed 'Ghostcat'
+        (CVE-2020-1938)</p><p>- HTTP request mixup vulnerability
+        (CVE-2022-25762)</p><p>- JRE and CGI OS Command Execution
+        (CVE-2019-0232)</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2020-1938'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2020-1935'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2022-25762'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2019-0232'
+        - 'https://tomcat.apache.org/whichversion.html'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SSL / TLS weak Cipher Suites
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Some accepted ciphers by the webservice are prone to a "Sweet32" or
+        similar attacks.</p>
+      observation: >-
+        <p>'Vulnerable' cipher suites accepted by this service via the TLSv1.0
+        protocol:</p><p>TLS_RSA_WITH_3DES_EDE_CBC_SHA
+        (SWEET32)</p><p>'Vulnerable' cipher suites accepted by this service via
+        the TLSv1.1 protocol:</p><p>TLS_RSA_WITH_3DES_EDE_CBC_SHA
+        (SWEET32)</p><p>'Vulnerable' cipher suites accepted by this service via
+        the TLSv1.2 protocol:</p><p>TLS_RSA_WITH_3DES_EDE_CBC_SHA (SWEET32)</p>
+      remediation: >-
+        <p>- Disable SSLv3</p><p>- Disable cipher suites supporting CBC cipher
+        modes</p><p>- Enable TLS_FALLBACK_SCSV if the service is providing
+        TLSv1.0+</p><p>minimal cipher suites:
+        ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305</p><p>Mind
+        the BSI recommendations.</p>
+      references:
+        - 'https://ssl-config.mozilla.org/'
+        - >-
+          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.html
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Microsoft SQL Server End of Life
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>The Microsoft SQL Server version on the remote host has reached the
+        end of life and should not be used anymore.</p>
+      observation: >-
+        <p>The "Microsoft SQL Server 2012 SP3" product on the remote host has
+        reached the end of life.</p><p>EOL date: 2018-10-09</p><p>The "Microsoft
+        SQL Server 2016 SP1" product on the remote host has reached the end of
+        life.</p><p>EOL date: 2019-07-09</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://learn.microsoft.com/de-de/lifecycle/products/'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Default or no Credentials
+      vulnType: Weak or Stolen User Credentials
+      description: >-
+        <p>The default credentials (or no credentials) provided by the
+        manufacturer are usually publicly available.</p>
+      observation: <p>Logins with default or no credentials.</p>
+      remediation: >-
+        <p>Change or disable the default accounts.</p><p>Use complex
+        passwords.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: null
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Apache Tomcat default files
+      vulnType: Misconfiguration
+      description: >-
+        <p>The Apache Tomcat servlet/JSP container has default files
+        installed.</p><p>These files should be removed as they may help an
+        attacker to guess the exact version of the Apache Tomcat which is
+        running on this host and may provide other useful information.</p>
+      observation: >-
+        <p>/examples/servlets/index.html</p><p>/examples/jsp/snp/snoop.jsp</p><p>/examples/jsp/index.html</p>
+      remediation: >-
+        <p>Remove default files, example JSPs and Servlets from the Tomcat
+        Servlet/JSP container.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: jQuery End of Life
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>The installed version of jQuery on the remote host has reached the
+        End of Life (EOL) and should not be used anymore.</p><p>An EOL version
+        of jQuery is not receiving any security updates from the vendor. Unfixed
+        security vulnerabilities might be leveraged by an attacker to compromise
+        the security of this host.</p>
+      observation: <p>jQuery 1.X and 2.X</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://jquery.com/download/'
+        - 'https://github.com/jquery/jquery.com/pull/163'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: OpenSSH multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>OpenSSH is prone to multiple vulnerabilities.</p>
+      observation: >-
+        <p>- An 'authfile.c' script does not properly consider the effects of
+        realloc on buffer contents.</p><p>- The shared memory manager
+        (associated with pre-authentication compression) does not ensure that a
+        bounds check is enforced by all compilers</p><p>- The sshd in OpenSSH
+        creates forwarded Unix-domain sockets as root, when privilege separation
+        is not used</p><p>- An untrusted search path vulnerability in
+        ssh-agent.c in ssh-agent. - NULL pointer dereference error due to an
+        out-of-sequence NEWKEYS message.</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2016-10012'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2016-10708'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2016-10011'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2016-10010'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2016-10009'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: MacOS Finder '.FBCIndex' Information Disclosure
+      vulnType: Misconfiguration
+      description: >-
+        <p>MacOS X creates a hidden file, '.FBCIndex' in each directory that has
+        been viewed with the Finder. This file contains the content of the files
+        present in the directory, giving an attacker information on the HTML
+        tags, JavaScript, passwords, or any other sensitive word used inside
+        those files.</p>
+      observation: <p>/.FBCIndex</p>
+      remediation: >-
+        <p>Block access to hidden files (starting with a dot) within your
+        webservers configuration.</p><p>Remove.FCBIndex files from the server if
+        not needed.</p>
+      references:
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2001-1446'
+      customFields: []
+  category: System Security
+- cvssv3: null
+  details:
+    - locale: EN
+      title: OpenSSL End of Life
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>The OpenSSL version on the remote host has reached the end of
+        life.</p>
+      observation: '<p>CPE: cpe:/a:openssl:openssl:1.1.1c</p><p>EOL date: 2023-09-11</p>'
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://www.openssl.org/policies/releasestrat.html'
+      customFields: []
+  category: System Security
+  priority: 2
+  remediationComplexity: 1
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: PHP End of Life
+      vulnType: Outdated or Unpatched Software
+      description: <p>The PHP version on the remote host has reached the end of life.</p>
+      observation: '<p>CPE: cpe:/a:php:php:7.3.11</p><p>EOL date: 2021-12-06</p>'
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://www.php.net/supported-versions.php'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: MySQL Server multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>The MySQL Server is prone to multiple vulnerabilities.</p>
+      observation: >-
+        <p>CVE-2022-32221,CVE-2022-35260,CVE-2022-42915,CVE-2022-42916,CVE-2022-37434</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2022-37434'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: OpenSSL multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>OpenSSL is prone to mutiple vulnerabilities.</p>
+      observation: '<p>CVE-2022-1292, CVE-2022-2068</p>'
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2022-1292'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Apache HTTP Server multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>Apache HTTP Server is prone to multiple vulnerabilities.</p>
+      observation: >-
+        <p>- CVE-2022-26377: mod_proxy_ajp: Possible request smuggling</p><p>-
+        CVE-2022-28330: Read beyond bounds in mod_isapi</p><p>- CVE-2022-28614:
+        Read beyond bounds via ap_rwrite()</p><p>- CVE-2022-28615: Read beyond
+        bounds in ap_strcmp_match()</p><p>- CVE-2022-29404: Denial of service in
+        mod_lua r:parsebody</p><p>- CVE-2022-30556: Information disclosure in
+        mod_lua with websockets</p><p>- CVE-2022-31813: mod_proxy
+        X-Forwarded-For dropped by hop-by-hop mechanism</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://httpd.apache.org/'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Apache Solr multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>The Apache Solr is prone to multiple vulnerabilities.</p>
+      observation: >-
+        <p>Solr did not validate the file name, hence it was possible to craft a
+        special request involving path traversal, leaving any file readable to
+        the Solr server process exposed.</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://solr.apache.org/downloads.html'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  details:
+    - locale: EN
+      title: '''%2e/WEB-INF/'' information Disclosure'
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>Various application or web servers / products are prone to an
+        information disclosure vulnerability.</p><p>The servlet specification
+        prohibits servlet containers from serving resources in the '/WEB-INF'
+        and '/META-INF' directories of a web application archive directly to
+        clients. This means that URLs like: http://example.com/WEB-INF/web.xml
+        will return an error message, rather than the contents of the deployment
+        descriptor. However, some application or web servers / products are
+        prone to a vulnerability that exposes this information if the client
+        requests a URL like this instead:
+        http://example.com/%2e/WEB-INF/web.xml</p>
+      observation: >-
+        <p>The following products are known to be affected:</p><p>- Atlassian
+        Jira Server and Jira Data Center</p><p>- Eclipse Jetty versions
+        9.4.37.v20210219 and 9.4.38.v2021022</p><p>Other products might be
+        affected as well.</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - >-
+          https://github.com/eclipse/jetty.project/security/advisories/GHSA-vjv5-gp2w-65vm
+        - >-
+          https://lists.apache.org/thread.html/r756443e9d50af7e8c3df82e2c45105f452c8e8195ddbc0c00f58d5fe@%3Ccommits.kafka.apache.org%3E
+        - >-
+          https://lists.apache.org/thread.html/r2ea2f0541121f17e470a0184843720046c59d4bde6d42bf5ca6fad81@%3Cissues.solr.apache.org%3E
+        - 'https://jira.atlassian.com/browse/JRASERVER-72014'
+      customFields: []
+  category: Web Security
+  priority: 2
+  remediationComplexity: 1
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Writesrv Service Information Disclosure
+      vulnType: Misconfiguration
+      description: >-
+        <p>Writesrv is running on port TCP:1334, it is used to send messages to
+        users.</p><p>This service gives potential attackers information about
+        who is connected and who isn't, easing social engineering attacks for
+        example.</p>
+      observation: <p>Vulnerability was detected according to the Detection Method.</p>
+      remediation: <p>Disable this service if not needed.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: BEA WebLogic Information Disclosure
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>BEA WebLogic may be tricked into revealing the source code of JSP
+        scripts by using simple URL encoding of characters in the filename
+        extension. e.g.: default.js%70 (=default.jsp) won't be considered as a
+        script but rather as a simple document.</p>
+      observation: >-
+        <p>Vulnerable systems: WebLogic version 5.1.0 SP 6 </p><p>Immune
+        systems: WebLogic version 5.1.0 SP 8</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'http://www.securityfocus.com/bid/2527'
+        - 'http://www.bea.com/'
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: HTTP cleartext transmission
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>The host / application transmits sensitive information in cleartext
+        via HTTP.</p>
+      observation: >-
+        <p>Evaluate previous collected information and check if the host /
+        application is not enforcing the transmission of sensitive data via an
+        encrypted SSL/TLS connection. The script is currently checking the
+        following:</p><p>- HTTP Basic Authentication (Basic Auth)</p><p>- HTTP
+        Forms (e.g. Login) with input field of type 'password'</p>
+      remediation: >-
+        <p>Enforce the transmission of sensitive data via an encrypted SSL/TLS
+        connection. Additionally make sure the host / application is redirecting
+        all users to the secured SSL/TLS connection before allowing to input
+        sensitive data into the mentioned functions.</p>
+      references:
+        - >-
+          https://www.owasp.org/index.php/Top_10_2013-A2-Broken_Authentication_and_Session_Management
+        - 'https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure'
+        - 'https://cwe.mitre.org/data/definitions/319.html'
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Eclipse Jetty multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>Eclipse Jetty Server is prone to multiple vulnerabilities.</p>
+      observation: >-
+        <p>- CVE-2017-7658: An improper validation against pipelined
+        requests.</p><p>- CVE-2023-26048: OutOfMemoryError for large multipart
+        without filename read via request.getParameter() </p><p>-
+        CVE-2023-26049: Cookie parsing of quoted values can exfiltrate values
+        from other cookies</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://bugs.eclipse.org/bugs/show_bug.cgi?id=535669'
+        - >-
+          https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html
+        - >-
+          https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: PHP multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>PHP is prone to multiple vulnerabilities.</p>
+      observation: >-
+        <p>- Buffer underflow in bc_shift_addsub (CVE-2019-11046)</p><p>- link()
+        silently truncates after a null byte on Windows (CVE-2019-11044)</p><p>-
+        DirectoryIterator class silently truncates after a null byte
+        (CVE-2019-11045)</p><p>- mail() may release string with refcount==1
+        twice (CVE-2019-11049)</p><p>- Use-after-free in exif parsing under
+        memory sanitizer (CVE-2019-11050)</p><p>- Heap-buffer-overflow READ in
+        exif (CVE-2019-11047)</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://www.php.net/supported-versions.php'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SMTP Server Configuration
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>The SMTP server allows cleartext logins over unencrypted
+        connections.</p>
+      observation: >-
+        <p>The remote SMTP server accepts logins via the following cleartext
+        authentication mechanisms over unencrypted
+        connections:</p><p>LOGIN</p><p>The remote SMTP server supports the
+        'STARTTLS' command but isn't enforcing the use of it for the cleartext
+        authentication mechanisms.</p>
+      remediation: >-
+        <p>Enable SMTPS or enforce the connection via the 'STARTTLS' command.
+        Please see the manual of the SMTP server for more information.</p>
+      references: []
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SSL / TLS multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>The remote SSL/TLS service is prone to a denial of service (DoS)
+        vulnerability.</p><p>The remote SSL/TLS service is prone to a
+        man-in-the-middle (MITM) vulnerability.</p>
+      observation: >-
+        <p>These rules are applied for the evaluation of the cryptographic
+        strength:</p><p>- RC4 is considered to be weak (CVE-2013-2566,
+        CVE-2015-2808)</p><p>- Ciphers using 64 bit or less are considered to be
+        vulnerable to brute force methods and therefore considered as weak
+        (CVE-2015-4000)</p><p>- 64-bit block cipher 3DES vulnerable to the
+        SWEET32 attack (CVE-2016-2183).</p>
+      remediation: >-
+        <p>Update or Upgrade to the latest supported version if
+        possible.</p><p>Disable renegotiation capabilities altogether from/in
+        the affected SSL/TLS service or enable Safe/Secure renegotiation
+        (RFC5746) for the affected SSL/TLS service</p>
+      references:
+        - 'https://www.openssl.org/~bodo/ssl-poodle.pdf'
+        - 'https://orchilles.com/ssl-renegotiation-dos/'
+        - 'https://www.kb.cert.org/vuls/id/120541'
+        - 'https://lwn.net/Articles/362234/'
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SSL / TLS expired or weak Certificates
+      vulnType: Misconfiguration
+      description: >-
+        <p>The remote service is using a SSL/TLS certificate in the certificate
+        chain that has been signed using a cryptographically weak hashing
+        algorithm.</p><p>The remote service is using a SSL/TLS certificate chain
+        where one or multiple CA certificates have expired.</p>
+      remediation: <p>Replace waek or expired Certificates.</p>
+      references:
+        - 'https://letsencrypt.org/'
+      customFields: []
+  category: System Security
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SSL / TLS weak Protocols
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>It was possible to detect the usage of a deprecated SSL/TLS protocol
+        on the system.</p>
+      remediation: >-
+        <p>It is recommended to disable the deprecated SSLv2, SSLv3, TLSv1.0 and
+        TLSv1.1 protocols in favor of the TLSv1.2+ protocols</p><p>The
+        configuration of this services should be changed so that it does not
+        accept the weak cipher suites anymore.</p><p>Mind the BSI
+        recommendations.</p>
+      references:
+        - 'https://ssl-config.mozilla.org/'
+        - >-
+          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.pdf
+      customFields: []
+  category: Web Security
