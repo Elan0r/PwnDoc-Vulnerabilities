@@ -63,7 +63,7 @@
   remediationComplexity: 1
   details:
     - locale: EN
-      title: Removal Media Control Settings
+      title: Removal Media Control Configuration
       vulnType: Access Control or Unauthorized Access
       description: >-
         <p>Removable media control is a security feature that helps protect
@@ -119,7 +119,7 @@
   remediationComplexity: 1
   details:
     - locale: EN
-      title: DHCPv6 Settings
+      title: DHCPv6 Client Configuration
       vulnType: Misconfiguration
       description: >-
         <p>In DHCPv6, one of the potential attack vectors is related to the
@@ -267,7 +267,7 @@
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:H/A:N'
   details:
     - locale: EN
-      title: WDAC Settings
+      title: WDAC Configuration
       vulnType: Access Control or Unauthorized Access
       description: >-
         <p>Windows Defender Application Control (WDAC) is a security feature in
@@ -387,7 +387,7 @@
   remediationComplexity: 1
   details:
     - locale: EN
-      title: Windows Firewall Settings
+      title: Windows Firewall Configuration
       vulnType: Access Control or Unauthorized Access
       description: >-
         <p>The Windows Firewall is a built-in security feature in Windows
@@ -444,77 +444,10 @@
   category: Network Security
 - cvssv3: null
   priority: 3
-  remediationComplexity: 1
-  details:
-    - locale: EN
-      title: Antivirus Settings
-      vulnType: Misconfiguration
-      description: >-
-        <p>Antivirus (AV) software, also known as antivirus or anti-malware
-        software, is designed to protect computers and other devices from
-        malicious software, such as viruses, worms, Trojans, spyware, adware,
-        and other types of malware. Its primary purpose is to detect, prevent,
-        and remove malicious programs that can harm your computer system or
-        compromise your data.</p><p>Here are some key reasons why it is
-        important to have AV software turned on:</p><ul><li><p>Malware
-        Protection: AV software scans files, programs, and websites for known
-        malware signatures and behavioral patterns, preventing them from
-        infecting your system. It helps safeguard your computer against viruses,
-        which can cause data loss, system crashes, or unauthorized
-        access.</p></li><li><p>Real-Time Protection: AV software provides
-        real-time monitoring of files and activities on your computer, detecting
-        and blocking malware threats as they occur. This proactive approach
-        helps prevent malware from executing and spreading throughout your
-        system.</p></li><li><p>Web Protection: Many AV solutions include web
-        protection features that help block access to malicious websites or warn
-        you about potentially dangerous sites. This protects you from phishing
-        attempts, drive-by downloads, and other web-based
-        threats.</p></li><li><p>Email Protection: AV software often integrates
-        with email clients to scan incoming and outgoing email attachments for
-        malware. It helps prevent the spread of infected files through email and
-        reduces the risk of falling victim to email-borne threats, such as
-        phishing emails or malicious attachments.</p></li><li><p>Vulnerability
-        Detection: Some AV software includes vulnerability scanning features
-        that identify security weaknesses in your operating system or installed
-        applications. By identifying vulnerabilities, you can take necessary
-        steps to patch or update software, minimizing the risk of exploitation
-        by malware.</p></li><li><p>Data Protection: AV software helps protect
-        your personal and sensitive information by preventing unauthorized
-        access or theft. It can detect keyloggers, screen capture tools, and
-        other types of spyware that aim to collect your private
-        data.</p></li><li><p>System Performance: While AV software performs
-        resource-intensive tasks like scanning files and monitoring activities,
-        modern solutions are designed to minimize impact on system performance.
-        They use optimized scanning algorithms and leverage hardware
-        acceleration to ensure efficient protection without significantly
-        slowing down your computer.</p></li></ul><p>In summary, having AV
-        software turned on is crucial for maintaining a secure and safe
-        computing environment. It helps protect your system, data, and privacy
-        from various malware threats, ensuring a smoother and more secure
-        digital experience.</p>
-      observation: >-
-        <p>Rating hardly depends on what is setup.<br>Is AV on or not?<br>Many
-        exclusions that can be reviewed by anyone? Are they lax?<br>All features
-        enabled or are crucial ones missing?</p>
-      remediation: >-
-        <p>An AV solution should be installed and actively running on each
-        system.<br>The product itself as well as its patterns should be kept
-        up-to-date at any time.<br>Harden the systems as much as possible by
-        making use of all features provided by your AV.<br>Ensure that things
-        like tamper protection are enabled and can't be disabled by normal users
-        - best also not by administrators.<br>Exclusions should be kept to a
-        minimum, where possible individually by system. So you should not
-        globally exclude path x or application y, just because you need it on
-        one system out of hundreds.<br></p>
-      references: []
-      customFields: []
-  category: System Security
-- cvssv3: null
-  priority: 3
   remediationComplexity: 2
   details:
     - locale: EN
-      title: Proxy Settings
+      title: Client Proxy Configuration
       vulnType: Access Control or Unauthorized Access
       description: >-
         <p>A proxy server acts as an intermediary between a client (such as a
@@ -609,7 +542,7 @@
   remediationComplexity: 1
   details:
     - locale: EN
-      title: WinRM Settings
+      title: WinRM Configuration
       vulnType: Remote Code Execution
       description: >-
         <p>WinRM (Windows Remote Management) is a Microsoft Windows feature that
@@ -1011,7 +944,7 @@
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
   details:
     - locale: EN
-      title: SMB Server Settings
+      title: SMB Configuration
       vulnType: Misconfiguration
       description: >-
         <p>SMB (Server Message Block) is a network protocol used for file and
@@ -1527,29 +1460,6 @@
           https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/07-Test_HTTP_Strict_Transport_Security
       customFields: []
   category: Web Security
-- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N'
-  priority: 1
-  remediationComplexity: 1
-  details:
-    - locale: EN
-      title: 'WSTG-INFO-02: Revealed Webserver Technology'
-      vulnType: Access Control or Unauthorized Access
-      description: >-
-        <p>Knowing the technology of a webserver can aid an attacker to
-        determine how more targeted attacks can be conducted.<br>Webservers
-        often times reveal the technology they are running on in response
-        headers, even including concrete version numbers.<br>Attackers can then
-        check if the version is affected by some kind of vulnerability and try
-        to abuse it.</p><p></p>
-      remediation: >-
-        <p>It is recommened to publish as little information as possible about
-        installed version statuses and reconfiguring the header information
-        accordingly.</p>
-      references:
-        - >-
-          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server
-      customFields: []
-  category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N'
   priority: 4
   remediationComplexity: 1
@@ -1805,7 +1715,7 @@
   details:
     - locale: EN
       title: 'WSTG-SESS-02: Session-Cookie without httpOnly-Flag'
-      vulnType: Missing or Poor Data Encryption
+      vulnType: Weak or Stolen User Credentials
       description: >-
         <p>The httpOnly flag is an optional parameter for cookies and specifies
         that cookies secured with this flag may not be read via client-side
@@ -2885,8 +2795,8 @@
       observation: '<p>Different PAC Size; CVE-2021-42278, CVE-2021-42287</p>'
       remediation: >-
         <p>Apply the November 2021 patches provided by Microsoft to all Domain
-        Controllers.</p><p>Change the MS-DS-Machine-Account-Quota attribute,
-        that no "regular" Domain User can create computers in the Active
+        Controllers.</p><p>Change the MS-DS-Machine-Account-Quota attribute to
+        0, that no "regular" Domain User can create computers in the Active
         Directory.</p>
       references:
         - >-
@@ -3175,10 +3085,10 @@
       vulnType: Outdated or Unpatched Software
       description: <p>Apache Tomcat is prone to multiple vulnerabilities.</p>
       observation: >-
-        <p>- HTTP request smuggling vulnerability (CVE-2020-1935)</p><p>- AJP
-        Request Injection and potential Remote Code Execution dubbed 'Ghostcat'
-        (CVE-2020-1938)</p><p>- HTTP request mixup vulnerability
-        (CVE-2022-25762)</p><p>- JRE and CGI OS Command Execution
+        <p>ex.</p><p>- HTTP request smuggling vulnerability
+        (CVE-2020-1935)</p><p>- AJP Request Injection and potential Remote Code
+        Execution dubbed 'Ghostcat' (CVE-2020-1938)</p><p>- HTTP request mixup
+        vulnerability (CVE-2022-25762)</p><p>- JRE and CGI OS Command Execution
         (CVE-2019-0232)</p>
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
@@ -3189,35 +3099,6 @@
         - 'https://tomcat.apache.org/whichversion.html'
       customFields: []
   category: System Security
-- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N'
-  priority: 2
-  remediationComplexity: 1
-  details:
-    - locale: EN
-      title: SSL / TLS weak Cipher Suites
-      vulnType: Missing or Poor Data Encryption
-      description: >-
-        <p>Some accepted ciphers by the webservice are prone to a "Sweet32" or
-        similar attacks.</p>
-      observation: >-
-        <p>'Vulnerable' cipher suites accepted by this service via the TLSv1.0
-        protocol:</p><p>TLS_RSA_WITH_3DES_EDE_CBC_SHA
-        (SWEET32)</p><p>'Vulnerable' cipher suites accepted by this service via
-        the TLSv1.1 protocol:</p><p>TLS_RSA_WITH_3DES_EDE_CBC_SHA
-        (SWEET32)</p><p>'Vulnerable' cipher suites accepted by this service via
-        the TLSv1.2 protocol:</p><p>TLS_RSA_WITH_3DES_EDE_CBC_SHA (SWEET32)</p>
-      remediation: >-
-        <p>- Disable SSLv3</p><p>- Disable cipher suites supporting CBC cipher
-        modes</p><p>- Enable TLS_FALLBACK_SCSV if the service is providing
-        TLSv1.0+</p><p>minimal cipher suites:
-        ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305</p><p>Mind
-        the BSI recommendations.</p>
-      references:
-        - 'https://ssl-config.mozilla.org/'
-        - >-
-          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.html
-      customFields: []
-  category: Web Security
 - cvssv3: null
   priority: 3
   remediationComplexity: 2
@@ -3229,10 +3110,8 @@
         <p>The Microsoft SQL Server version on the remote host has reached the
         end of life and should not be used anymore.</p>
       observation: >-
-        <p>The "Microsoft SQL Server 2012 SP3" product on the remote host has
-        reached the end of life.</p><p>EOL date: 2018-10-09</p><p>The "Microsoft
-        SQL Server 2016 SP1" product on the remote host has reached the end of
-        life.</p><p>EOL date: 2019-07-09</p>
+        <p>Microsoft SQL Server in unsupported version, excluding paid "Premium
+        Support".</p>
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
         - 'https://learn.microsoft.com/de-de/lifecycle/products/'
@@ -3252,7 +3131,9 @@
       remediation: >-
         <p>Change or disable the default accounts.</p><p>Use complex
         passwords.</p>
-      references: []
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/04-Authentication_Testing/02-Testing_for_Default_Credentials
       customFields: []
   category: System Security
 - cvssv3: null
@@ -3288,7 +3169,7 @@
         of jQuery is not receiving any security updates from the vendor. Unfixed
         security vulnerabilities might be leveraged by an attacker to compromise
         the security of this host.</p>
-      observation: <p>jQuery 1.X and 2.X</p>
+      observation: '<p>jQuery in unsupported version, excluding paid "Premium Support".</p>'
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
         - 'https://jquery.com/download/'
@@ -3304,8 +3185,8 @@
       vulnType: Outdated or Unpatched Software
       description: <p>OpenSSH is prone to multiple vulnerabilities.</p>
       observation: >-
-        <p>- An 'authfile.c' script does not properly consider the effects of
-        realloc on buffer contents.</p><p>- The shared memory manager
+        <p>ex. </p><p>- An 'authfile.c' script does not properly consider the
+        effects of realloc on buffer contents.</p><p>- The shared memory manager
         (associated with pre-authentication compression) does not ensure that a
         bounds check is enforced by all compilers</p><p>- The sshd in OpenSSH
         creates forwarded Unix-domain sockets as root, when privilege separation
@@ -3344,6 +3225,8 @@
       customFields: []
   category: System Security
 - cvssv3: null
+  priority: 2
+  remediationComplexity: 1
   details:
     - locale: EN
       title: OpenSSL End of Life
@@ -3351,14 +3234,12 @@
       description: >-
         <p>The OpenSSL version on the remote host has reached the end of
         life.</p>
-      observation: '<p>CPE: cpe:/a:openssl:openssl:1.1.1c</p><p>EOL date: 2023-09-11</p>'
+      observation: '<p>OpenSSL in unsupported version, excluding paid "Premium Support".</p>'
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
         - 'https://www.openssl.org/policies/releasestrat.html'
       customFields: []
   category: System Security
-  priority: 2
-  remediationComplexity: 1
 - cvssv3: null
   priority: 2
   remediationComplexity: 2
@@ -3367,7 +3248,7 @@
       title: PHP End of Life
       vulnType: Outdated or Unpatched Software
       description: <p>The PHP version on the remote host has reached the end of life.</p>
-      observation: '<p>CPE: cpe:/a:php:php:7.3.11</p><p>EOL date: 2021-12-06</p>'
+      observation: '<p>PHP in unsupported version, excluding paid "Premium Support".</p>'
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
         - 'https://www.php.net/supported-versions.php'
@@ -3382,10 +3263,13 @@
       vulnType: Outdated or Unpatched Software
       description: <p>The MySQL Server is prone to multiple vulnerabilities.</p>
       observation: >-
-        <p>CVE-2022-32221,CVE-2022-35260,CVE-2022-42915,CVE-2022-42916,CVE-2022-37434</p>
+        <p>ex.</p><p>CVE-2022-32221,CVE-2022-35260,CVE-2022-42915,CVE-2022-42916,CVE-2022-37434,
+        CVE-2024-20975, CVE-2024-20961, CVE-2023-5363, CVE-2024-20962</p>
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
+        - 'https://www.mysql.com/support/supportedplatforms/database.html'
         - 'https://nvd.nist.gov/vuln/detail/CVE-2022-37434'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2024-20962'
       customFields: []
   category: System Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
@@ -3396,10 +3280,12 @@
       title: OpenSSL multiple Vulnerabilities
       vulnType: Outdated or Unpatched Software
       description: <p>OpenSSL is prone to mutiple vulnerabilities.</p>
-      observation: '<p>CVE-2022-1292, CVE-2022-2068</p>'
+      observation: '<p>ex.</p><p>CVE-2022-1292, CVE-2022-2068</p>'
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
         - 'https://nvd.nist.gov/vuln/detail/CVE-2022-1292'
+        - 'https://www.openssl.org/~bodo/ssl-poodle.pdf'
+        - 'https://lwn.net/Articles/362234/'
       customFields: []
   category: System Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
@@ -3411,13 +3297,14 @@
       vulnType: Outdated or Unpatched Software
       description: <p>Apache HTTP Server is prone to multiple vulnerabilities.</p>
       observation: >-
-        <p>- CVE-2022-26377: mod_proxy_ajp: Possible request smuggling</p><p>-
-        CVE-2022-28330: Read beyond bounds in mod_isapi</p><p>- CVE-2022-28614:
-        Read beyond bounds via ap_rwrite()</p><p>- CVE-2022-28615: Read beyond
-        bounds in ap_strcmp_match()</p><p>- CVE-2022-29404: Denial of service in
-        mod_lua r:parsebody</p><p>- CVE-2022-30556: Information disclosure in
-        mod_lua with websockets</p><p>- CVE-2022-31813: mod_proxy
-        X-Forwarded-For dropped by hop-by-hop mechanism</p>
+        <p>ex.</p><p>- CVE-2022-26377: mod_proxy_ajp: Possible request
+        smuggling</p><p>- CVE-2022-28330: Read beyond bounds in
+        mod_isapi</p><p>- CVE-2022-28614: Read beyond bounds via
+        ap_rwrite()</p><p>- CVE-2022-28615: Read beyond bounds in
+        ap_strcmp_match()</p><p>- CVE-2022-29404: Denial of service in mod_lua
+        r:parsebody</p><p>- CVE-2022-30556: Information disclosure in mod_lua
+        with websockets</p><p>- CVE-2022-31813: mod_proxy X-Forwarded-For
+        dropped by hop-by-hop mechanism</p>
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
         - 'https://httpd.apache.org/'
@@ -3432,15 +3319,17 @@
       vulnType: Outdated or Unpatched Software
       description: <p>The Apache Solr is prone to multiple vulnerabilities.</p>
       observation: >-
-        <p>Solr did not validate the file name, hence it was possible to craft a
-        special request involving path traversal, leaving any file readable to
-        the Solr server process exposed.</p>
+        <p>ex.</p><p>Solr did not validate the file name, hence it was possible
+        to craft a special request involving path traversal, leaving any file
+        readable to the Solr server process exposed.</p>
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
         - 'https://solr.apache.org/downloads.html'
       customFields: []
   category: System Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 2
+  remediationComplexity: 1
   details:
     - locale: EN
       title: '''%2e/WEB-INF/'' information Disclosure'
@@ -3472,8 +3361,6 @@
         - 'https://jira.atlassian.com/browse/JRASERVER-72014'
       customFields: []
   category: Web Security
-  priority: 2
-  remediationComplexity: 1
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
   priority: 1
   remediationComplexity: 1
@@ -3486,7 +3373,9 @@
         users.</p><p>This service gives potential attackers information about
         who is connected and who isn't, easing social engineering attacks for
         example.</p>
-      observation: <p>Vulnerability was detected according to the Detection Method.</p>
+      observation: >-
+        <p>Writesrv is running on this port, it is used to send messages to
+        users.</p>
       remediation: <p>Disable this service if not needed.</p>
       references: []
       customFields: []
@@ -3512,34 +3401,6 @@
         - 'http://www.bea.com/'
       customFields: []
   category: Web Security
-- cvssv3: 'CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
-  priority: 2
-  remediationComplexity: 2
-  details:
-    - locale: EN
-      title: HTTP cleartext transmission
-      vulnType: Missing or Poor Data Encryption
-      description: >-
-        <p>The host / application transmits sensitive information in cleartext
-        via HTTP.</p>
-      observation: >-
-        <p>Evaluate previous collected information and check if the host /
-        application is not enforcing the transmission of sensitive data via an
-        encrypted SSL/TLS connection. The script is currently checking the
-        following:</p><p>- HTTP Basic Authentication (Basic Auth)</p><p>- HTTP
-        Forms (e.g. Login) with input field of type 'password'</p>
-      remediation: >-
-        <p>Enforce the transmission of sensitive data via an encrypted SSL/TLS
-        connection. Additionally make sure the host / application is redirecting
-        all users to the secured SSL/TLS connection before allowing to input
-        sensitive data into the mentioned functions.</p>
-      references:
-        - >-
-          https://www.owasp.org/index.php/Top_10_2013-A2-Broken_Authentication_and_Session_Management
-        - 'https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure'
-        - 'https://cwe.mitre.org/data/definitions/319.html'
-      customFields: []
-  category: Network Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
   priority: 3
   remediationComplexity: 2
@@ -3549,11 +3410,11 @@
       vulnType: Outdated or Unpatched Software
       description: <p>Eclipse Jetty Server is prone to multiple vulnerabilities.</p>
       observation: >-
-        <p>- CVE-2017-7658: An improper validation against pipelined
+        <p>ex.</p><p>- CVE-2017-7658: An improper validation against pipelined
         requests.</p><p>- CVE-2023-26048: OutOfMemoryError for large multipart
-        without filename read via request.getParameter() </p><p>-
-        CVE-2023-26049: Cookie parsing of quoted values can exfiltrate values
-        from other cookies</p>
+        without filename read via request.getParameter()</p><p>- CVE-2023-26049:
+        Cookie parsing of quoted values can exfiltrate values from other
+        cookies</p>
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
         - 'https://bugs.eclipse.org/bugs/show_bug.cgi?id=535669'
@@ -3572,13 +3433,13 @@
       vulnType: Outdated or Unpatched Software
       description: <p>PHP is prone to multiple vulnerabilities.</p>
       observation: >-
-        <p>- Buffer underflow in bc_shift_addsub (CVE-2019-11046)</p><p>- link()
-        silently truncates after a null byte on Windows (CVE-2019-11044)</p><p>-
-        DirectoryIterator class silently truncates after a null byte
-        (CVE-2019-11045)</p><p>- mail() may release string with refcount==1
-        twice (CVE-2019-11049)</p><p>- Use-after-free in exif parsing under
-        memory sanitizer (CVE-2019-11050)</p><p>- Heap-buffer-overflow READ in
-        exif (CVE-2019-11047)</p>
+        <p>ex.</p><p>- Buffer underflow in bc_shift_addsub
+        (CVE-2019-11046)</p><p>- link() silently truncates after a null byte on
+        Windows (CVE-2019-11044)</p><p>- DirectoryIterator class silently
+        truncates after a null byte (CVE-2019-11045)</p><p>- mail() may release
+        string with refcount==1 twice (CVE-2019-11049)</p><p>- Use-after-free in
+        exif parsing under memory sanitizer (CVE-2019-11050)</p><p>-
+        Heap-buffer-overflow READ in exif (CVE-2019-11047)</p>
       remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
       references:
         - 'https://www.php.net/supported-versions.php'
@@ -3606,51 +3467,881 @@
       references: []
       customFields: []
   category: Network Security
-- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L'
-  priority: 2
-  remediationComplexity: 1
-  details:
-    - locale: EN
-      title: SSL / TLS multiple Vulnerabilities
-      vulnType: Outdated or Unpatched Software
-      description: >-
-        <p>The remote SSL/TLS service is prone to a denial of service (DoS)
-        vulnerability.</p><p>The remote SSL/TLS service is prone to a
-        man-in-the-middle (MITM) vulnerability.</p>
-      observation: >-
-        <p>These rules are applied for the evaluation of the cryptographic
-        strength:</p><p>- RC4 is considered to be weak (CVE-2013-2566,
-        CVE-2015-2808)</p><p>- Ciphers using 64 bit or less are considered to be
-        vulnerable to brute force methods and therefore considered as weak
-        (CVE-2015-4000)</p><p>- 64-bit block cipher 3DES vulnerable to the
-        SWEET32 attack (CVE-2016-2183).</p>
-      remediation: >-
-        <p>Update or Upgrade to the latest supported version if
-        possible.</p><p>Disable renegotiation capabilities altogether from/in
-        the affected SSL/TLS service or enable Safe/Secure renegotiation
-        (RFC5746) for the affected SSL/TLS service</p>
-      references:
-        - 'https://www.openssl.org/~bodo/ssl-poodle.pdf'
-        - 'https://orchilles.com/ssl-renegotiation-dos/'
-        - 'https://www.kb.cert.org/vuls/id/120541'
-        - 'https://lwn.net/Articles/362234/'
-      customFields: []
-  category: Web Security
-- cvssv3: null
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N'
   priority: 3
   remediationComplexity: 1
   details:
     - locale: EN
-      title: SSL / TLS expired or weak Certificates
-      vulnType: Misconfiguration
+      title: 'WSTG-CRYP-01: SSL / TLS expired or weak Certificates'
+      vulnType: Missing or Poor Data Encryption
       description: >-
         <p>The remote service is using a SSL/TLS certificate in the certificate
         chain that has been signed using a cryptographically weak hashing
         algorithm.</p><p>The remote service is using a SSL/TLS certificate chain
         where one or multiple CA certificates have expired.</p>
-      remediation: <p>Replace waek or expired Certificates.</p>
+      remediation: <p>Replace weak or expired Certificates.</p>
       references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
         - 'https://letsencrypt.org/'
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-SESS-02: Session-Cookie without secure-Flag'
+      vulnType: Weak or Stolen User Credentials
+      description: >-
+        <p>The <code>Secure</code> attribute tells the browser to only send the
+        cookie if the request is being sent over a secure channel such as
+        <code>HTTPS</code>. This will help protect the cookie from being passed
+        in unencrypted requests. If the application can be accessed over both
+        <code>HTTP</code> and <code>HTTPS</code>, an attacker could be able to
+        redirect the user to send their cookie as part of non-protected
+        requests.</p>
+      observation: >-
+        <p>The remote HTTP web server / application is missing to set the
+        'Secure' cookie attribute for one or more sent HTTP cookie.</p>
+      remediation: >-
+        <p>Set the 'Secure' cookie attribute for any cookies that are sent over
+        a SSL/TLS connection.</p>
+      references:
+        - 'https://www.rfc-editor.org/rfc/rfc6265#section-5.2.5'
+        - 'https://owasp.org/www-community/controls/SecureCookieAttribute'
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: GitLab User enum via GraphQL API
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>An issue has been discovered in GitLab CE/EE. Private GitLab
+        instances with restricted sign-ups may be vulnerable to user enumeration
+        by unauthenticated users through the GraphQL API.</p>
+      observation: >-
+        <p>By doing the following HTTP request:</p><p>Affected URL :
+        https://&lt;GIT_URL&gt;/api/graphql</p><p>HTTP "Content-Type" header :
+        application/json</p><p>HTTP "POST" body :
+        {"query":"query{users{nodes{username}}}"}</p><p>HTTP Method : POST</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - >-
+          https://about.gitlab.com/releases/2022/02/25/critical-security-release-gitlab-14-8-2-released/#unauthenticated-user-enumeration-on-graphql-api
+        - >-
+          https://www.rapid7.com/blog/post/2022/03/03/cve-2021-4191-gitlab-graphql-api-user-enumeration-fixed/
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2021-4191'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Shared platform usage
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Running services with shared resources carries the risk that if one
+        of the apps is vulnerable or exploitable, all others are at risk as
+        well. More services most likely means that more users have access to the
+        system, but these user don't necessary have the rights to access the
+        other solutions running on that system. However, the compromise of the
+        user of another service, might give an attacker a first foothold on the
+        shared system, which later might result in a full compromise of all
+        hosted services.</p><p>For critical service like e.g. a Certificate
+        Authority, Domain Services, Backup solutions, it is best practice to
+        have them running on dedicated systems.</p>
+      remediation: <p>Migrate the affected service to a dedicated platform.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N'
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Usage of untrusted Certificates
+      vulnType: Poor Data Sanitization
+      description: >-
+        <p>The reason that a certificate is considered untrustworthy can have
+        different causes. In the following scenarios, a certificate might be
+        detected as not valid:</p><ul><li><p>The server's certificate does not
+        have a valid certificate chain to a trusted root certificate authority.
+        This happens if the certificate was issued by an unrecognized
+        certificate authority, if the certificate is a self-signed certificate,
+        or if an intermediate certificate is missing from the certificate
+        chain.</p></li><li><p>The commonName (CN) parameter of the certificate
+        does not match the domain name of the server. This might happen if the
+        IP is used instead for the DNS name.</p></li><li><p>The signature of the
+        certificate could not be verified.</p></li><li><p>A certificate is
+        invalid if the server's certificate has expired, i.e. during
+        verification the certificate's valid date range does not match the
+        current date.</p></li></ul><p>These issues make it difficult for users
+        to verify the certificate and increase the risk of Man-in-the-Middle
+        attacks.</p>
+      remediation: >-
+        <p>Create and apply trusted certificates.<br>Internet facing systems
+        should have a certificate signed by a 3rd party trusted public CA.</p>
+      references: []
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Unauthenticated User Enumeration over SMB - CVE-2000-1200
+      vulnType: Weak or Stolen User Credentials
+      description: >-
+        <p>Windows NT allows remote attackers to list all users in a domain by
+        obtaining the domain SID with the <em>LsaQueryInformationPolicy</em>
+        policy function via a null session and using the SID to list the
+        users.</p>
+      remediation: >-
+        <p>Contact the vendor to see if appropriate settings, updates or fixes
+        are available.</p>
+      references:
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2000-1200'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Extremely weak Admin Credentials
+      vulnType: Weak or Stolen User Credentials
+      description: >-
+        <p>Accounts with critical privileges like Domain Admins, Firewall
+        Admins, Backup Admins and alike should always be handled with care and
+        secured accordingly.<br>People using these accounts need to be aware of
+        the potential risks that arise when their accounts get
+        compromised:</p><ul><li><p>Data breaches and theft of sensitive
+        information: If a hacker gains access to an administrative account, they
+        may be able to view, steal or manipulate confidential data stored on the
+        system, such as personal information, financial records, or trade
+        secrets.</p></li><li><p>System damage and disruption of services: The
+        attacker may use the administrative privileges to cause harm to the
+        system, for example, by deleting critical files, modifying system
+        settings, or shutting down servers. This could result in significant
+        downtime and disruption of services for the organization and its
+        customers.</p></li><li><p>Spread of malware and further compromise: The
+        attacker may use the compromised administrative account to install
+        malware, such as viruses, Trojans, or ransomware, which can spread to
+        other systems and devices on the network, leading to additional security
+        breaches and compromise. This could result in significant damage to the
+        organization's reputation and financial loss.</p></li></ul><p>In this
+        case the password complexity of these administrative accounts must be
+        rated as extremely weak. <br>The password is either guessable or if an
+        attacker gets a hold on hashed material easily recoverable.</p>
+      remediation: >-
+        <p>Privileged accounts should have extremely strong passwords. They
+        should be at least 20 characters long, and comply to complexity with
+        uppercase, lowercase, numbers and special characters. The passwords
+        should be randomly generated, no words! Password blacklisting can be
+        issued to help here.<br>Password reusage should be avoided at all
+        costs.<br>Personal holding higher privileges needs to be trained and
+        made aware of the possible risks. <br>Saving credentials in a Web
+        Browser should also be avoided.<br>Additionally these accounts should be
+        hardened via Multi Factor Authentication where possible.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Deficient Roles and Authorization Concept
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>A Roles and Authorization Concept purpose is to restrict access to
+        sensitive resources as much as possible.<br>This can be achieved through
+        appropriate measures like e.g.:</p><ul><li><p>Limiting the number of
+        users that have access to the resource</p></li><li><p>Limiting the
+        access rights to the absolute minimum each user needs - concept of least
+        privilege</p></li><li><p>Limiting the sources which have access - e.g.
+        from where can a valid user access an
+        application</p></li><li><p>Defining a password policy and MFA
+        requirements</p></li></ul><p></p>
+      remediation: >-
+        <p>Implement a sufficient and secure Roles and Authorization
+        concept.<br>Review the access rights to the systems.<br>Change
+        passwords.<br>Follow best practices like the TIER model from
+        Microsoft.</p>
+      references:
+        - >-
+          https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-access-model
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Management Service Misconfiguration
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Management services like SSH, RDP, Telnet, WinRM etc. are meant for
+        administrative purposes of systems and applications.<br>Access to those
+        services should be restricted as much as possible to follow the
+        defense-in-depth approach as well as the least privilege
+        principle.<br>Even if not currently affected by a directly exploitable
+        vulnerability, they at least pose the risk of being accessed with stolen
+        / impersonated identities.</p>
+      remediation: >-
+        <p>Access to management services and their according ports should be
+        restricted by means of network separation or (local) firewalls. <br>Most
+        of these services offer hardened authentication methods and settings
+        like certificate based authentication for SSH or restricted host polices
+        for access to WinRM [1][2].<br>Systems ideally reside in a dedicated
+        management VLAN to which only the needed systems and people can connect
+        to.</p>
+      references:
+        - >-
+          [1]
+          https://learn.microsoft.com/en-us/windows/win32/winrm/authentication-for-remote-connections
+        - >-
+          [2]
+          https://learn.microsoft.com/en-us/windows/win32/winrm/installation-and-configuration-for-windows-remote-management
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Servers with Internet Access
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Not restricting internet access to systems poses several potential
+        security risks like:</p><ul><li><p>Malware can be downloaded directly
+        onto the system's disk</p></li><li><p>Malware can be downloaded directly
+        into the system's memory</p></li><li><p>The system can be connected and
+        controlled via an internet hosted Command &amp; Control server or a
+        Botnet</p></li></ul><p>Especially servers that don't necessarily need
+        access to the internet should not be given these possibilities.<br></p>
+      remediation: >-
+        <p>If really needed, the internet traffic should be routed through a
+        firewall or proxy that analyzes the dataflow and connections made.
+        <br>It should be able to block access and isolate the host in case
+        something suspicious pops up.</p>
+      references: []
+      customFields: []
+  category: Network Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:L'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: General Observations Work Ethics
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Sensitive files should always be handled with care. Cleaning up when
+        files are no longer used is an essential part of work ethics.</p><p>For
+        attackers, valuable information residing inside such files comes in
+        handy and can drastically expose further services and systems, allowing
+        for privilege escalation or lateral movement.</p>
+      observation: >-
+        <p>Critically dependant on the info found and according
+        possibilities</p>
+      remediation: >-
+        <p>Technical staff should be trained and forced to clean up after their
+        work is done.<br>Leaving sensitive info exposed on systems is bad
+        practice and should be avoided at all costs.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: General Observations in regard to Alerts
+      vulnType: Misconfiguration
+      description: >-
+        <p>Critical systems and events should be monitored closely to be able to
+        react on a shorthand if something bad happens.</p><p>Having visibility
+        inside the whole network is a crucial fundamental of a matured
+        IT-Security strategy.</p>
+      observation: <p></p><p></p>
+      remediation: >-
+        <p>Logs and events need to be monitored closely. If critical alerts show
+        up, according investigations and countermeasures need to take place.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: MSSQL Features xp_*** available to low privileged Users
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p><em>xp_cmdshell</em>, <em>xp_dirtree</em> and<em> xp_fileexist</em>
+        are MSSQL native extended stored procedures. While <em>xp_cmdshell</em>
+        allows for executing shell commands, the latter ones are aimed at file
+        and directory operations.</p><p><em>xp_cmdshel</em>l: This extended
+        stored procedure enables the execution of operating system commands from
+        within SQL Server. If accessible to low privilege users, it poses
+        significant security risks. Exploiting <em>xp_cmdshel</em>l, an attacker
+        can execute arbitrary commands on the server's operating system with the
+        permissions of the SQL Server service account. This can lead to
+        unauthorized actions, such as accessing or modifying sensitive files,
+        compromising the system, or even gaining full control over the
+        server.</p><p><em>xp_dirtree </em>and <em>xp_filexist</em> can be
+        executed by members of the Public role by default in SQL Server
+        2000-2014. The public role is essentially a group that includes all
+        database users by default. Both can be used to force the SQL Server
+        service account to authenticate to a remote attacker.&nbsp; The service
+        account password hash can then be captured + cracked or relayed to gain
+        unauthorized access to systems. This also means they can be used to
+        escalate a lower privileged user to sysadmin when a machine or managed
+        account isn't being used.&nbsp;That's because the SQL Server service
+        account is a member of the sysadmin role in SQL Server 2000-2014, by
+        default. Also, if the service accounts happen to be local administrators
+        on the servers themselves, an attacker can takeover those as well.</p>
+      remediation: >-
+        <p>There are several points to take into consideration
+        here:</p><ul><li><p>It must URGENTLY be avoided to reuse service
+        accounts. If really needed, there should be a dedicated service account
+        per SQL server. If possible the computeraccount should be used.
+        Alternateively managed service accounts per instance.</p></li><li><p>It
+        must URGENTLY be avoided that (MSSQL) service accounts also hold local
+        admin rights on servers. This needs to be checked on ALL (not only the
+        ones listed) servers.</p></li><li><p>ALL (not only the ones listed)
+        instances where the xp_ procedures are available to low privileged users
+        have to be identified and the permissions need to be adjusted according
+        to the principle of least privilege.</p></li><li><p>ALL (not only the
+        ones listed) instances where ALL domain users have access to have to be
+        identified and evaluated if those broadly applied rights are really
+        needed. Adjustment has to be made according to the principle of least
+        privilege.</p></li><li><p>SMB Signing MUST be enabled on ALL servers,
+        not only MSSQL servers. Best would be to do it domain wide, also on
+        clients.</p></li><li><p>Robust AV MUST be in place that prevents attacks
+        via malware.</p></li><li><p>Monitoring for critical events MUST be in
+        place and reactions and countermeasures MUST take place
+        immediately.</p></li><li><p>TIERing MUST be implemented. Access to
+        servers is to be applied according to the principle of least
+        privilege.</p></li></ul>
+      references:
+        - 'https://www.offsec-journey.com/post/attacking-ms-sql-servers'
+        - >-
+          https://book.hacktricks.xyz/windows-hardening/active-directory-methodology/abusing-ad-mssql
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Shared Service Accounts
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Using shared service accounts can pose security risks due to the
+        following reasons:</p><ul><li><p>Lack of Accountability: When multiple
+        services or applications use the same service account, it becomes
+        difficult to determine which service or application performed a
+        particular action. This lack of accountability can hinder incident
+        response and make it challenging to identify the source of unauthorized
+        or malicious activities.</p></li><li><p>Overprivileged Access: Shared
+        service accounts often have elevated privileges to perform various tasks
+        across different systems or applications. If an attacker gains access to
+        a shared service account, they inherit all the privileges associated
+        with it, potentially granting them widespread access to sensitive data
+        or critical systems. The principle of least privilege is compromised
+        when using shared service accounts, as multiple services may have more
+        access than they actually require.</p></li><li><p>Password Management
+        Challenges: Shared service accounts typically have long lifetimes and
+        are seldom changed or updated, which increases the risk of password
+        compromise. If the password for a shared service account is compromised,
+        all the services using that account are also compromised. Additionally,
+        updating the password for a shared service account can be challenging
+        due to its wide usage, leading to delayed or neglected password
+        changes.</p></li><li><p>Difficulty in Monitoring and Auditing:
+        Monitoring and auditing become more challenging when multiple services
+        share the same account. It becomes difficult to attribute specific
+        actions to individual services or track activities associated with the
+        account. This can impede security investigations, compliance audits, and
+        the ability to detect and respond to security incidents
+        effectively.</p></li><li><p>Dependency Risks: When multiple services
+        rely on a shared service account, any disruption or compromise of the
+        account can have a cascading effect on all the dependent services. A
+        single security incident or misconfiguration can result in widespread
+        service disruptions or unauthorized access to critical
+        systems.</p></li></ul>
+      remediation: >-
+        <p>To mitigate these risks, it is generally recommended to use
+        individual service accounts with unique credentials for each service or
+        application. This allows for better accountability, enables fine-grained
+        access control, simplifies auditing and monitoring, and reduces the
+        impact of a compromised account to a single service or application.</p>
+      references: []
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SPN Remnants
+      vulnType: Weak or Stolen User Credentials
+      description: >-
+        <p>SPN stands for Service Principal Name, and it is a concept in a
+        Windows environment, particularly within Active Directory (AD). An SPN
+        is a unique identifier for a service instance that runs under a specific
+        user account. It is used by clients to identify and authenticate the
+        service they are trying to access.</p><p>Here are some key points about
+        SPNs in a Windows environment/AD:</p><ul><li><p>Purpose: The primary
+        purpose of an SPN is to associate a service with a specific account in
+        order to facilitate mutual authentication. When a client wants to
+        communicate with a service, it can use the SPN to locate and
+        authenticate the service.</p></li><li><p>Format: An SPN is composed of
+        two parts: the service class and the service name, separated by a
+        forward slash (/). The service class identifies the type of service,
+        such as "HTTP" for a web service or "MSSQLSvc" for a SQL Server service.
+        The service name is the fully qualified domain name (FQDN) or the
+        NetBIOS name of the server hosting the service.</p></li><li><p>Unique
+        Identifiers: Each service instance running under a specific user account
+        should have a unique SPN associated with it. This allows clients to
+        differentiate between different instances of the same service running on
+        different servers.</p></li><li><p>Kerberos Authentication: SPNs are
+        primarily used with Kerberos authentication in a Windows environment.
+        When a client needs to authenticate to a service using Kerberos, it
+        requests a ticket-granting ticket (TGT) from the Key Distribution Center
+        (KDC) using the SPN associated with the service. The SPN helps the KDC
+        locate the appropriate service account to authenticate the client
+        against.</p></li><li><p>Registering SPNs: Service accounts can register
+        their SPNs automatically or manually. Automatic registration occurs when
+        services start up and utilize the Network Service or Local System
+        accounts. Manual registration is required when using custom service
+        accounts.</p></li><li><p>Duplicate SPNs: Each SPN must be unique within
+        a domain to avoid conflicts. Duplicate SPNs can cause authentication
+        failures or unpredictable behavior. It's important to ensure that
+        different services or instances use distinct
+        SPNs.</p></li><li><p>Delegation: SPNs also play a role in delegation
+        scenarios, where a service needs to forward a client's credentials to
+        another service on behalf of the client. Service accounts require proper
+        configuration, including the appropriate SPNs and delegation settings,
+        to enable secure delegation.</p></li></ul><p>In summary, SPNs in a
+        Windows environment/AD are unique identifiers used to associate services
+        with specific user accounts for authentication purposes, primarily in
+        the context of Kerberos authentication. They help clients locate and
+        authenticate the services they want to access while ensuring secure and
+        accurate identification of the service instances.<br><br>In some
+        circumstances, mainly when SPNs get registered manually with the help of
+        the <a target="_blank" rel="noopener noreferrer nofollow"
+        href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731241(v=ws.11)">setspn</a>
+        tool, or when the machine is not able to unregister SPNs for several
+        reasons while being decommissioned, you might have dead SPNs in your
+        environment.<br><br>These dead SPNs can still be used to conduct
+        Kerberoasting attacks. When SPNs are tied to use accounts rather than to
+        computer objects, it might be the case that the password is weak. With
+        the Kerberoasting attack the cleartext credentials can then be
+        retrieved.</p>
+      observation: >-
+        <p>Criticality depends on what is possible.<br>If we can kerberoast
+        accounts where no actual service is running but which still have an SPN
+        and are admin or sth, this would be high/critical.<br>If they have
+        strong passwords and nothing can be done, medium to low.</p>
+      remediation: >-
+        <p>Remove ALL SPNs that are pointing to systems that no longer exist.
+        This has do be done for ALL domains.<br>This can either be done by
+        directly changing the <em>servicePrincipalName</em> value of the AD
+        objects or by using the <em>setspn</em> command:</p><pre><code>setspn -d
+        &lt;SPN&gt; &lt;accountname&gt;  
+
+        setspn -d MSSQL/SQLSERVER1 sqlservice </code></pre>
+      references:
+        - 'https://luemmelsec.github.io/Kerberoasting-VS-AS-REP-Roasting/'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  details:
+    - locale: EN
+      title: SAP Gateway ACL Misconfiguration
+      vulnType: Remote Code Execution
+      description: >-
+        <p>A remote code execution vulnerability exists in the remote SAP
+        Gateway as a result of allowing non-SAP applications to communicate
+        with, and potentially run OS commands on SAP applications. An
+        unauthenticated attacker can run the arbitrary commands on remote server
+        to gain access to the system or to read/write sensitive information.</p>
+      remediation: >-
+        <ul><li><p>Secure your Gateway ACL pointed by profile parameter
+        gw/sec_info with help of SAP note 1408081</p></li><li><p>Filter out
+        access from untrusted sources to the Gateway (port
+        tcp/33NN)</p></li></ul>
+      references:
+        - 'https://github.com/chipik/SAP_GW_RCE_exploit'
+        - 'https://github.com/gelim/sap_ms'
+        - >-
+          https://blogs.sap.com/2019/05/02/10kblaze-exploit-can-potentially-impact-most-sap-customers/
+        - 'https://www.tenable.com/plugins/nessus/126003'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Password Reusage for Highly Privileged Accounts
+      vulnType: Weak or Stolen User Credentials
+      description: >-
+        <p>Password reuse refers to the practice of using the same password for
+        multiple accounts or systems. This is considered a bad security practice
+        because it significantly increases the risk of unauthorized access and
+        security breaches.</p><p>When password reuse occurs, several security
+        vulnerabilities arise:</p><ul><li><p><strong>Single Point of
+        Failure:</strong> If a password is compromised for one account, all
+        accounts using the same password become vulnerable. This means that an
+        attacker who gains access to one account could potentially gain access
+        to other accounts, including highly privileged
+        ones.</p></li><li><p><strong>Amplified Impact:</strong> If an attacker
+        gains access to a highly privileged account with broad system access
+        (like an administrator account), they could potentially wreak havoc
+        across the entire system or network.</p></li><li><p><strong>Limited
+        Password Strength:</strong> People tend to use simpler passwords when
+        they have to remember them for multiple accounts. This increases the
+        chances of a password being easily guessed or cracked using brute-force
+        attacks.</p></li><li><p><strong>Difficulty in Tracking and
+        Management:</strong> Keeping track of multiple passwords can lead to
+        poor password management practices, like writing passwords down or
+        storing them in unsecured digital formats, further compromising
+        security.</p></li><li><p><strong>Delayed Detection:</strong> Detecting
+        unauthorized access becomes more challenging since a compromised account
+        might not raise suspicion if the account holder also uses the same
+        password for legitimate access.</p></li><li><p><strong>Social
+        Engineering Exploits:</strong> If an attacker discovers a password from
+        one account, they might use that information to impersonate the
+        legitimate user and attempt to gain access to other accounts by
+        exploiting trust relationships.</p></li></ul><p>For highly privileged
+        accounts like administrators, the risks are even more severe. These
+        accounts have access to critical systems, sensitive data, and the
+        ability to make system-wide changes. If such an account is compromised
+        due to password reuse, the potential damage and data breaches could be
+        catastrophic.</p>
+      remediation: >-
+        <p>In no case should passwords be reused.</p><p>Choose unique and strong
+        passwords for each user.</p><p>For highly privileged accounts use MFA
+        where possible.</p>
+      references:
+        - ''
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SCCM Usage of Network Access Account for Deployment
+      vulnType: Privilege Escalation
+      description: >-
+        <p>The Network Access Account (NAA) is a manually assigned (domain)
+        account which can be utilized by SCCM clients. This account enables
+        content downloads from an SCCM Distribution Point (DP) in cases where
+        the client cannot use its own computer account for DP access. Typically,
+        an SCCM client uses its computer account for server communication,
+        except for scenarios like non-domain-joined clients. <br>SCCM
+        administrators often create NAAs for such cases. However, according to
+        Microsoft [1] this is not best practice and should be avoided where
+        possible. Instead Enhanced HTTP should be used.</p>
+      remediation: >-
+        <p>Transition to Enhanced HTTP.</p><p>After transitioning away from
+        NAAs, disable or remove the NAA accounts in Active Directory.</p>
+      references:
+        - >-
+          [1]
+          https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/hierarchy/enhanced-http
+        - >-
+          [2]
+          https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/hierarchy/accounts#network-access-account
+        - >-
+          https://www.securesystems.de/blog/active-directory-spotlight-attacking-the-microsoft-configuration-manager/
+        - >-
+          https://posts.specterops.io/the-phantom-credentials-of-sccm-why-the-naa-wont-die-332ac7aa1ab9
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: SCCM Client Push Installation
+      vulnType: Privilege Escalation
+      description: >-
+        <p>SCCM (System Center Configuration Manager) client push installation
+        is a method used to deploy the SCCM client software to computers in a
+        networked environment. Instead of manually installing the SCCM client on
+        each individual computer, client push installation automates the
+        process.</p><p>Here's how it
+        works:</p><ul><li><p><strong>Configuration</strong>: Administrators
+        configure the SCCM server with the necessary settings for client push
+        installation. This includes specifying credentials and authentication
+        methods.</p></li><li><p><strong>Discovery</strong>: SCCM actively scans
+        the network to identify computers that need the client software
+        installed. It can also use predefined discovery methods to identify
+        potential target
+        computers.</p></li><li><p><strong>Installation</strong>: Once target
+        computers are identified, the SCCM server attempts to remotely install
+        the SCCM client software on those computers using the configured
+        authentication credentials.</p></li><li><p><strong>Status
+        Reporting</strong>: The SCCM server monitors the installation process
+        and reports back on whether the installation was successful or
+        encountered any issues.</p></li><li><p><strong>Client
+        Communication</strong>: After successful installation, the SCCM client
+        on each computer establishes communication with the SCCM server. This
+        allows the server to manage the computer, deploy software, updates, and
+        perform other configuration tasks.</p></li></ul><p>Client push
+        installation simplifies the task of deploying the SCCM client to a large
+        number of computers across the network, ensuring that they are properly
+        configured and ready to be managed through SCCM.</p><p>The step
+        <em>Installation</em> can be abused by an adversary who either
+        compromised a client that already is configured inside SCCM or from any
+        system if he gained access to credentials of a member of the <em>Full
+        Administrators</em> role inside SCCM. Starting from there coercion of
+        all push install accounts can be triggered and from the fetched
+        information they can either try to crack the passwords or relay the
+        credentials.<br>The prerequisites are:</p><ul><li><p>Automatic site
+        assignment for a boundary group, automatic site-wide client push
+        installation, and “Allow connection fallback to NTLM” are
+        enabled.</p></li><li><p>The site server must be able to reach the
+        capture/relay server via SMB on port 445 or if WebClient is enabled, via
+        HTTP on any port.</p></li><li><p>HTTPS Only with PKI certificates must
+        not be required for client authentication to management points for this
+        attack to be executed as a low-privileged user.</p></li></ul>
+      remediation: >-
+        <p>Microsoft states that the least secure way to deploy the SCCM client
+        is client push [1].</p><p>If it is the only option you can stick to the
+        following recommendations:</p><ul><li><p>Disable the <em>Allow
+        connection fallback to NTLM</em> setting</p></li><li><p>Use long and
+        complex passwords for all push accounts.</p></li><li><p>Use software
+        update-based client installation [2] instead of automatic site-wide
+        client push installation</p></li><li><p>Lock down client push accounts
+        by denying local logon and marking them as “account is sensitive and
+        cannot be delegated”.</p></li><li><p>Do not use the client push
+        installation method for Domain Controllers or sensitive
+        servers/workstations. Push accounts should not be added to the local
+        administrator’s group on these systems. Manual installation of the
+        client is preferred. Ideally, critical assets should not be managed by
+        the same SCCM at all (or leverage a separate system entirely dedicated
+        to “Tier 0” assets).</p></li><li><p>Evaluate the use of NTLM across the
+        enterprise. At a minimum, the authentication level for Domain
+        Controllers should be set to “Send NTLMv2 response only\refuse LM &amp;
+        NTLM”, and efforts should be made toward fully eliminating NTLM
+        traffic.</p></li><li><p>Starting in version 1806, Microsoft implemented
+        the checkbox to “allow connection fallback to NTLM”. They recommend
+        unchecking this setting to enforce Kerberos authentication. Note that
+        clients must be in a trusted Active Directory to use this feature.
+        Careful testing may be required to ensure there is no service disruption
+        when disabling this setting.</p></li><li><p>Never use members of highly
+        privileged groups (e.g., Domain Admins) for client push installation.
+        Instead, create an account for each site specifically for this purpose
+        that doesn’t have interactive logon rights and add it to the local
+        Administrators group. Monitor for suspicious use of this
+        account.</p></li><li><p>Require SMB signing, LDAP signing/channel
+        binding, and MSSQL extended protection for authentication to prevent
+        relayed credentials from being used to against other
+        systems.</p></li><li><p>Requiring PKI certificates for SCCM client
+        authentication also prevents this attack from being conducted as a
+        low-privileged user, even if NTLM authentication is
+        allowed.</p></li></ul>
+      references:
+        - >-
+          [1]
+          https://learn.microsoft.com/en-us/mem/configmgr/core/clients/deploy/plan/security-and-privacy-for-clients#use-the-most-secure-client-installation-methods-that-are-practical-for-your-environment
+        - >-
+          [2]
+          https://docs.microsoft.com/en-us/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers
+        - >-
+          https://posts.specterops.io/coercing-ntlm-authentication-from-sccm-e6e23ea8260a
+        - >-
+          https://posts.specterops.io/relaying-ntlm-authentication-from-sccm-clients-7dccb8f92867
+        - >-
+          https://posts.specterops.io/sccm-site-takeover-via-automatic-client-push-installation-f567ec80d5b1
+        - 'https://github.com/Mayyhem/SharpSCCM/wiki/invoke#invoke-client-push'
+        - >-
+          https://www.hub.trimarcsecurity.com/post/push-comes-to-shove-exploring-the-attack-surface-of-sccm-client-push-accounts
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: MIFARE Classic - Authentication by UID only
+      vulnType: Weak or Stolen User Credentials
+      description: >-
+        <p>Each NFC tag has a unique ID (UID). This UID can be read by everyone
+        and is not protected in the case of MIFARE Classic tags.<br>Systems can
+        be configured to only check the UID as an authentication feature, where
+        no validation against data in the tag's encrypted sectors is taking
+        place.<br><br>All an attacker would need to do is “touch” an ID tag with
+        e.g., a Flipper Zero or other according hardware to fetch the UID. Think
+        of standing in an elevator, the keycard on a lanyard, and just walking
+        by your target. After successfully fetching the UID, it would be
+        possible to impersonate that user granting access to all his resources.
+        <br>This might be doors, gates, hotel rooms, a skiing-pass, student ID
+        or a printing solution. <br><br>Another way of attacking such weak
+        implementations is a brute force attack against the UID. This might
+        obviously take a long time, but nevertheless poses a risk.</p>
+      observation: <p></p><p></p>
+      remediation: >-
+        <p>One point to address is user awareness. If an attacker cannot “touch”
+        the ID card, it cannot be read. This, however, interferes with the
+        corporate policy to always wear your badge visibly to everyone. So at
+        least outside of the campus, badges should not be worn visibly.<br>The
+        other thing is to check whether the solution is capable of not only
+        relying on the UID, but rather data that is stored in one of the secured
+        sectors. In this course you need to make sure to use safe technology
+        like <em>MIFARE DESFire</em>, as for example the MIFARE Classic
+        technology is broken and full of security flaws.</p>
+      references: []
+      customFields: []
+  category: Physical Security
+- cvssv3: 'CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Usage of MIFARE Classic technology
+      vulnType: Weak or Stolen User Credentials
+      description: >-
+        <p>In 2008 the proprietary encryption algorithm <em>CRYPTO-1</em>,
+        developed by NXP, was completely reverse engineered by the Radboud
+        University Nijmegen [1]. <br>In 2009, the MIFARE Classic Offline Cracker
+        (MFOC) was released, wrapped around the so called nested attack which
+        makes it possible to recover all sector encryption keys when only one
+        key is known. <br>Following was the <em>MFCUK-MiFare Classic Universal
+        toolkit</em>, which allowed to retrieve a valid key, even if no key was
+        known at all.<br>The answer to these flaws was the release of the
+        <em>MIFARE Classic EV1</em> tags as well as the MIFARE DESFire tags by
+        NXP, which had several security improvements over the original
+        implementation.<br>However, in 2015 the <em>hardnested attack [2]</em>
+        was published, which allowed to even crack these hardened tags open by a
+        side-channel attack.</p><p>As soon as an attacker gets a hold on a
+        vulnerable tag, he can recover all keys, access all sectors, tamper with
+        the content, and clone the tag.<br>Attack scenarios might include a lost
+        tag or stolen tag, a cloned tag or even an inside
+        attacker.</p><p>Another way of abuse involves just having the UID of a
+        card (read in a second with a Flipper Zero or Proxmark3) and emulate it
+        to collect encrypted nonces [3] from a valid reader to later be able to
+        offline crack the encryption keys. In some cases this is not sufficient
+        and an attacker needs to sniff traffic from a legit card and reader to
+        successfully collect the nonces.</p>
+      observation: <p></p><p></p>
+      remediation: >-
+        <p>According to NXP <em>MIFARE Classic</em> cards are no longer
+        considered save [4] and should not be used anymore, when it comes to
+        managing access rights or other security relevant implementations. The
+        most modern successor is <em>MIFARE DESFire</em>.</p>
+      references:
+        - >-
+          [1]
+          https://www.researchgate.net/publication/1915327_A_practical_attack_on_the_MIFARE_classic
+        - >-
+          [2]
+          http://www.cs.ru.nl/R.Verdult/Ciphertext-only_Cryptanalysis_on_Hardened_Mifare_Classic_Cards-CCS_2015.pdf
+        - '[3] https://github.com/equipter/mfkey32v2'
+        - >-
+          [4]
+          https://www.mifare.net/en/products/chip-card-ics/mifare-classic/security-statement-on-crypto1-implementations/
+      customFields: []
+  category: Physical Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Log4j Log4Shell
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases
+        2.12.2, 2.12.3, and 2.3.1) JNDI features used in configuration, log
+        messages, and parameters do not protect against attacker controlled LDAP
+        and other JNDI related endpoints.</p>
+      observation: >-
+        <p>An attacker who can control log messages or log message parameters
+        can execute arbitrary code loaded from LDAP servers when message lookup
+        substitution is enabled.</p>
+      remediation: >-
+        <p>From log4j 2.15.0, this behavior has been disabled by default. From
+        version 2.17.0, this functionality has been completely
+        removed.</p><p>Patch the software or implement the mitigaton.</p><p>Use
+        logout4shell if needed.</p>
+      references:
+        - 'https://logging.apache.org/log4j/2.x/security.html'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2021-44228'
+        - 'https://github.com/Cybereason/Logout4Shell'
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 4
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: SUSE Linux Enterprise Server End of Life
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>The Operating System (OS) on the host has reached the End of Life
+        (EOL) and should not be used anymore.An EOL version of an OS is not
+        receiving any security updates from the vendor. Unfixed security
+        vulnerabilities might be leveraged by an attacker to compromise the
+        security of this host.</p>
+      observation: >-
+        <p>SUSE Linux Enterprise Server in unsupported version, excluding paid
+        "Premium Support".</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://www.suse.com/lifecycle/#product-suse-linux-enterprise-server'
+      customFields: []
+  category: System Security
+- cvssv3: null
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Elasticsearch End of Life
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>The Elasticsearch version on the host has reached the End of Life
+        (EOL) and should not be used anymore.</p>
+      observation: >-
+        <p>Elasticsearch in unsupported version, excluding paid "Premium
+        Support".</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://www.elastic.co/support/eol'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H'
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Elasticsearch multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>Elastic Elasticsearch is prone to multiple vulnerabilities.</p>
+      observation: <p>ex.</p><p>- CVE-2021-45046</p>
+      remediation: >-
+        <p>Update Elasticsearch to a version that still receives technical
+        support and updates.</p>
+      references:
+        - 'https://www.cisa.gov/known-exploited-vulnerabilities-catalog'
+        - >-
+          https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476
+        - >-
+          https://discuss.elastic.co/t/elasticsearch-7-13-3-and-6-8-17-security-update/278100
+        - >-
+          https://discuss.elastic.co/t/elastic-stack-7-12-0-and-6-8-15-security-update/268125
+        - 'https://www.openwall.com/lists/oss-security/2021/12/10/1'
       customFields: []
   category: System Security
 - cvssv3: null
@@ -3658,20 +4349,412 @@
   remediationComplexity: 1
   details:
     - locale: EN
-      title: SSL / TLS weak Protocols
+      title: 'WSTG-CONF-06: Test HTTP Methods'
+      vulnType: Misconfiguration
+      description: >-
+        <p>The remote web server supports the TRACE and/or TRACK methods. TRACE
+        and TRACK are HTTP methods which are used to debug web server
+        connections.</p>
+      observation: >-
+        <p>It has been shown that web servers supporting this methods are
+        subject to cross-site-scripting attacks, dubbed XST for
+        Cross-Site-Tracing, when used in conjunction with various weaknesses in
+        browsers</p>
+      remediation: >-
+        <p>Disable the TRACE and TRACK methods in your web server
+        configuration</p>
+      references:
+        - 'http://www.kb.cert.org/vuls/id/288308'
+        - 'https://httpd.apache.org/docs/current/en/mod/core.html#traceenable'
+        - 'https://owasp.org/www-community/attacks/Cross_Site_Tracing'
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Mailserver SMTP VRFY and EXPN request
+      vulnType: Misconfiguration
+      description: >-
+        <p>The Mailserver on this host answers to VRFY and/or EXPN requests.
+        VRFY and EXPN ask the server for information about an address.</p>
+      remediation: >-
+        <p>Disable VRFY and/or EXPN on your Mailserver. </p><p>For postfix add
+        'disable_vrfy_command=yes' in '<a target="_blank" rel="noopener
+        noreferrer nofollow" href="http://main.cf">main.cf</a>'. </p><p>For
+        Sendmail add the option 'O PrivacyOptions=goaway'. .</p>
+      references:
+        - 'http://cr.yp.to/smtp/vrfy.html'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 4
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: SpamAssassin Milter Plugin RCE
+      vulnType: Poor Data Sanitization
+      description: >-
+        <p>SpamAssassin Milter Plugin is prone to a remote command injection
+        vulnerability because it fails to adequately sanitize user-supplied
+        input data.</p>
+      observation: >-
+        <p>Sends multiple crafted SMTP commands including a 'sleep 16' and tries
+        to determine if the answer of the service is delayed for these 16
+        seconds.</p><p>RCPT TO: root+:"; sleep 16 ;"</p><p>CVE-2010-1132</p>
+      remediation: >-
+        <p>No known solution was made available for at least one year since the
+        disclosure of this vulnerability. Likely none will be provided anymore.
+        General solution options are to upgrade to a newer release, disable
+        respective features, remove the product or replace the product by
+        another one.</p>
+      references:
+        - >-
+          http://archives.neohapsis.com/archives/fulldisclosure/2010-03/0139.html
+        - >-
+          http://www.securityfocus.com/bid/38578http://seclists.org/fulldisclosure/2010/Mar/140
+      customFields: []
+  category: System Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Squid multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>Squid is prone to multiple vulnerabilities.</p>
+      observation: >-
+        <p>ex.</p><p>- X-Forwarded-For Stack Overflow</p><p>- Chunked Encoding
+        Stack Overflow</p><p>- Use-After-Free in Cache Manager Errors</p><p>-
+        Memory Leak in HTTP Response Parsing</p><p>- Memory Leak in ESI Error
+        Processing</p><p>- One-Byte Buffer OverRead in HTTP Request Header
+        Parsing</p><p>- strlen(NULL) Crash Using Digest Authentication
+        GHSA-254c-93q9-cp53</p><p>- Assertion in ESI Header Handling</p><p>-
+        Gopher Assertion Crash</p><p>- Whois Assertion Crash</p><p>- RFC 2141 /
+        2169 (URN) Assertion Crash</p><p>- Assertion in Negotiate/NTLM
+        Authentication Using Pipeline Prefetching</p><p>- Assertion on IPv6 Host
+        Requests with --disable-ipv6</p><p>- Assertion Crash on Unexpected
+        'HTTP/1.1 100 Continue' Response Header</p><p>- Pipeline Prefetch
+        Assertion With Double 'Expect:100-continue' Request Headers</p><p>-
+        Pipeline Prefetch Assertion With Invalid Headers</p><p>- Assertion Crash
+        in Deferred Requests</p><p>- Assertion in Digest Authentication</p><p>-
+        FTP Authentication Crash</p><p>- Assertion Crash In HTTP Response
+        Headers Handling</p><p>- Implicit Assertion in Stream Handling</p><p>-
+        Use-After-Free in ESI 'Try' (and 'Choose') Processing</p><p>-
+        Use-After-Free in ESI Expression Evaluation</p><p>- Buffer Underflow in
+        ESI GHSA-wgvf-q977-9xjg</p><p>- Assertion Due to 0 ESI 'when' Checking
+        GHSA-4g88-277m-q89r</p><p>- Assertion Using ESI's When Directive
+        GHSA-4g88-277m-q89r</p><p>- Assertion in ESI Variable Assignment
+        (String)</p><p>- Assertion in ESI Variable Assignment</p><p>- Null
+        Pointer Dereference In ESI's esi:include and esi:when</p><p>Note:
+        Various GHSA advisories have been provided by the security researcher
+        but are not published / available yet.</p>
+      remediation: >-
+        <p>No known solution is available as of 23th October, 2023. Information
+        regarding this issue will be updated once solution details are
+        available.</p>
+      references:
+        - 'https://megamansec.github.io/Squid-Security-Audit/'
+        - 'https://joshua.hu/squid-security-audit-35-0days-45-exploits'
+        - 'https://www.openwall.com/lists/oss-security/2023/10/11/3'
+      customFields: []
+  category: System Security
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-CRYP-01: SSL / TLS weak Protocols'
       vulnType: Missing or Poor Data Encryption
       description: >-
-        <p>It was possible to detect the usage of a deprecated SSL/TLS protocol
-        on the system.</p>
+        <p>It was possible to detect the usage of a deprecated unsecured SSL/TLS
+        protocol on the system.</p>
+      observation: <p>ex.</p><p>- TLS &lt;1.2</p><p>- unsecure renegotiation </p>
       remediation: >-
         <p>It is recommended to disable the deprecated SSLv2, SSLv3, TLSv1.0 and
-        TLSv1.1 protocols in favor of the TLSv1.2+ protocols</p><p>The
-        configuration of this services should be changed so that it does not
-        accept the weak cipher suites anymore.</p><p>Mind the BSI
-        recommendations.</p>
+        TLSv1.1 protocols in favor of the TLSv1.2+ protocols.</p><p>Disable
+        renegotiation capabilities altogether from/in the affected SSL/TLS
+        service or enable Safe/Secure renegotiation (RFC5746) for the affected
+        SSL/TLS service.</p><p>Mind the BSI recommendations.</p>
       references:
         - 'https://ssl-config.mozilla.org/'
         - >-
           https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.pdf
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+        - 'https://orchilles.com/ssl-renegotiation-dos/'
+        - 'https://www.kb.cert.org/vuls/id/120541'
       customFields: []
   category: Web Security
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-CRYP-01: SSL / TLS weak Cipher Suites'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>It was possible to detect the usage of a deprecated SSL/TLS cipher
+        suites on the system.</p>
+      remediation: >-
+        <p>- Disable SSLv3</p><p>- Disable cipher suites supporting CBC cipher
+        modes</p><p>- Enable TLS_FALLBACK_SCSV if the service is providing
+        TLSv1.0+</p><p>minimal cipher suites:
+        ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305</p><p>Mind
+        the BSI recommendations.</p>
+      references:
+        - 'https://ssl-config.mozilla.org/'
+        - >-
+          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.html
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+      customFields: []
+  category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N'
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: MongoDB Log Spoofing Vulnerability
+      vulnType: Outdated or Unpatched Software
+      description: <p>MongoDB is prone to a log spoofing vulnerability.</p>
+      observation: >-
+        <p>Sending specially crafted commands to a MongoDB Server may result in
+        artificial log entries being generated or for log entries to be
+        split.</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://jira.mongodb.org/browse/SERVER-50605'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2021-20333'
+      customFields: []
+  category: System Security
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Unencrypted management service login
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>The remote host is running a service that allows cleartext logins
+        over unencrypted connections.</p><p>e.g. telnet</p>
+      observation: >-
+        <p>An attacker can uncover login names and passwords by sniffing traffic
+        to the Telnet service.</p>
+      remediation: <p>Disable the service if not strictly needed.</p>
+      references: []
+      customFields: []
+  category: Network Security
+- cvssv3: null
+  priority: 1
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-CONF-06: GET for POST'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>A request that was originally observed as a POST was also accepted as
+        a GET. This issue does not represent a security weakness unto itself,
+        however, it may facilitate simplification of other attacks. For example
+        if the original POST is subject to Cross-Site Scripting (XSS), then this
+        finding may indicate that a simplified (GET based) XSS may also be
+        possible.</p>
+      remediation: >-
+        <p>Ensure that only POST is accepted where POST is
+        expected.</p><p>Ensure that no workarounds are implemented to bypass
+        security measures implemented by user-agents, frameworks, or web
+        servers.</p>
+      references:
+        - 'https://www.zaproxy.org/docs/alerts/10058/'
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-INFO-02: Revealed Webserver Technology'
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Knowing the technology of a webserver can aid an attacker to
+        determine how more targeted attacks can be conducted.<br>Webservers
+        often times reveal the technology they are running on in response
+        headers, even including concrete version numbers.<br>Attackers can then
+        check if the version is affected by some kind of vulnerability and try
+        to abuse it.</p><p></p>
+      remediation: >-
+        <p>It is recommened to publish as little information as possible about
+        installed version statuses and reconfiguring the header information
+        accordingly.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Tailgating / Piggybacking
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Tailgating is essentially a social engineering attack in which the
+        attacker follows a legitimate individual into a prohibited area where
+        they are not allowed to be. People frequently picture nefarious
+        cybercriminals acting from afar when considering data breaches. However,
+        allowing someone without authorization to enter your property, possibly
+        through a tailgating attack, puts businesses in danger of having their
+        confidential or sensitive information leaked.</p>
+      remediation: >-
+        <p>The most crucial step in preventing Social Engineering attacks is
+        educating your employees on the importance of following security
+        procedures. Conduct regular training sessions and ensure all employees
+        understand their role in keeping your facility safe.</p><p>Ask unknown
+        people if you could help them or where they belong.</p>
+      references:
+        - >-
+          https://www.checkpoint.com/cyber-hub/cyber-security/what-is-cyber-attack/what-is-a-tailgating-attack/
+        - >-
+          https://www.datensicherheit.de/tailgating-social-engineering-methode-bedrohung-it-sicherheit
+        - >-
+          https://www.darkreading.com/physical-security/cyber-physical-security-what-it-is-and-what-you-should-do
+      customFields: []
+  category: Physical Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Impersonation / Fake IDs
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Impersonation involves posing as an authorized person or a
+        representative of a trusted organization. To deceive individuals, the
+        attacker may dress like a maintenance worker, delivery person, or other
+        personnel. By leveraging uniforms, badges, or forged credentials, they
+        gain trust and access to sensitive areas.</p>
+      remediation: >-
+        <p>The most crucial step in preventing Social Engineering attacks is
+        educating your employees on the importance of following security
+        procedures. Conduct regular training sessions and ensure all employees
+        understand their role in keeping your facility safe.</p><p>Implement
+        employee ID cards with photo and enforce guests to be accompanied by
+        employees.</p>
+      references:
+        - >-
+          https://library.mosse-institute.com/articles/2023/07/physical-attacks-of-social-engineering.html
+        - 'https://www.bitdefender.com/blog/hotforsecurity/what-is-impersonation/'
+        - 'https://www.unit21.ai/trust-safety-dictionary/impersonation'
+      customFields: []
+  category: Physical Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Dumpster Diving
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Dumpster diving is a technique where an attacker searches through
+        trash or recycling bins to gather valuable information. They look for
+        discarded documents, receipts, or other materials that contain sensitive
+        data, such as passwords, access codes, or account details. This
+        information can be used for further attacks or to gain unauthorized
+        entry.</p>
+      remediation: >-
+        <p>The most crucial step in preventing Social Engineering attacks is
+        educating your employees on the importance of following security
+        procedures. Conduct regular training sessions and ensure all employees
+        understand their role in keeping your facility safe.</p><p>Implement
+        separate bins for sensitive information and make them locked.</p>
+      references:
+        - >-
+          https://library.mosse-institute.com/articles/2023/07/physical-attacks-of-social-engineering.html
+        - 'https://www.techtarget.com/searchsecurity/definition/dumpster-diving'
+      customFields: []
+  category: Physical Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Eavesdropping
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Eavesdropping involves the unauthorized interception of conversations
+        or information in public spaces. Attackers may listen to conversations
+        or gather sensitive data by observing and overhearing interactions. By
+        capturing information about security protocols, access codes, or
+        employee routines, they can exploit vulnerabilities in the physical
+        security system.</p>
+      remediation: >-
+        <p>The most crucial step in preventing Social Engineering attacks is
+        educating your employees on the importance of following security
+        procedures. Conduct regular training sessions and ensure all employees
+        understand their role in keeping your facility safe.</p><p>Educate
+        employees not to talk abount sensitiv content in public, even the
+        employer restaurant might not be an apropriate area.</p>
+      references:
+        - >-
+          https://library.mosse-institute.com/articles/2023/07/physical-attacks-of-social-engineering.html
+        - >-
+          https://www.techtarget.com/searchunifiedcommunications/definition/eavesdropping
+      customFields: []
+  category: Physical Security
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Physical manipulation
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Attackers may use physical manipulation techniques to bypass or turn
+        off security measures. This can include tampering with locks, disabling
+        alarms, or bypassing access controls. By exploiting vulnerabilities in
+        the physical infrastructure, they gain unauthorized access to restricted
+        areas.</p>
+      remediation: >-
+        <p>The most crucial step in preventing Social Engineering attacks is
+        educating your employees on the importance of following security
+        procedures. Conduct regular training sessions and ensure all employees
+        understand their role in keeping your facility safe.</p><p>Implement
+        motion-detector survailance cameras to detect attackers.</p>
+      references:
+        - >-
+          https://library.mosse-institute.com/articles/2023/07/physical-attacks-of-social-engineering.html
+        - >-
+          https://www.darkreading.com/physical-security/cyber-physical-security-what-it-is-and-what-you-should-do
+      customFields: []
+  category: Physical Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: Clean desk policy
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>A clean desk policy (CDP) is&nbsp;a corporate directive that
+        specifies how employees should leave their work space when they leave
+        the office. Most CDPs require employees to clear their desks of all
+        papers at the end of the day.</p>
+      remediation: >-
+        <p>The most crucial step in preventing Social Engineering attacks is
+        educating your employees on the importance of following security
+        procedures. Conduct regular training sessions and ensure all employees
+        understand their role in keeping your facility safe.</p><p>Implement and
+        verify a clean desk policy to prevent theft of sensitive
+        information.</p><p>Use Kensingtonlocks for mobile hardware.</p>
+      references:
+        - >-
+          https://www.datenschutzexperte.de/blog/datenschutz-im-unternehmen/clean-desk-policy-gelebter-datenschutz/
+        - 'https://www.computerweekly.com/de/definition/Clean-Desk-Policy-CDP'
+      customFields: []
+  category: Physical Security
