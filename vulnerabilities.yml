@@ -1844,7 +1844,7 @@
   remediationComplexity: 2
   details:
     - locale: EN
-      title: 'WSTG-CRYP-01: Weak TLS Configuration'
+      title: 'WSTG-CRYP-01: Weak TLS Configuration (Catch all)'
       vulnType: Missing or Poor Data Encryption
       description: >-
         <p>Transport Layer Security (TLS) is a cryptographic protocol that
@@ -1884,17 +1884,23 @@
         implementing proper certificate validation, and regularly updating TLS
         implementations to address new vulnerabilities.</p>
       remediation: >-
-        <p>Disable SSLv3.<br>Update the Webserver and SSL implementation to the
-        latest version.<br>Disable weak ciphers (SEED, IDEA, RC2, RC4) on the
-        server.<br>Configure the server to use a 2048-bit Diffie-Hellman
-        group.<br>Disable cipher with 64-bit block size (3DES, DES,
-        Blowfish).<br>Disable HTTP compression on the server or ignore if there
-        is no secret in the page.</p>
+        <p>Replace weak or expired Certificates.</p><p>Disable the deprecated
+        SSLv2, SSLv3, TLSv1.0 and TLSv1.1 protocols.</p><p>Disable HTTP
+        compression on the server or ignore if there is no secret in the
+        page.</p><p>Enable TLS_FALLBACK_SCSV if the service is providing
+        TLSv1.0+</p><p>Disable renegotiation capabilities altogether from/in the
+        affected SSL/TLS service or enable Safe/Secure renegotiation (RFC5746)
+        for the affected SSL/TLS service.</p><p>Uee minimal cipher suites:
+        ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305</p><p>Mind
+        the BSI recommendations.</p>
       references:
         - >-
           https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
         - >-
           https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.html
+        - 'https://ssl-config.mozilla.org/'
+        - 'https://orchilles.com/ssl-renegotiation-dos/'
+        - 'https://www.kb.cert.org/vuls/id/120541'
       customFields: []
   category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L'
@@ -3475,8 +3481,20 @@
       title: 'WSTG-CRYP-01: SSL / TLS expired or weak Certificates'
       vulnType: Missing or Poor Data Encryption
       description: >-
-        <p>The remote service is using a SSL/TLS certificate in the certificate
-        chain that has been signed using a cryptographically weak hashing
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses.</p><p>The
+        remote service is using a SSL/TLS certificate in the certificate chain
+        that has been signed using a cryptographically weak hashing
         algorithm.</p><p>The remote service is using a SSL/TLS certificate chain
         where one or multiple CA certificates have expired.</p>
       remediation: <p>Replace weak or expired Certificates.</p>
@@ -4470,23 +4488,31 @@
       title: 'WSTG-CRYP-01: SSL / TLS weak Protocols'
       vulnType: Missing or Poor Data Encryption
       description: >-
-        <p>It was possible to detect the usage of a deprecated unsecured SSL/TLS
-        protocol on the system.</p>
-      observation: <p>ex.</p><p>- TLS &lt;1.2</p><p>- unsecure renegotiation </p>
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses.</p><p>It was
+        possible to detect the usage of a deprecated unsecured SSL/TLS protocol
+        on the system.</p>
+      observation: <p>ex.</p><p>- TLS &lt;1.2</p>
       remediation: >-
         <p>It is recommended to disable the deprecated SSLv2, SSLv3, TLSv1.0 and
-        TLSv1.1 protocols in favor of the TLSv1.2+ protocols.</p><p>Disable
-        renegotiation capabilities altogether from/in the affected SSL/TLS
-        service or enable Safe/Secure renegotiation (RFC5746) for the affected
-        SSL/TLS service.</p><p>Mind the BSI recommendations.</p>
+        TLSv1.1 protocols in favor of the TLSv1.2+ protocols.</p><p>Mind the BSI
+        recommendations.</p>
       references:
         - 'https://ssl-config.mozilla.org/'
         - >-
           https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.pdf
         - >-
           https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
-        - 'https://orchilles.com/ssl-renegotiation-dos/'
-        - 'https://www.kb.cert.org/vuls/id/120541'
       customFields: []
   category: Web Security
 - cvssv3: null
@@ -4497,8 +4523,20 @@
       title: 'WSTG-CRYP-01: SSL / TLS weak Cipher Suites'
       vulnType: Missing or Poor Data Encryption
       description: >-
-        <p>It was possible to detect the usage of a deprecated SSL/TLS cipher
-        suites on the system.</p>
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses.</p><p>It was
+        possible to detect the usage of a deprecated SSL/TLS cipher suites on
+        the system.</p>
       remediation: >-
         <p>- Disable SSLv3</p><p>- Disable cipher suites supporting CBC cipher
         modes</p><p>- Enable TLS_FALLBACK_SCSV if the service is providing
@@ -4758,3 +4796,100 @@
         - 'https://www.computerweekly.com/de/definition/Clean-Desk-Policy-CDP'
       customFields: []
   category: Physical Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Apache Tomcat End of Life
+      vulnType: Outdated or Unpatched Software
+      description: >-
+        <p>Apache Tomcat version on the host has reached the End of Life (EOL)
+        and should not be used anymore.</p>
+      observation: >-
+        <p>Apache Tomcat in unsupported version, excluding paid "Premium
+        Support".</p>
+      remediation: <p>Update or Upgrade to the latest supported version if possible.</p>
+      references:
+        - 'https://tomcat.apache.org/whichversion.html'
+        - 'https://en.wikipedia.org/wiki/Apache_Tomcat#Releases'
+      customFields: []
+  category: System Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-CRYP-01: SSL / TLS Renegotiation Vulnerabilitie'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses.</p><p>The
+        remote SSL/TLS service is prone to a renegotiation vulnerability.</p>
+      observation: >-
+        <p>ex</p><p>- CVE-2009-3555: SSL/TLS man in the middle via handshake
+        renegotiation</p><p>- CVE-2011-1473: OpenSSL denial of service via
+        handshake renegotiation</p><p>- CVE-2011-5094: NSS denial of service via
+        handshake renegotiation</p>
+      remediation: >-
+        <p>Disable renegotiation capabilities altogether from/in the affected
+        SSL/TLS service or enable Safe/Secure renegotiation (RFC5746) for the
+        affected SSL/TLS service.</p><p>Mind the BSI recommendations.</p>
+      references:
+        - 'https://ssl-config.mozilla.org/'
+        - >-
+          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.pdf
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+        - 'https://orchilles.com/ssl-renegotiation-dos/'
+        - 'https://www.kb.cert.org/vuls/id/120541'
+        - ''
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-CRYP-01: SSL / TLS Diffie-Hellman Key Exchange Vulnerability'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses.</p><p>The
+        Diffie-Hellman group are some big numbers that are used as base for the
+        DH computations. They can be, and often are, fixed. The security of the
+        final secret depends on the size of these parameters. It was found that
+        512 and 768 bits to be weak, 1024 bits to be breakable by really
+        powerful attackers.</p><p>The SSL/TLS service uses Diffie-Hellman groups
+        with insufficient strength.</p>
+      remediation: >-
+        <p>Deploy (Ephemeral) Elliptic-Curve Diffie-Hellman (ECDHE) or use a
+        2048-bit or stronger Diffie-Hellman group.</p>
+      references:
+        - 'https://weakdh.org/'
+        - >-
+          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.pdf
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+      customFields: []
+  category: Web Security
