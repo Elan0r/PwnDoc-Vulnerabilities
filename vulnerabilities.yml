@@ -1839,70 +1839,6 @@
           https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting
       customFields: []
   category: Web Security
-- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
-  priority: 2
-  remediationComplexity: 2
-  details:
-    - locale: EN
-      title: 'WSTG-CRYP-01: Weak TLS Configuration (Catch all)'
-      vulnType: Missing or Poor Data Encryption
-      description: >-
-        <p>Transport Layer Security (TLS) is a cryptographic protocol that
-        provides secure communication over a network by encrypting data sent
-        between two devices. TLS is commonly used to secure HTTP connections,
-        which are used to transfer data between web servers and clients, and is
-        often referred to as HTTPS.</p><p>TLS works by creating a secure
-        communication channel between two devices, using a combination of public
-        key encryption and symmetric key encryption. During the initial
-        connection, the client and server exchange cryptographic keys to
-        establish a secure session. The keys are then used to encrypt and
-        decrypt data sent between the two devices.</p><p>While Transport Layer
-        Security (TLS) is a widely used and effective protocol for securing
-        communication over a network, it is not without weaknesses. Some of the
-        weaknesses of TLS include:</p><ul><li><p>Weak cipher suites: Some older
-        cipher suites used in TLS are now considered weak and vulnerable to
-        attacks, such as the infamous POODLE attack. It is important to use
-        strong cipher suites and disable any deprecated or insecure cipher
-        suites.</p></li><li><p>Certificate authority (CA) vulnerabilities: The
-        trust model of TLS relies on the security of the CA system, which can be
-        vulnerable to attacks such as phishing or compromise of CAs. This can
-        result in fake or fraudulent certificates being issued, which can then
-        be used to perform man-in-the-middle
-        attacks.</p></li><li><p>Implementation flaws: TLS implementations can
-        contain flaws that could be exploited by attackers, such as the
-        Heartbleed vulnerability, which allowed attackers to steal sensitive
-        information from servers using a specific version of the OpenSSL
-        cryptographic library.</p></li><li><p>Key management: TLS relies on
-        secure key management practices to ensure the integrity and
-        confidentiality of data in transit. If keys are compromised or not
-        managed properly, it can result in the encryption being broken and
-        sensitive information being exposed.</p></li><li><p>Attacks against the
-        protocol itself: New attacks against the TLS protocol are regularly
-        discovered and may require updates or changes to the protocol to address
-        them.</p></li></ul><p>It is important to stay up to date with the latest
-        best practices for using TLS, including using strong cipher suites,
-        implementing proper certificate validation, and regularly updating TLS
-        implementations to address new vulnerabilities.</p>
-      remediation: >-
-        <p>Replace weak or expired Certificates.</p><p>Disable the deprecated
-        SSLv2, SSLv3, TLSv1.0 and TLSv1.1 protocols.</p><p>Disable HTTP
-        compression on the server or ignore if there is no secret in the
-        page.</p><p>Enable TLS_FALLBACK_SCSV if the service is providing
-        TLSv1.0+</p><p>Disable renegotiation capabilities altogether from/in the
-        affected SSL/TLS service or enable Safe/Secure renegotiation (RFC5746)
-        for the affected SSL/TLS service.</p><p>Uee minimal cipher suites:
-        ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305</p><p>Mind
-        the BSI recommendations.</p>
-      references:
-        - >-
-          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
-        - >-
-          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.html
-        - 'https://ssl-config.mozilla.org/'
-        - 'https://orchilles.com/ssl-renegotiation-dos/'
-        - 'https://www.kb.cert.org/vuls/id/120541'
-      customFields: []
-  category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L'
   priority: 4
   remediationComplexity: 1
@@ -3473,37 +3409,6 @@
       references: []
       customFields: []
   category: Network Security
-- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N'
-  priority: 3
-  remediationComplexity: 1
-  details:
-    - locale: EN
-      title: 'WSTG-CRYP-01: SSL / TLS expired or weak Certificates'
-      vulnType: Missing or Poor Data Encryption
-      description: >-
-        <p>Transport Layer Security (TLS) is a cryptographic protocol that
-        provides secure communication over a network by encrypting data sent
-        between two devices. TLS is commonly used to secure HTTP connections,
-        which are used to transfer data between web servers and clients, and is
-        often referred to as HTTPS.</p><p>TLS works by creating a secure
-        communication channel between two devices, using a combination of public
-        key encryption and symmetric key encryption. During the initial
-        connection, the client and server exchange cryptographic keys to
-        establish a secure session. The keys are then used to encrypt and
-        decrypt data sent between the two devices.</p><p>While Transport Layer
-        Security (TLS) is a widely used and effective protocol for securing
-        communication over a network, it is not without weaknesses.</p><p>The
-        remote service is using a SSL/TLS certificate in the certificate chain
-        that has been signed using a cryptographically weak hashing
-        algorithm.</p><p>The remote service is using a SSL/TLS certificate chain
-        where one or multiple CA certificates have expired.</p>
-      remediation: <p>Replace weak or expired Certificates.</p>
-      references:
-        - >-
-          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
-        - 'https://letsencrypt.org/'
-      customFields: []
-  category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N'
   priority: 2
   remediationComplexity: 1
@@ -4626,7 +4531,7 @@
         check if the version is affected by some kind of vulnerability and try
         to abuse it.</p><p></p>
       remediation: >-
-        <p>It is recommened to publish as little information as possible about
+        <p>It is recommended to publish as little information as possible about
         installed version statuses and reconfiguring the header information
         accordingly.</p>
       references:
@@ -4891,5 +4796,127 @@
           https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.pdf
         - >-
           https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-CRYP-01: SSL / TLS expired or untrusted Certificates'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses.</p><p>The
+        remote service is using a SSL/TLS certificate chain where one or
+        multiple CA certificates have expired or are untrusted.</p>
+      remediation: <p>Replace Certificates.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+        - 'https://letsencrypt.org/'
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 3
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-CRYP-01: SSL / TLS weak Certificates'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses.</p><p>The
+        remote service is using a SSL/TLS certificate in the certificate chain
+        that has been signed using a cryptographically weak hashing
+        algorithm.</p>
+      remediation: <p>Replace Certificates.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+        - 'https://letsencrypt.org/'
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 2
+  remediationComplexity: 2
+  details:
+    - locale: EN
+      title: 'WSTG-CRYP-01: Weak SSL / TLS Configuration (Catch all)'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses. Some of the
+        weaknesses of TLS include:</p><p>Weak cipher suites: Some older cipher
+        suites used in TLS are now considered weak and vulnerable to attacks,
+        such as the infamous POODLE attack. It is important to use strong cipher
+        suites and disable any deprecated or insecure cipher
+        suites.</p><p>Certificate authority (CA) vulnerabilities: The trust
+        model of TLS relies on the security of the CA system, which can be
+        vulnerable to attacks such as phishing or compromise of CAs. This can
+        result in fake or fraudulent certificates being issued, which can then
+        be used to perform man-in-the-middle attacks.</p><p>Implementation
+        flaws: TLS implementations can contain flaws that could be exploited by
+        attackers, such as the Heartbleed vulnerability, which allowed attackers
+        to steal sensitive information from servers using a specific version of
+        the OpenSSL cryptographic library.</p><p>Key management: TLS relies on
+        secure key management practices to ensure the integrity and
+        confidentiality of data in transit. If keys are compromised or not
+        managed properly, it can result in the encryption being broken and
+        sensitive information being exposed.</p><p>Attacks against the protocol
+        itself: New attacks against the TLS protocol are regularly discovered
+        and may require updates or changes to the protocol to address
+        them.</p><p>It is important to stay up to date with the latest best
+        practices for using TLS, including using strong cipher suites,
+        implementing proper certificate validation, and regularly updating TLS
+        implementations to address new vulnerabilities.</p>
+      remediation: >-
+        <p>Replace weak or expired Certificates.</p><p>Disable the deprecated
+        SSLv2, SSLv3, TLSv1.0 and TLSv1.1 protocols.</p><p>Disable HTTP
+        compression on the server or ignore if there is no secret in the
+        page.</p><p>Enable TLS_FALLBACK_SCSV if the service is providing
+        TLSv1.0+</p><p>Disable renegotiation capabilities altogether from/in the
+        affected SSL/TLS service or enable Safe/Secure renegotiation (RFC5746)
+        for the affected SSL/TLS service.</p><p>Uee minimal cipher suites:
+        ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305</p><p>Mind
+        the BSI recommendations.</p>
+      references:
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+        - >-
+          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.html
+        - 'https://ssl-config.mozilla.org/'
+        - 'https://orchilles.com/ssl-renegotiation-dos/'
+        - 'https://www.kb.cert.org/vuls/id/120541'
       customFields: []
   category: Web Security
