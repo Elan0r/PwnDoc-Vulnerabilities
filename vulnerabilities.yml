@@ -267,7 +267,7 @@
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:H/A:N'
   details:
     - locale: EN
-      title: WDAC Configuration
+      title: Windows Defender Application Control Configuration
       vulnType: Access Control or Unauthorized Access
       description: >-
         <p>Windows Defender Application Control (WDAC) is a security feature in
@@ -502,7 +502,7 @@
         SSL inspection.</p>
       references: []
       customFields: []
-  category: Network Security
+  category: System Security
 - cvssv3: null
   priority: 3
   remediationComplexity: 2
@@ -1070,7 +1070,7 @@
   details:
     - locale: EN
       title: RDP Configuration
-      vulnType: Access Control or Unauthorized Access
+      vulnType: Misconfiguration
       description: >-
         <p><br>Remote Desktop Protocol (RDP) is a technology developed by
         Microsoft that allows users to connect to and control a remote computer
@@ -1550,10 +1550,10 @@
         ensure their confidentiality, integrity, and authenticity.</p>
       observation: >-
         <p>The application can be accessed over HTTP as well as HTTPS.<br>As
-        there are no HSTS headers set (refer to chapter XYZ), the user can
-        freely decide if to use the encrypted or unencrypted version.<br>In the
-        case of the latter one, the credentials are transported unencrypted and
-        as such easily to retrieve in Man-in-the-Middle attacks.</p>
+        there are no HSTS headers set, the user can freely decide if to use the
+        encrypted or unencrypted version.<br>In the case of the latter one, the
+        credentials are transported unencrypted and as such easily to retrieve
+        in Man-in-the-Middle attacks.</p>
       remediation: >-
         <p>Only use secured protocols and services to run applications.<br>In
         this case turn of the possibility to use the unencrypted HTTP version of
@@ -2304,7 +2304,7 @@
   details:
     - locale: EN
       title: LDAP Configuration
-      vulnType: Access Control or Unauthorized Access
+      vulnType: Misconfiguration
       description: >-
         <p>Unsigned network traffic is susceptible to man-in-the-middle attacks
         in which an intruder captures the packets between the client and server,
@@ -2770,7 +2770,7 @@
         disabled by creating the following registry key on a Windows operating
         system:</p><p>Key:
         HKLMSYSTEMCurrentControlSetControlFileSystem</p><p>Name:
-        NtfsDisable8dot3NameCreation </p><p>Value: 1 </p><p>The web folder needs
+        NtfsDisable8dot3NameCreation</p><p>Value: 1</p><p>The web folder needs
         to be recreated, as the change to the NtfsDisable8dot3NameCreation
         registry entry affects only files and directories that are created after
         the change, so the files that already exist are not affected.</p>
@@ -2782,7 +2782,7 @@
         - >-
           http://soroush.secproject.com/blog/2010/07/iis5-1-directory-authentication-bypass-by-using-i30index_allocation/
       customFields: []
-  category: System Security
+  category: Web Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L'
   priority: 1
   remediationComplexity: 1
@@ -3309,7 +3309,7 @@
   details:
     - locale: EN
       title: Writesrv Service Information Disclosure
-      vulnType: Misconfiguration
+      vulnType: Access Control or Unauthorized Access
       description: >-
         <p>Writesrv is running on port TCP:1334, it is used to send messages to
         users.</p><p>This service gives potential attackers information about
@@ -3321,7 +3321,7 @@
       remediation: <p>Disable this service if not needed.</p>
       references: []
       customFields: []
-  category: System Security
+  category: Network Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N'
   priority: 1
   remediationComplexity: 1
@@ -3532,7 +3532,7 @@
       references:
         - 'https://nvd.nist.gov/vuln/detail/CVE-2000-1200'
       customFields: []
-  category: System Security
+  category: Network Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
   priority: 4
   remediationComplexity: 1
@@ -3634,7 +3634,7 @@
           [2]
           https://learn.microsoft.com/en-us/windows/win32/winrm/installation-and-configuration-for-windows-remote-management
       customFields: []
-  category: System Security
+  category: Network Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N'
   priority: 2
   remediationComplexity: 2
@@ -4300,19 +4300,18 @@
   details:
     - locale: EN
       title: Mailserver SMTP VRFY and EXPN request
-      vulnType: Misconfiguration
+      vulnType: Access Control or Unauthorized Access
       description: >-
         <p>The Mailserver on this host answers to VRFY and/or EXPN requests.
         VRFY and EXPN ask the server for information about an address.</p>
       remediation: >-
-        <p>Disable VRFY and/or EXPN on your Mailserver. </p><p>For postfix add
-        'disable_vrfy_command=yes' in '<a target="_blank" rel="noopener
-        noreferrer nofollow" href="http://main.cf">main.cf</a>'. </p><p>For
-        Sendmail add the option 'O PrivacyOptions=goaway'. .</p>
+        <p>Disable VRFY and/or EXPN on your Mailserver.</p><p>For postfix add
+        'disable_vrfy_command=yes' in 'main.cf'.</p><p>For Sendmail add the
+        option 'O PrivacyOptions=goaway'. .</p>
       references:
         - 'http://cr.yp.to/smtp/vrfy.html'
       customFields: []
-  category: System Security
+  category: Network Security
 - cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
   priority: 4
   remediationComplexity: 1
@@ -4920,3 +4919,110 @@
         - 'https://www.kb.cert.org/vuls/id/120541'
       customFields: []
   category: Web Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L'
+  priority: 2
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: 'WSTG-CRYP-01: SSL / TLS Renegotiation Vulnerability'
+      vulnType: Missing or Poor Data Encryption
+      description: >-
+        <p>Transport Layer Security (TLS) is a cryptographic protocol that
+        provides secure communication over a network by encrypting data sent
+        between two devices. TLS is commonly used to secure HTTP connections,
+        which are used to transfer data between web servers and clients, and is
+        often referred to as HTTPS.</p><p>TLS works by creating a secure
+        communication channel between two devices, using a combination of public
+        key encryption and symmetric key encryption. During the initial
+        connection, the client and server exchange cryptographic keys to
+        establish a secure session. The keys are then used to encrypt and
+        decrypt data sent between the two devices.</p><p>While Transport Layer
+        Security (TLS) is a widely used and effective protocol for securing
+        communication over a network, it is not without weaknesses.</p><p>The
+        remote SSL/TLS service is prone to a renegotiation vulnerability.</p>
+      observation: >-
+        <p>ex</p><p>- CVE-2009-3555: SSL/TLS man in the middle via handshake
+        renegotiation</p><p>- CVE-2011-1473: OpenSSL denial of service via
+        handshake renegotiation</p><p>- CVE-2011-5094: NSS denial of service via
+        handshake renegotiation</p>
+      remediation: >-
+        <p>Disable renegotiation capabilities altogether from/in the affected
+        SSL/TLS service or enable Safe/Secure renegotiation (RFC5746) for the
+        affected SSL/TLS service.</p><p>Mind the BSI recommendations.</p>
+      references:
+        - 'https://ssl-config.mozilla.org/'
+        - >-
+          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.pdf
+        - >-
+          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
+        - 'https://orchilles.com/ssl-renegotiation-dos/'
+        - 'https://www.kb.cert.org/vuls/id/120541'
+        - ''
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 1
+  remediationComplexity: 1
+  details:
+    - locale: EN
+      title: Express NODE_ENV Information Disclosure
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>By default, Express applications run in development mode unless the
+        NODE_ENV environmental variable is set to another value.</p><p>In
+        development mode, Express returns more verbose errors which can result
+        in information leakage.</p>
+      observation: >-
+        <p>Express is prone to an information disclosure vulnerability if the
+        NODE_ENV environment variable is set to 'development'.</p>
+      remediation: >-
+        <p>Set the NODE_ENV environment variable to 'production'. Please see the
+        references for more information.</p>
+      references:
+        - >-
+          https://expressjs.com/en/advanced/best-practice-performance.html#set-node_env-to-production
+        - >-
+          https://www.synopsys.com/blogs/software-security/nodejs-mean-stack-vulnerabilities.html
+      customFields: []
+  category: Web Security
+- cvssv3: null
+  priority: 1
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: DCE (MS)RPC Information Disclosure
+      vulnType: Access Control or Unauthorized Access
+      description: >-
+        <p>Distributed Computing Environment / Remote Procedure Calls (DCE/RPC)
+        or MSRPC services running on the remote host can be enumerated by
+        connecting on port 135 and doing the appropriate queries.</p><p>The RPC
+        Endpoint Mapper (RpcEptMapper) service resolves RPC interface
+        identifiers to transport endpoints. You cannot stop or disable the RPC
+        Endpoint Mapper service. The service runs under the Network Service
+        account. If this service is not available, the operating system does not
+        load.</p>
+      observation: >-
+        <p>DCE/RPC or MSRPC services running on this host locally were
+        identified.</p>
+      remediation: >-
+        <p>Restrict access to approved clients only by filtering incoming
+        traffic to this ports.</p><p>or</p><p>Do not target the Domain
+        Controller with this GPO!</p><p>Doing this will break the
+        Domain!</p><p>Configure the policy value for<code> Computer
+        Configuration -&gt; Administrative Templates -&gt; System -&gt; Remote
+        Procedure Call -&gt; "Enable RPC Endpoint Mapper Client Authentication"
+        </code>to <code>"Enabled"</code>.</p><p>Configure the policy value for
+        <code>Computer Configuration &gt;&gt; Administrative Templates &gt;&gt;
+        System &gt;&gt; Remote Procedure Call &gt;&gt; "Restrict Unauthenticated
+        RPC clients" </code>to <code>"Enabled"</code> with
+        <code>"Authenticated"</code> selected.</p>
+      references:
+        - 'https://www.windows-security.org/windows-service/rpc-endpoint-mapper'
+        - 'https://docs.microsoft.com/en-us/windows/win32/rpc/rpc-start-page'
+        - 'https://www.cisecurity.org/benchmark/microsoft_windows_desktop'
+        - >-
+          https://www.stigviewer.com/stig/windows_server_2012_member_server/2014-01-07/finding/V-14254
+        - >-
+          https://www.stigviewer.com/stig/windows_server_2019/2019-12-12/finding/V-93453
+      customFields: []
+  category: Network Security
