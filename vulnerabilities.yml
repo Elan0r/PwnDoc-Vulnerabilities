@@ -4719,47 +4719,6 @@
         - 'https://en.wikipedia.org/wiki/Apache_Tomcat#Releases'
       customFields: []
   category: System Security
-- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L'
-  priority: 2
-  remediationComplexity: 1
-  details:
-    - locale: EN
-      title: 'WSTG-CRYP-01: SSL / TLS Renegotiation Vulnerabilitie'
-      vulnType: Missing or Poor Data Encryption
-      description: >-
-        <p>Transport Layer Security (TLS) is a cryptographic protocol that
-        provides secure communication over a network by encrypting data sent
-        between two devices. TLS is commonly used to secure HTTP connections,
-        which are used to transfer data between web servers and clients, and is
-        often referred to as HTTPS.</p><p>TLS works by creating a secure
-        communication channel between two devices, using a combination of public
-        key encryption and symmetric key encryption. During the initial
-        connection, the client and server exchange cryptographic keys to
-        establish a secure session. The keys are then used to encrypt and
-        decrypt data sent between the two devices.</p><p>While Transport Layer
-        Security (TLS) is a widely used and effective protocol for securing
-        communication over a network, it is not without weaknesses.</p><p>The
-        remote SSL/TLS service is prone to a renegotiation vulnerability.</p>
-      observation: >-
-        <p>ex</p><p>- CVE-2009-3555: SSL/TLS man in the middle via handshake
-        renegotiation</p><p>- CVE-2011-1473: OpenSSL denial of service via
-        handshake renegotiation</p><p>- CVE-2011-5094: NSS denial of service via
-        handshake renegotiation</p>
-      remediation: >-
-        <p>Disable renegotiation capabilities altogether from/in the affected
-        SSL/TLS service or enable Safe/Secure renegotiation (RFC5746) for the
-        affected SSL/TLS service.</p><p>Mind the BSI recommendations.</p>
-      references:
-        - 'https://ssl-config.mozilla.org/'
-        - >-
-          https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102-2.pdf
-        - >-
-          https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security
-        - 'https://orchilles.com/ssl-renegotiation-dos/'
-        - 'https://www.kb.cert.org/vuls/id/120541'
-        - ''
-      customFields: []
-  category: Web Security
 - cvssv3: null
   priority: 2
   remediationComplexity: 1
@@ -5026,3 +4985,32 @@
           https://www.stigviewer.com/stig/windows_server_2019/2019-12-12/finding/V-93453
       customFields: []
   category: Network Security
+- cvssv3: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'
+  priority: 2
+  remediationComplexity: 3
+  details:
+    - locale: EN
+      title: Apache Axis multiple Vulnerabilities
+      vulnType: Outdated or Unpatched Software
+      description: <p>Apache Axis is prone to multiple vulnerabilities.</p>
+      observation: >-
+        <p>ex.</p><p>  - CVE-2012-5784: SSL certificate validation security
+        bypass</p><p>  - CVE-2014-3596: Insecure certificate validation</p><p> 
+        - CVE-2018-8032: Cross-site scripting (XSS) in the default
+        servlet/services</p><p>  - CVE-2019-0227: Server-side request forgery
+        (SSRF)</p><p>  - CVE-2023-40743: Remote code execution (RCE)</p><p>  -
+        CVE-2023-51441: SSRF</p>
+      remediation: >-
+        <p>No solution was made available by the vendor. General solution
+        options are to upgrade to a newer release, disable respective features,
+        remove the product or replace the product by another one.</p>
+      references:
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2012-5784'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2014-3596'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2018-8032'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2019-0227'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2023-40743'
+        - 'https://nvd.nist.gov/vuln/detail/CVE-2023-51441'
+        - 'https://axis.apache.org/axis/java/releases.html'
+      customFields: []
+  category: System Security
